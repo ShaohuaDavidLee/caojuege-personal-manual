@@ -7,7 +7,14 @@
 ## 当前样例
 
 - [`david-persona-agent.public.md`](./david-persona-agent.public.md)：草诀歌 AI Labs 主理人 David 的 persona 公开版（给 AI 看）。
-- [`david-personal-homepage.public.html`](./david-personal-homepage.public.html)：对应的个人主页公开版（给人看），联系方式已替换为社区入口。
+- [`david-personal-homepage.public.html`](./david-personal-homepage.public.html)：草诀歌风格个人主页公开版（给人看），联系方式已替换为社区入口。
+- [`david-personal-homepage-renaissance.public.html`](./david-personal-homepage-renaissance.public.html)：文艺复兴风格个人主页公开版（给人看），联系方式已替换为社区入口。
+
+## 主页模板截图
+
+![草诀歌风格模板截图](./screenshots/caojuege-style.jpg)
+
+![文艺复兴风格模板截图](./screenshots/renaissance-style.jpg)
 
 ## 我的输出是默认私有的吗？
 

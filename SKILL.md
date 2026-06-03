@@ -125,7 +125,12 @@ description: "Use when turning a person's existing materials, answers, or option
 - 如何与我合作
 - 链接
 
-生成 HTML 时，优先复用 [assets/personal-homepage-template.html](assets/personal-homepage-template.html)，再根据对象气质调整颜色、文案和内容密度。
+生成 HTML 时，先根据对象气质选择主页模板，再根据事实材料调整文案和内容密度：
+
+- **草诀歌风格**：[assets/caojuege-homepage-template.html](assets/caojuege-homepage-template.html)。偏报纸、档案、正史感，适合克制、理性、作品索引型表达。
+- **文艺复兴风格**：[assets/renaissance-homepage-template.html](assets/renaissance-homepage-template.html)。偏长卷、画廊、人文气质，适合创作者、审美驱动者和有个人作品气息的人。
+
+如果用户没有指定风格，默认使用**草诀歌风格**；如果用户提供了强烈的视觉偏好、照片、艺术图像或明确要求更有个人气息，可以改用**文艺复兴风格**。
 
 `persona-agent.md` 里的 `盲区` 一节必须最后写。完成其他所有段落后，回头审视整份草稿，主动标出 2–4 处可能写偏的地方。这一步是这份文档不沦为自我美化的关键。
 

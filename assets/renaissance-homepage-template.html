@@ -1,0 +1,338 @@
+<!DOCTYPE html><html lang="zh-CN"><!-- Template: 文艺复兴风格 --><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{NAME}} · 个人主页 — 文艺复兴风格</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Serif+SC:wght@400;500;700;900&amp;family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&amp;display=swap" rel="stylesheet">
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<style>
+:root{
+  --bg:#f7f7f4;--surface:#ffffff;--surface-soft:#f2f1ed;
+  --ink:#26251e;--ink-soft:#4a4636;--muted:#7c7460;
+  --primary:#f54e00;--crimson:#b3003f;--gold:#c08532;
+  --gold-soft:rgba(192,133,50,.30);
+  --hair:rgba(38,37,30,.12);--hair-2:rgba(38,37,30,.20);
+  --r:20px;--r-sm:14px;--r-lg:30px;
+  --sh:0 18px 50px -28px rgba(38,30,8,.5);--sh-sm:0 8px 24px -16px rgba(38,30,8,.36);
+  --font-sans:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  --font-serif:"Noto Serif SC","Songti SC","SimSun",Georgia,serif;
+  --font-latin:"EB Garamond",Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--crimson);color:#fff}
+img{display:block}
+.grain::before{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.badge{display:inline-flex;align-items:center;gap:9px;padding:8px 16px;border-radius:9999px;border:1px solid var(--gold-soft);background:rgba(192,133,50,.07);font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.badge .dot{width:8px;height:8px;border-radius:50%;background:var(--primary);box-shadow:0 0 0 0 rgba(245,78,0,.5);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(245,78,0,.45)}70%{box-shadow:0 0 0 8px rgba(245,78,0,0)}100%{box-shadow:0 0 0 0 rgba(245,78,0,0)}}
+
+.btn{display:inline-flex;align-items:center;gap:9px;border-radius:9999px;padding:14px 26px;font-size:14.5px;font-weight:500;letter-spacing:.02em;transition:all .3s;cursor:pointer}
+.btn-dark{background:var(--ink);color:var(--bg)}
+.btn-dark:hover{background:var(--primary)}
+.btn-dark .arrow{transition:transform .3s}.btn-dark:hover .arrow{transform:translateX(4px)}
+.btn-ghost{background:transparent;border:1px solid var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--surface-soft)}
+
+/* TOP BAR */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(247,247,244,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--hair)}
+.topbar-inner{max-width:1240px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:70px}
+.topbar .brand .mk{font-family:var(--font-serif);font-size:21px;font-weight:900;letter-spacing:-.01em}
+.topbar .brand .mk .latin{font-family:var(--font-latin);font-style:italic;font-weight:500;color:var(--crimson)}
+.topbar .nav{display:flex;align-items:center;gap:24px;font-size:14px;font-weight:500;color:var(--ink-soft)}
+.topbar .nav a{transition:color .3s;white-space:nowrap}.topbar .nav a:hover{color:var(--primary)}
+.topbar .cta{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--bg);border-radius:9999px;padding:10px 18px;font-size:13.5px;font-weight:500;transition:background .3s;white-space:nowrap}
+.topbar .cta:hover{background:var(--crimson)}
+@media(max-width:980px){.topbar .nav{display:none}}
+@media(max-width:860px){.topbar-inner{padding:0 16px;height:62px}}
+
+/* HERO (merged About) */
+.hero{max-width:1240px;margin:0 auto;padding:60px 28px 84px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:64px;align-items:center}
+.hero .roles{margin:22px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+.hero .roles span{font-family:var(--font-serif);font-size:12.5px;color:var(--ink-soft);background:var(--surface);border:1px solid var(--hair);border-radius:9999px;padding:6px 14px}
+.hero h1{font-family:var(--font-serif);font-size:clamp(34px,4.4vw,56px);font-weight:700;line-height:1.12;letter-spacing:-.02em;margin:22px 0 0;text-wrap:balance}
+.hero h1 em{font-style:italic;color:var(--crimson)}
+.hero .bio{font-size:clamp(15.5px,1.2vw,17px);line-height:1.92;color:var(--ink-soft);max-width:56ch;margin:24px 0 0;text-wrap:pretty}
+.hero .bio .accent{font-family:var(--font-serif);font-style:italic;color:var(--crimson)}
+.hero .bio .qz{font-family:var(--font-serif);color:var(--ink)}
+.hero .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.hero-photo{position:relative;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh);aspect-ratio:4/5;background:var(--surface-soft);margin:0}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 28%;filter:saturate(.97) contrast(1.02)}
+.hero-photo .pframe{position:absolute;inset:12px;border:1px solid rgba(255,255,255,.5);border-radius:calc(var(--r-lg) - 10px);z-index:3;pointer-events:none}
+.hero-photo .ptag{position:absolute;left:18px;bottom:18px;z-index:3;background:rgba(28,20,12,.6);backdrop-filter:blur(4px);color:#f0e8d8;font-family:var(--font-latin);font-style:italic;font-size:15px;padding:7px 16px;border-radius:9999px}
+@media(max-width:920px){.hero{grid-template-columns:1fr;padding:36px 16px 56px;gap:36px}.hero-photo{max-width:420px;order:-1}}
+
+/* SECTION shell */
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+@media(max-width:720px){.wrap{padding:0 16px}}
+.section{padding:76px 0;position:relative}
+.section+.section{border-top:1px solid var(--hair)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin:0 0 40px;flex-wrap:wrap}
+.sec-head .lead-col{max-width:62%}
+.sec-head .kicker{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.22em;color:var(--gold);font-weight:600;margin-bottom:12px}
+.sec-head h2{font-family:var(--font-serif);font-size:clamp(26px,3.2vw,40px);font-weight:700;line-height:1.18;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.sec-head h2 em{font-style:italic;color:var(--crimson)}
+.sec-head .aside{font-family:var(--font-latin);font-style:italic;color:var(--muted);font-size:16px;padding-bottom:6px}
+.sec-head.center{justify-content:center;text-align:center;flex-direction:column;align-items:center}
+.sec-head.center .lead-col{max-width:46ch}
+.sec-head.center .rule{width:46px;height:2px;background:var(--gold);margin:16px auto 0;border-radius:2px}
+
+/* WORK — growable index */
+.windex{border-top:1px solid var(--hair-2)}
+.windex a{display:grid;grid-template-columns:56px 1fr auto;gap:30px;align-items:center;padding:28px 14px;border-bottom:1px solid var(--hair);transition:background .3s,padding-left .35s;position:relative}
+.windex a:hover{background:var(--surface);padding-left:26px}
+.wx-num{font-family:var(--font-latin);font-style:italic;font-size:30px;color:var(--gold);line-height:1}
+.wx-main{min-width:0}
+.wx-main .nm{font-family:var(--font-serif);font-size:clamp(20px,2vw,24px);font-weight:700;line-height:1.2;margin-bottom:5px}
+.wx-main .nm .dom{font-family:var(--font-latin);font-style:italic;font-size:14px;color:var(--gold);margin-left:12px;font-weight:400}
+.wx-main .ds{color:var(--muted);font-size:14.5px;line-height:1.6;text-wrap:pretty;max-width:70ch}
+.wx-go{width:46px;height:46px;border-radius:50%;border:1px solid var(--hair-2);display:flex;align-items:center;justify-content:center;color:var(--ink);font-size:19px;flex:none;transition:background .3s,color .3s,transform .3s}
+.windex a:hover .wx-go{background:var(--ink);color:var(--bg);transform:translateX(4px)}
+.windex .more{display:flex;align-items:center;gap:10px;padding:22px 14px;color:var(--muted);font-size:13.5px;font-style:italic;font-family:var(--font-latin)}
+.windex .more .ln{flex:1;height:1px;background:var(--hair)}
+@media(max-width:640px){.windex a{grid-template-columns:36px 1fr;gap:16px;padding:24px 4px}.wx-go{display:none}.wx-num{font-size:24px}}
+
+/* HOBBIES — painting feature band */
+.hb{display:grid;grid-template-columns:0.82fr 1fr;gap:52px;align-items:stretch}
+.hb-art{position:relative;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh);min-height:440px;background:#1c1810 url("{{HOBBY_IMAGE_SRC}}") center/cover}
+.hb-art .hb-img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
+.hb-art .grad{position:absolute;inset:0;z-index:2;background:linear-gradient(to top,rgba(24,16,8,.6),rgba(24,16,8,0) 50%);pointer-events:none}
+.hb-art .tag{position:absolute;left:18px;bottom:18px;z-index:3;display:inline-flex;gap:8px;align-items:center;background:rgba(28,20,12,.62);backdrop-filter:blur(4px);color:#f0e8d8;font-family:var(--font-latin);font-style:italic;font-size:13.5px;padding:6px 14px;border-radius:9999px}
+.hb-art .tag .hint{font-style:normal;font-family:var(--font-sans);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.hb-list{display:flex;flex-direction:column;justify-content:center;border-top:1px solid var(--hair-2)}
+.hb-row{display:grid;grid-template-columns:auto 1fr;gap:20px;padding:26px 4px;border-bottom:1px solid var(--hair);align-items:start}
+.hb-row .ic{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex:none;background:var(--surface);border:1px solid var(--hair)}
+.hb-row .eb{font-size:10.5px;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);font-weight:600;margin-bottom:3px}
+.hb-row h3{font-family:var(--font-serif);font-size:21px;font-weight:700;margin:0 0 6px;display:flex;align-items:baseline;gap:12px}
+.hb-row h3 .en{font-family:var(--font-latin);font-style:italic;font-size:14px;color:var(--muted);font-weight:400}
+.hb-row .nm{font-family:var(--font-serif);font-size:14.5px;color:var(--ink-soft);margin:0 0 7px}
+.hb-row .note{margin:0;font-size:14px;line-height:1.65;color:var(--muted);text-wrap:pretty}
+@media(max-width:860px){.hb{grid-template-columns:1fr;gap:30px}.hb-art{min-height:300px}}
+
+/* OFFER / SEEKING — open editorial lists */
+.olist{border-top:1px solid var(--hair-2)}
+.olist .row{display:grid;grid-template-columns:88px 1fr;gap:26px;padding:30px 14px;border-bottom:1px solid var(--hair);align-items:start;transition:background .3s,padding-left .35s}
+.olist .row:hover{background:var(--surface);padding-left:26px}
+.olist .n{font-family:var(--font-serif);font-size:clamp(30px,3vw,42px);font-weight:900;color:var(--gold);line-height:1}
+.olist .n.rom{font-family:var(--font-latin);font-style:italic;font-weight:400}
+.olist h3{margin:0 0 7px;font-family:var(--font-serif);font-size:clamp(19px,1.9vw,22px);font-weight:700}
+.olist p{margin:0;color:var(--muted);font-size:15px;line-height:1.72;text-wrap:pretty;max-width:72ch}
+@media(max-width:640px){.olist .row{grid-template-columns:54px 1fr;gap:16px;padding:26px 4px}}
+.seek-intro{font-family:var(--font-serif);font-style:italic;font-size:18px;color:var(--ink-soft);max-width:54ch;margin:0 0 6px;line-height:1.6}
+
+/* Footer / Contact (unchanged) */
+.colophon{margin-top:76px;background:var(--ink);color:var(--bg);border-radius:var(--r-lg) var(--r-lg) 0 0}
+.contact-wrap{max-width:1240px;margin:0 auto;padding:66px 28px 42px;text-align:center}
+.contact-wrap .kicker{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.22em;color:var(--gold);font-weight:600}
+.contact-quote{font-family:var(--font-serif);font-style:italic;font-size:clamp(28px,3.6vw,46px);line-height:1.3;margin:14px 0 42px;color:var(--bg);text-wrap:balance}
+.contact-quote em{color:var(--gold);font-weight:700}
+.contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1020px;margin:0 auto}
+.contact-item{display:flex;flex-direction:column;align-items:center;gap:9px;padding:28px 18px;border:1px solid rgba(255,255,255,.14);border-radius:var(--r);background:rgba(255,255,255,.04);transition:background .3s,border-color .3s}
+.contact-item:hover{background:rgba(255,255,255,.08);border-color:var(--gold-soft)}
+.contact-item .ci{font-size:26px;color:var(--gold)}
+.contact-item .lab{font-size:10.5px;text-transform:uppercase;letter-spacing:.18em;color:rgba(247,247,244,.55)}
+.contact-item .val{font-family:var(--font-latin);font-style:italic;font-size:18px;color:var(--bg);line-height:1.3}
+.colophon-foot{border-top:1px solid rgba(255,255,255,.1);max-width:1240px;margin:0 auto;padding:22px 28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;font-size:12px;color:rgba(247,247,244,.5);text-transform:uppercase;letter-spacing:.14em}
+.colophon-foot a{color:rgba(247,247,244,.85);transition:color .3s}.colophon-foot a:hover{color:var(--gold)}
+.colophon-foot .lockup{font-family:var(--font-serif);font-weight:700;letter-spacing:.14em;text-transform:none;font-size:14px}
+@media(max-width:760px){.contact-grid{grid-template-columns:repeat(2,1fr)}.colophon-foot{padding:18px 16px}}
+
+.fade{animation:fu .8s cubic-bezier(.16,1,.3,1) both;opacity:0;transform:translateY(18px)}
+.fade.d1{animation-delay:.1s}.fade.d2{animation-delay:.2s}.fade.d3{animation-delay:.3s}
+@keyframes fu{to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.fade{animation:none;opacity:1;transform:none}}
+</style>
+</head>
+<body class="grain">
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#top"><span class="mk">{{NAME}}<span class="latin">{{NAME_LATIN}}</span></span></a>
+    <nav class="nav">
+      <a href="#top">关于我</a>
+      <a href="#work">作品</a>
+      <a href="#hobbies">爱好</a>
+      <a href="#offer">我提供</a>
+      <a href="#seeking">我需要</a>
+      <a href="#contact">联系我</a>
+    </nav>
+    <a class="cta" href="{{PRIMARY_LINK_URL}}" target="_blank" rel="noopener">{{PRIMARY_LINK_LABEL}} <iconify-icon icon="lucide:arrow-up-right"></iconify-icon></a>
+  </div>
+</header>
+
+<!-- HERO + ABOUT merged -->
+<section class="hero" id="top">
+  <div class="col-text">
+    <span class="badge fade"><span class="dot"></span>Personal Homepage · 个人主页</span>
+    <div class="roles fade d1">
+      <span>{{ROLE_1}}</span>
+      <span>{{ROLE_2}}</span>
+      <span>{{ROLE_3}}</span>
+    </div>
+    <h1 class="fade d1">{{HERO_LINE_1}}<br>{{HERO_LINE_2}}<em>{{HERO_EMPHASIS}}</em>。</h1>
+    <p class="bio fade d2">我是{{NAME}}，{{BIO_SENTENCE_1}}。{{BIO_SENTENCE_2}}。为了帮助<span class="qz">“{{INNER_MOTIVATION}}”</span>，我正在{{CURRENT_MISSION}}。</p>
+    <div class="cta-row fade d2">
+      <a class="btn btn-dark" href="#work">{{PRIMARY_CTA_LABEL}}<span class="arrow">→</span></a>
+      <a class="btn btn-ghost" href="#contact">{{SECONDARY_CTA_LABEL}}</a>
+    </div>
+  </div>
+  <figure class="hero-photo fade d1">
+    <img src="{{PORTRAIT_SRC}}" alt="{{NAME}}">
+    <span class="pframe"></span>
+    <span class="ptag">{{NAME}}</span>
+  </figure>
+</section>
+
+<!-- WORK -->
+<section id="work" class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="lead-col">
+        <span class="kicker">Work · 作品</span>
+        <h2>几件我试图注入自己<em>气息</em>的作品</h2>
+      </div>
+      <span class="aside">An index, still growing —</span>
+    </div>
+    <div class="windex">
+      <a href="{{WORK_1_URL}}" target="_blank" rel="noopener">
+        <div class="wx-num">i</div>
+        <div class="wx-main"><div class="nm">{{WORK_1_NAME}}<span class="dom">{{WORK_1_DOMAIN}}</span></div><div class="ds">{{WORK_1_DESC}}</div></div>
+        <span class="wx-go"><iconify-icon icon="lucide:arrow-up-right"></iconify-icon></span>
+      </a>
+      <a href="{{WORK_2_URL}}" target="_blank" rel="noopener">
+        <div class="wx-num">ii</div>
+        <div class="wx-main"><div class="nm">{{WORK_2_NAME}}<span class="dom">{{WORK_2_DOMAIN}}</span></div><div class="ds">{{WORK_2_DESC}}</div></div>
+        <span class="wx-go"><iconify-icon icon="lucide:arrow-up-right"></iconify-icon></span>
+      </a>
+      <a href="{{WORK_3_URL}}" target="_blank" rel="noopener">
+        <div class="wx-num">iii</div>
+        <div class="wx-main"><div class="nm">{{WORK_3_NAME}}<span class="dom">{{WORK_3_DOMAIN}}</span></div><div class="ds">{{WORK_3_DESC}}</div></div>
+        <span class="wx-go"><iconify-icon icon="lucide:arrow-up-right"></iconify-icon></span>
+      </a>
+      <a href="{{WORK_4_URL}}" target="_blank" rel="noopener">
+        <div class="wx-num">iv</div>
+        <div class="wx-main"><div class="nm">{{WORK_4_NAME}}<span class="dom">{{WORK_4_DOMAIN}}</span></div><div class="ds">{{WORK_4_DESC}}</div></div>
+        <span class="wx-go"><iconify-icon icon="lucide:arrow-up-right"></iconify-icon></span>
+      </a>
+      <div class="more"><span>更多作品在路上</span><span class="ln"></span><span>more soon</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOBBIES -->
+<section id="hobbies" class="section">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="lead-col">
+        <span class="kicker">Off the Clock · 架上 · 案上 · 场上</span>
+        <h2>工作之外，几样<em>持续较久的爱好</em>。</h2>
+        <div class="rule"></div>
+      </div>
+    </div>
+    <div class="hb">
+      <figure class="hb-art" style="margin:0">
+        <img class="hb-img" src="{{HOBBY_IMAGE_SRC}}" alt="{{HOBBY_IMAGE_ALT}}">
+        <div class="grad"></div>
+        <span class="tag">{{HOBBY_IMAGE_CAPTION}}<span class="hint">· 拖入替换</span></span>
+      </figure>
+      <div class="hb-list">
+        <div class="hb-row">
+          <span class="ic" style="color:var(--ink)"><iconify-icon icon="lucide:book-open"></iconify-icon></span>
+          <div>
+            <div class="eb">架上 · The Shelf</div>
+            <h3>读书 <span class="en">A reading list</span></h3>
+            <p class="nm">{{HOBBY_1_ITEMS}}</p>
+            <p class="note">{{HOBBY_1_NOTE}}</p>
+          </div>
+        </div>
+        <div class="hb-row">
+          <span class="ic" style="color:var(--crimson)"><iconify-icon icon="lucide:pen-tool"></iconify-icon></span>
+          <div>
+            <div class="eb">案上 · The Brush</div>
+            <h3>书法 <span class="en">Chinese calligraphy</span></h3>
+            <p class="nm">{{HOBBY_2_ITEMS}}</p>
+            <p class="note">{{HOBBY_2_NOTE}}</p>
+          </div>
+        </div>
+        <div class="hb-row">
+          <span class="ic" style="color:var(--primary)"><iconify-icon icon="lucide:circle-dot"></iconify-icon></span>
+          <div>
+            <div class="eb">场上 · The Pitch</div>
+            <h3>足球 <span class="en">Football, two eras</span></h3>
+            <p class="nm">{{HOBBY_3_ITEMS}}</p>
+            <p class="note">{{HOBBY_3_NOTE}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section id="offer" class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="lead-col"><span class="kicker">Offer · 我提供</span><h2>我可以<em>提供</em>什么</h2></div>
+    </div>
+    <div class="olist">
+      <div class="row"><div class="n">01</div><div><h3>{{OFFER_1_TITLE}}</h3><p>{{OFFER_1_DESC}}</p></div></div>
+      <div class="row"><div class="n">02</div><div><h3>{{OFFER_2_TITLE}}</h3><p>{{OFFER_2_DESC}}</p></div></div>
+      <div class="row"><div class="n">03</div><div><h3>{{OFFER_3_TITLE}}</h3><p>{{OFFER_3_DESC}}</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SEEKING -->
+<section id="seeking" class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="lead-col"><span class="kicker">Seeking · 我需要</span><h2>我正在寻找什么<em>合作</em></h2></div>
+      <span class="aside">如果你愿意以下列方式同行 —</span>
+    </div>
+    <div class="olist">
+      <div class="row"><div class="n rom">i</div><div><h3>{{SEEKING_1_TITLE}}</h3><p>{{SEEKING_1_DESC}}</p></div></div>
+      <div class="row"><div class="n rom">ii</div><div><h3>{{SEEKING_2_TITLE}}</h3><p>{{SEEKING_2_DESC}}</p></div></div>
+      <div class="row"><div class="n rom">iii</div><div><h3>{{SEEKING_3_TITLE}}</h3><p>{{SEEKING_3_DESC}}</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / FOOTER -->
+<footer class="colophon" id="contact">
+  <div class="contact-wrap">
+    <span class="kicker">Contact · 联系我</span>
+    <p class="contact-quote">以产品为笔，<em>和世界对话。</em></p>
+    <div class="contact-grid">
+      <a class="contact-item" href="{{EMAIL_HREF}}">
+        <span class="ci"><iconify-icon icon="lucide:mail"></iconify-icon></span>
+        <span class="lab">邮箱 Email</span>
+        <span class="val">{{EMAIL_LABEL}}</span>
+      </a>
+      <div class="contact-item">
+        <span class="ci"><iconify-icon icon="lucide:message-circle"></iconify-icon></span>
+        <span class="lab">微信 WeChat</span>
+        <span class="val">{{WECHAT_OR_CONTACT_ID}}</span>
+      </div>
+      <div class="contact-item">
+        <span class="ci"><iconify-icon icon="lucide:mic"></iconify-icon></span>
+        <span class="lab">公众号 · 小宇宙</span>
+        <span class="val">{{PUBLIC_CHANNEL}}</span>
+      </div>
+      <a class="contact-item" href="{{COMMUNITY_URL}}" target="_blank" rel="noopener">
+        <span class="ci"><iconify-icon icon="lucide:users"></iconify-icon></span>
+        <span class="lab">社区 Community</span>
+        <span class="val">{{COMMUNITY_LABEL}}</span>
+      </a>
+    </div>
+  </div>
+  <div class="colophon-foot">
+    <span class="lockup">{{FOOTER_BRAND}}</span>
+    <span>{{NAME}} · Personal Homepage</span>
+    <a href="{{MADE_BY_URL}}" target="_blank" rel="noopener">{{MADE_BY_LABEL}} →</a>
+  </div>
+</footer>
+
+</body></html>
