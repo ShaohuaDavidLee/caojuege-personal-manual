@@ -54,6 +54,28 @@ AI 时代，如果记录一个人的资源不再稀缺，我们想尝试一次�
 
 <img width="1436" height="761" alt="image" src="https://github.com/user-attachments/assets/b05af161-3e48-492c-8137-ab2a58a77b96" />
 
+## 个人主页模板
+
+精列传现在内置两套 `personal-homepage.html` 模板。默认使用**草诀歌风格**；如果用户更需要艺术感、个人照片和人文气质，可以切换到**文艺复兴风格**。
+
+### 草诀歌风格
+
+偏报纸、档案、正史感，适合克制、理性、作品索引型表达。
+
+![草诀歌风格模板截图](./examples/screenshots/caojuege-style.jpg)
+
+模板文件：[assets/caojuege-homepage-template.html](./assets/caojuege-homepage-template.html)  
+样例文件：[examples/david-personal-homepage.public.html](./examples/david-personal-homepage.public.html)
+
+### 文艺复兴风格
+
+偏长卷、画廊、人文气质，适合创作者、审美驱动者和有个人作品气息的人。
+
+![文艺复兴风格模板截图](./examples/screenshots/renaissance-style.jpg)
+
+模板文件：[assets/renaissance-homepage-template.html](./assets/renaissance-homepage-template.html)  
+样例文件：[examples/david-personal-homepage-renaissance.public.html](./examples/david-personal-homepage-renaissance.public.html)
+
 ## 如何使用精列传
 
 ### 用 Claude Code / Codex / Antigravity / OpenClaw
@@ -130,12 +152,17 @@ simaqian.skill/
 ├── agents/
 │   └── openai.yaml
 ├── assets/
+│   ├── caojuege-homepage-template.html
+│   ├── renaissance-homepage-template.html
 │   ├── personal-homepage-template.html
 │   └── friend-review-template.md
 ├── examples/
+│   ├── assets/
+│   ├── screenshots/
 │   ├── README.md
 │   ├── david-persona-agent.public.md
-│   └── david-personal-homepage.public.html
+│   ├── david-personal-homepage.public.html
+│   └── david-personal-homepage-renaissance.public.html
 ├── landing/
 │   └── index.html
 └── references/
