@@ -62,7 +62,7 @@ AI 时代，如果记录一个人的资源不再稀缺，我们想尝试一次�
 
 偏报纸、档案、正史感，适合克制、理性、作品索引型表达。
 
-![草诀歌风格模板截图](./examples/screenshots/caojuege-style.jpg)
+<img width="1649" height="833" alt="image" src="https://github.com/user-attachments/assets/6f3308e0-82f6-40bb-ae12-ba00c695cb77" />
 
 模板文件：[assets/caojuege-homepage-template.html](./assets/caojuege-homepage-template.html)  
 样例文件：[examples/david-personal-homepage.public.html](./examples/david-personal-homepage.public.html)
@@ -71,7 +71,7 @@ AI 时代，如果记录一个人的资源不再稀缺，我们想尝试一次�
 
 偏长卷、画廊、人文气质，适合创作者、审美驱动者和有个人作品气息的人。
 
-![文艺复兴风格模板截图](./examples/screenshots/renaissance-style.jpg)
+<img width="1892" height="843" alt="image" src="https://github.com/user-attachments/assets/01bfb848-f5c1-47d8-a770-2ba6e374eaf8" />
 
 模板文件：[assets/renaissance-homepage-template.html](./assets/renaissance-homepage-template.html)  
 样例文件：[examples/david-personal-homepage-renaissance.public.html](./examples/david-personal-homepage-renaissance.public.html)
