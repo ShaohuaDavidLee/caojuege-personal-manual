@@ -108,7 +108,10 @@
 ```text
 <person>-personal-os/
 ├── persona-agent.md
-└── personal-homepage.html
+├── personal-homepage.html
+└── exports/
+    ├── personal-homepage.pdf
+    └── personal-homepage-long.png
 ```
 
 可选但不默认输出：
@@ -119,4 +122,3 @@
 - `personal-bio.md`
 
 只有在用户需要时再生成额外文件，避免把最小产品做重。
-

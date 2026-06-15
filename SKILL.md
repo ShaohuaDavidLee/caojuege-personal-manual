@@ -106,7 +106,7 @@ description: "Use when turning a person's existing materials, answers, or option
 
 如果这些还说不清，继续补材料，不要急着写漂亮话。
 
-### 5. 输出两份资产
+### 5. 输出个人 OS 资产包
 
 输出规范见 [references/output-spec.md](references/output-spec.md)。
 
@@ -114,6 +114,8 @@ description: "Use when turning a person's existing materials, answers, or option
 
 - `persona-agent.md`
 - `personal-homepage.html`
+- `exports/personal-homepage.pdf`
+- `exports/personal-homepage-long.png`
 
 默认主页至少包含：
 
@@ -131,6 +133,16 @@ description: "Use when turning a person's existing materials, answers, or option
 - **文艺复兴风格**：[assets/renaissance-homepage-template.html](assets/renaissance-homepage-template.html)。偏长卷、画廊、人文气质，适合创作者、审美驱动者和有个人作品气息的人。
 
 如果用户没有指定风格，默认使用**草诀歌风格**；如果用户提供了强烈的视觉偏好、照片、艺术图像或明确要求更有个人气息，可以改用**文艺复兴风格**。
+
+生成 `personal-homepage.html` 后，默认尝试导出 PDF 和长图：
+
+```bash
+npm install
+npm run export:setup
+npm run export:homepage
+```
+
+PDF 用于邮件、打印、飞书/微信转发；长图用于手机查看、朋友圈、小红书或群聊直接预览。如果当前环境无法安装或运行 Playwright，仍然交付 HTML，并说明用户可以稍后在有浏览器运行环境的机器上执行上述命令补导出。
 
 `persona-agent.md` 里的 `盲区` 一节必须最后写。完成其他所有段落后，回头审视整份草稿，主动标出 2–4 处可能写偏的地方。这一步是这份文档不沦为自我美化的关键。
 
