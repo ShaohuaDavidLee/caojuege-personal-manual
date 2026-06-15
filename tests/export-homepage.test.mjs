@@ -3,6 +3,7 @@ import { describe, it } from "node:test";
 
 import {
   buildExportPlan,
+  buildScreenPdfOptions,
   formatExportError,
   parseArgs,
 } from "../scripts/export-homepage.mjs";
@@ -57,8 +58,30 @@ describe("buildExportPlan", () => {
     assert.equal(plan.width, 1440);
     assert.equal(plan.timeout, 30000);
   });
-}
-);
+});
+
+describe("buildScreenPdfOptions", () => {
+  it("keeps the PDF faithful to the rendered template instead of forcing A4", () => {
+    const options = buildScreenPdfOptions({
+      path: "/tmp/personal-homepage.pdf",
+      width: 1200,
+      height: 4200,
+    });
+
+    assert.deepEqual(options, {
+      path: "/tmp/personal-homepage.pdf",
+      width: "1200px",
+      height: "4200px",
+      printBackground: true,
+      margin: {
+        top: "0",
+        right: "0",
+        bottom: "0",
+        left: "0",
+      },
+    });
+  });
+});
 
 describe("formatExportError", () => {
   it("adds the setup command when Playwright browsers are missing", () => {

@@ -114,6 +114,8 @@
     └── personal-homepage-long.png
 ```
 
+`personal-homepage.pdf` 和 `personal-homepage-long.png` 都应从同一个 `personal-homepage.html` 的屏幕渲染结果导出，保持所选模板的视觉风格，不要改排成通用文档样式。
+
 可选但不默认输出：
 
 - `notes.md`
