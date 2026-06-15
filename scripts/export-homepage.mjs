@@ -71,18 +71,8 @@ export async function exportHomepage(plan) {
     });
 
     await page.emulateMedia({ media: "screen" });
-    await page.pdf({
-      path: plan.pdfPath,
-      format: "A4",
-      printBackground: true,
-      preferCSSPageSize: true,
-      margin: {
-        top: "12mm",
-        right: "10mm",
-        bottom: "12mm",
-        left: "10mm",
-      },
-    });
+    const pageSize = await getRenderedPageSize(page);
+    await page.pdf(buildScreenPdfOptions({ path: plan.pdfPath, ...pageSize }));
 
     await page.screenshot({
       path: plan.longImagePath,
@@ -96,6 +86,21 @@ export async function exportHomepage(plan) {
   return {
     pdfPath: plan.pdfPath,
     longImagePath: plan.longImagePath,
+  };
+}
+
+export function buildScreenPdfOptions({ path: pdfPath, width, height }) {
+  return {
+    path: pdfPath,
+    width: `${width}px`,
+    height: `${height}px`,
+    printBackground: true,
+    margin: {
+      top: "0",
+      right: "0",
+      bottom: "0",
+      left: "0",
+    },
   };
 }
 
@@ -134,6 +139,30 @@ async function assertFileExists(filePath) {
   if (!stats.isFile()) {
     throw new Error(`Input is not a file: ${filePath}`);
   }
+}
+
+async function getRenderedPageSize(page) {
+  return page.evaluate(() => {
+    const body = document.body;
+    const root = document.documentElement;
+
+    return {
+      width: Math.ceil(Math.max(
+        body.scrollWidth,
+        body.offsetWidth,
+        root.clientWidth,
+        root.scrollWidth,
+        root.offsetWidth,
+      )),
+      height: Math.ceil(Math.max(
+        body.scrollHeight,
+        body.offsetHeight,
+        root.clientHeight,
+        root.scrollHeight,
+        root.offsetHeight,
+      )),
+    };
+  });
 }
 
 function printHelp() {
