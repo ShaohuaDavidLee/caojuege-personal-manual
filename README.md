@@ -48,6 +48,14 @@ AI 时代，如果记录一个人的资源不再稀缺，我们想尝试一次�
 
    给人看，帮助合作方快速知道你是谁、能提供什么、正在寻找什么合作。
 
+3. `exports/personal-homepage.pdf`
+
+   PDF 版本，适合发邮件、打印、飞书/微信转发。
+
+4. `exports/personal-homepage-long.png`
+
+   长图版本，适合手机查看、朋友圈、小红书或群聊直接预览。
+
 它不是人格测试，不是心理诊断，也不是营销包装。
 
 它只做一件事：把已经在你身上的东西，写成 AI 和人都能读懂的形态。
@@ -62,7 +70,7 @@ AI 时代，如果记录一个人的资源不再稀缺，我们想尝试一次�
 
 偏报纸、档案、正史感，适合克制、理性、作品索引型表达。
 
-<img width="1649" height="833" alt="image" src="https://github.com/user-attachments/assets/6f3308e0-82f6-40bb-ae12-ba00c695cb77" />
+![草诀歌风格模板截图](./examples/screenshots/caojuege-style.jpg)
 
 模板文件：[assets/caojuege-homepage-template.html](./assets/caojuege-homepage-template.html)  
 样例文件：[examples/david-personal-homepage.public.html](./examples/david-personal-homepage.public.html)
@@ -71,7 +79,7 @@ AI 时代，如果记录一个人的资源不再稀缺，我们想尝试一次�
 
 偏长卷、画廊、人文气质，适合创作者、审美驱动者和有个人作品气息的人。
 
-<img width="1892" height="843" alt="image" src="https://github.com/user-attachments/assets/01bfb848-f5c1-47d8-a770-2ba6e374eaf8" />
+![文艺复兴风格模板截图](./examples/screenshots/renaissance-style.jpg)
 
 模板文件：[assets/renaissance-homepage-template.html](./assets/renaissance-homepage-template.html)  
 样例文件：[examples/david-personal-homepage-renaissance.public.html](./examples/david-personal-homepage-renaissance.public.html)
@@ -88,7 +96,7 @@ AI 时代，如果记录一个人的资源不再稀缺，我们想尝试一次�
 我的材料放在 ./me/ 里。如果我没材料，访谈我就行。
 ```
 
-Agent 会读取仓库、执行 `SKILL.md` 里的工作流，并生成两份资产。
+Agent 会读取仓库、执行 `SKILL.md` 里的工作流，并生成个人 OS 资产包。
 
 ### 用 ChatGPT / Claude.ai / Kimi / 豆包
 
@@ -115,7 +123,22 @@ Agent 会读取仓库、执行 `SKILL.md` 里的工作流，并生成两份资�
 1. **先吸收材料**：不一上来发长问卷，先读你已经写下、说过、做过的东西。
 2. **再补关键缺口**：只问少量高杠杆问题，比如“你不是谁？”“别人最容易误解你什么？”“AI 绝对不能替你说什么？”
 3. **可选深度访谈**：如果你想要更像自己的版本，再做 6-10 个定制追问。
-4. **输出两份资产**：一份给 AI 用，一份给人看。
+4. **输出个人 OS 资产包**：一份给 AI 用，一份给人看，并导出方便转发的 PDF 和长图。
+
+生成网页后，可以用内置脚本导出 PDF 和长图：
+
+```bash
+npm install
+npm run export:setup
+npm run export:homepage
+```
+
+默认读取当前目录的 `personal-homepage.html`，输出：
+
+```text
+exports/personal-homepage.pdf
+exports/personal-homepage-long.png
+```
 
 想先看成品效果：
 
@@ -149,6 +172,7 @@ simaqian.skill/
 ├── VERSION
 ├── LICENSE
 ├── .gitignore
+├── package.json
 ├── agents/
 │   └── openai.yaml
 ├── assets/
@@ -165,6 +189,10 @@ simaqian.skill/
 │   └── david-personal-homepage-renaissance.public.html
 ├── landing/
 │   └── index.html
+├── scripts/
+│   └── export-homepage.mjs
+├── tests/
+│   └── export-homepage.test.mjs
 └── references/
     ├── intake-and-interview.md
     └── output-spec.md
