@@ -522,6 +522,11 @@ body.render-mode #landing{display:none}
 .fine-prompt .btn-clear{background:transparent;color:var(--c-on-dark-80);border-color:var(--c-on-dark-border)}
 .fine-prompt .btn-clear:hover{background:rgba(255,255,255,.08);color:var(--c-on-dark);border-color:var(--c-on-dark-60)}
 .fine-prompt + .fine-prompt{margin-top:18px}
+.fine-prompt .prompt-note{padding:0 28px 18px;color:var(--c-on-dark-60);font-size:13px;line-height:1.7}
+.fine-prompt .prompt-note code,.fde-flow-note code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.92em}
+.fine-prompt .prompt-note code{color:var(--c-on-dark)}
+.fde-flow-note{margin:18px 0;color:var(--c-muted);font-size:14px;line-height:1.8;max-width:820px}
+.fde-flow-note b{color:var(--c-ink);font-weight:600}
 
 /* ===== Responsive tweaks ===== */
 @media(max-width:760px){
@@ -903,6 +908,8 @@ body.render-mode #landing{display:none}
         </div>
       </div>
 
+      <p class="fde-flow-note"><b>推荐路径：</b>先跑轻量版，拿到第一版可用交接包；如果想用更多历史材料校准它，再准备 <code>./export/</code>，复制证据版第 1 步。证据版第 1 步只做材料地图，确认后才生成证据版入场包。</p>
+
       <div class="fine-prompt">
         <div class="gen-main-head">
           <span>simaqian-fde-evidence.txt</span>
@@ -926,6 +933,7 @@ body.render-mode #landing{display:none}
 - 不生成 fde-pack/
 - 不做结论分析
 - 完成材料地图后等我确认，再继续生成证据版 FDE 入场包</textarea>
+        <div class="prompt-note">材料地图确认无误后，在同一对话里回复：<code>我确认继续生成证据版 FDE 入场包。</code></div>
         <div class="gen-main-foot">
           <button class="btn btn-light" id="copyFdeEvidencePrompt"><iconify-icon icon="lucide:copy"></iconify-icon>复制证据版第 1 步</button>
           <a class="btn btn-clear" href="https://github.com/ShaohuaDavidLee/simaqian/blob/main/references/fde-pack.md" target="_blank" rel="noopener"><iconify-icon icon="lucide:file-text"></iconify-icon>查看证据版说明</a>
