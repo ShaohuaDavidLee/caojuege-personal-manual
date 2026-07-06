@@ -13,7 +13,7 @@
 
 - **轻列传**：30 秒，生成一张《某某列传》卡片，下载成 1080x1080 图片，适合发朋友圈、小红书，或给自己看一眼“AI 眼里的我”。
 - **精列传**：15 分钟，把你的文章、简历、播客、社媒、笔记和可选访谈，整理成一套完整的个人使用说明书。
-- **FDE 入场包**：60 分钟，读你的聊天记录导出（没有就教你导出模型记忆），把你的高频工作流写成 AI 可接管的交接包。
+- **FDE 入场包**：轻量即刻 / 全量 60 分钟。按 agent 已有记忆直接生成，或读你的聊天记录导出（只在本地处理，不上传），把你的高频工作流写成 AI 可接管的交接包，附一份使用分析报告。
 
 
 轻列传是一张图。
@@ -42,7 +42,7 @@ AI 时代，如果记录一个人的资源不再稀缺，我们想尝试一次�
 | --- | --- | --- |
 | 轻列传 | 想先玩一下、发一张图、看看 AI 如何理解自己 | 一张《某某列传》卡片 |
 | 精列传 | 想认真整理自己，让 AI 和合作方更懂你 | `persona-agent.md` + `personal-homepage.html` |
-| FDE 入场包 | 想让 AI（哪怕更便宜的模型）接管日常工作 | `fde-pack/` 交接包（7 个文件 + 交接考试） |
+| FDE 入场包 | 想让 AI（哪怕更便宜的模型）接管日常工作 | `fde-pack/` 编号交接包 + 使用分析报告 + 封面卡 |
 
 ## 精列传会生成什么
 
@@ -131,8 +131,9 @@ FDE（Forward Deployed Engineer）帮企业把 AI 部署进业务现场；FDE �
 ```
 帮我跑 github.com/ShaohuaDavidLee/simaqian 的 FDE 入场包（输出三）。
 如果还没装，先 clone 到 ~/.claude/skills/simaqian.skill。
-我的材料在 ./me/，聊天记录导出在 ./export/（都没有就先带我导出模型记忆，尽量不访谈）。
-用你的全部能力建包；交接考试换我日常用的便宜模型来考。
+轻量输出：按你已有的记忆和 ./me/ 里的材料直接生成，标注口供/推断。
+全量输出：带我导出聊天记录放进 ./export/，在本地跑统计——
+我的记忆和数据只在本地处理，不发给司马迁，也不发给任何人。
 ```
 
 细节见 [references/fde-pack.md](references/fde-pack.md)。
@@ -199,6 +200,8 @@ simaqian.skill/
 ├── assets/
 │   ├── caojuege-homepage-template.html
 │   ├── renaissance-homepage-template.html
+
+│   ├── fde-cover-template.html
 │   ├── personal-homepage-template.html
 │   └── friend-review-template.md
 ├── examples/
@@ -242,4 +245,4 @@ AI 时代，记录一个人的资源不再那么稀缺。也许我们可以更�
 
 ## 版本
 
-当前版本：`v0.4.2`
+当前版本：`v0.5.0`

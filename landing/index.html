@@ -652,7 +652,7 @@ body.render-mode #landing{display:none}
     <div class="hero-wm">列傳</div>
     <div class="container">
       <div class="hero-c">
-        <span class="hero-badge"><span class="dot"></span>司马迁.skill · v0.4.2 Ready</span>
+        <span class="hero-badge"><span class="dot"></span>司马迁.skill · v0.5.0 Ready</span>
         <h1>司马迁<span class="ext">.skill</span></h1>
         <p class="slogan">愿人人都有<em>自己的司马迁</em>。</p>
         <p class="lead">帮你写 AI 时代的个人使用说明书，<br>一份给 AI 看，一份给人看。</p>
@@ -832,16 +832,17 @@ body.render-mode #landing{display:none}
             <span class="badge">Asset D</span>
             <h3>fde-pack/ 交接包</h3>
           </div>
-          <p class="desc">它读你的聊天记录导出（没有就教你导出模型记忆），挖出你真实的高频工作流——不是你以为的那个——写成弱模型也能执行的资产。交付即产品：封面卡 + 压缩包 + 单文件视图。</p>
+          <p class="desc">轻量即刻：agent 按已有记忆直接生成。全量 60 分钟：导出聊天记录，在你本地统计——数据不发给司马迁，也不发给任何人。交付即产品：封面卡 + 压缩包 + 单文件视图。</p>
           <div class="mock mock-md">
-<span class="md-h">#</span> fde-pack/ — 交接包结构<br><br>
-├── README.md　　　　覆盖范围 · 证据表 · 喂法<br>
-├── workflows.md　　 高频工作流 <span class="md-bold">【证据·周更】✅</span><br>
-├── handover-test.md　交接考试（一题，粘贴即考）<br>
-├── fde-pack-all.md　 单文件视图 · 一次粘贴<br>
-├── routing.md　　　 交接合同：日常归弱模型<br>
-├── skills/ · templates/　✅ 级可执行资产<br>
-└── fde-cover.png　　封面卡（可分享）<br><br>
+<span class="md-h">#</span> fde-pack/ — 编号即阅读顺序<br><br>
+├── 00_README.md　　覆盖范围 · 隐私声明 · 喂法<br>
+├── 01_analysis-report.md　<span class="md-bold">使用分析报告（给人看）</span><br>
+├── 02_context.md　 工作现场<br>
+├── 03_workflows.md　工作流 <span class="md-bold">【证据·周更】✅</span><br>
+├── 04_routing.md　 交接合同：日常归弱模型<br>
+├── 05_skills/ · 06_templates/　✅ 级资产<br>
+├── fde-pack-all.md　单文件视图 · 一次粘贴<br>
+└── fde-cover.html　封面卡（固定模板填槽）<br><br>
 <span class="md-quote">&gt; 模型是租来的，资产是买下的。</span><br>
           </div>
           <div class="foot-label">交付：fde-cover.png · fde-pack.zip · fde-pack-all.md</div>
@@ -849,19 +850,21 @@ body.render-mode #landing{display:none}
 
         <div class="fine-asset">
           <div class="head">
-            <span class="badge outline">验收</span>
-            <h3>交接考试</h3>
+            <span class="badge outline">给人看的那份</span>
+            <h3>使用分析报告</h3>
           </div>
-          <p class="desc">默认一题，三分钟，粘贴即考。考试对象是接管的那个便宜模型，不是建包的资深——资深自己考自己永远满分。考不过就回炉，改到弱模型能跑为止。</p>
+          <p class="desc">交接包之外，先给你一份洞察：你最常用 AI 做什么、哪些任务在重复、哪些自我认知被数据当场证伪。上午的你 vs 数据里的你，差距就是价值。</p>
           <div class="mock mock-md">
-<span class="md-h">#</span> handover-test.md<br><br>
-<span class="md-bold">默认一题</span>（取最高频 ✅ 工作流）：<br>
-<span class="md-num">›</span> 用入场包写下期活动预告 → <span class="md-bold">能直接用 ✓</span><br><br>
-<span class="md-bold">升级考</span>（换接管模型时，✅/⚠/⛔ 各一题）：<br>
-<span class="md-num">›</span> 判断新产品方向 → 满分答案是它说<span class="md-bold">「这题该找资深」</span><br><br>
-<span class="md-quote">&gt; 交接考试通过，才算交接完成。</span><br>
+<span class="md-h">#</span> 01_analysis-report.md（节选）<br><br>
+<span class="md-h">##</span> 你最常用 AI 做什么<br>
+<span class="md-list">-</span> 决策/战略 <span class="md-bold">131 个对话</span>——不是写作，是军师<br><br>
+<span class="md-h">##</span> 被数据证伪的自我认知<br>
+<span class="md-list">-</span> 「概念多、出口少」→ <span class="md-bold">证伪</span>：首提到上线仅 30 天<br><br>
+<span class="md-h">##</span> 接管模型必须知道<br>
+<span class="md-list">-</span> 判断类任务 → <span class="md-bold">升级，别硬扛</span><br><br>
+<span class="md-quote">&gt; 上午的你 vs 数据里的你。</span><br>
           </div>
-          <div class="foot-label">handover-test.md — 3 道真实任务题</div>
+          <div class="foot-label">01_analysis-report.md — 常常是用户觉得最值的一份</div>
         </div>
       </div>
 
@@ -872,8 +875,9 @@ body.render-mode #landing{display:none}
         </div>
         <textarea id="fdePromptBox" spellcheck="false" readonly>帮我跑 github.com/ShaohuaDavidLee/simaqian 的 FDE 入场包（输出三）。
 如果还没装，先 clone 到 ~/.claude/skills/simaqian.skill。
-我的材料在 ./me/，聊天记录导出在 ./export/（都没有就先带我导出模型记忆，尽量不访谈）。
-用你的全部能力建包；交接考试换我日常用的便宜模型来考。</textarea>
+轻量输出：按你已有的记忆和 ./me/ 里的材料直接生成，标注口供/推断。
+全量输出：带我导出聊天记录放进 ./export/，在本地跑统计——
+我的记忆和数据只在本地处理，不发给司马迁，也不发给任何人。</textarea>
         <div class="gen-main-foot">
           <button class="btn btn-light" id="copyFdePrompt"><iconify-icon icon="lucide:copy"></iconify-icon>复制提示词</button>
           <a class="btn btn-clear" href="https://github.com/ShaohuaDavidLee/simaqian" target="_blank" rel="noopener"><iconify-icon icon="lucide:github"></iconify-icon>查看 GitHub</a>
