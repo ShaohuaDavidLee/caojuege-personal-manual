@@ -43,7 +43,7 @@ AI 时代，如果记录一个人的资源不再稀缺，我们想尝试一次�
 | --- | --- | --- |
 | 轻列传 | 想先玩一下、发一张图、看看 AI 如何理解自己 | 一张《某某列传》卡片 |
 | 精列传 | 想认真整理自己，让 AI 和合作方更懂你 | `persona-agent.md` + `personal-homepage.html` |
-| FDE 入场包 | 想让 AI（哪怕更便宜的模型）接管日常工作 | `fde-pack/` 编号交接包 + 使用分析报告 + 封面卡 |
+| FDE 入场包 | 想让 AI（哪怕更便宜的模型）接管日常工作 | `fde-pack/` 编号交接包 + 使用分析报告 |
 
 ## 精列传会生成什么
 
@@ -201,8 +201,6 @@ simaqian.skill/
 ├── assets/
 │   ├── caojuege-homepage-template.html
 │   ├── renaissance-homepage-template.html
-
-│   ├── fde-cover-template.html
 │   ├── personal-homepage-template.html
 │   └── friend-review-template.md
 ├── examples/
@@ -246,4 +244,4 @@ AI 时代，记录一个人的资源不再那么稀缺。也许我们可以更�
 
 ## 版本
 
-当前版本：`v0.5.0`
+当前版本：`v0.5.1`
