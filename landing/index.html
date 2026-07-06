@@ -521,6 +521,7 @@ body.render-mode #landing{display:none}
 .fine-prompt .btn-light:hover{background:#fff;border-color:#fff}
 .fine-prompt .btn-clear{background:transparent;color:var(--c-on-dark-80);border-color:var(--c-on-dark-border)}
 .fine-prompt .btn-clear:hover{background:rgba(255,255,255,.08);color:var(--c-on-dark);border-color:var(--c-on-dark-60)}
+.fine-prompt + .fine-prompt{margin-top:18px}
 
 /* ===== Responsive tweaks ===== */
 @media(max-width:760px){
@@ -899,6 +900,36 @@ body.render-mode #landing{display:none}
           <button class="btn btn-light" id="copyFdePrompt"><iconify-icon icon="lucide:copy"></iconify-icon>复制提示词</button>
           <a class="btn btn-clear" href="https://github.com/ShaohuaDavidLee/simaqian" target="_blank" rel="noopener"><iconify-icon icon="lucide:github"></iconify-icon>查看 GitHub</a>
           <span class="copied" id="copiedFde">已复制 ✓</span>
+        </div>
+      </div>
+
+      <div class="fine-prompt">
+        <div class="gen-main-head">
+          <span>simaqian-fde-evidence.txt</span>
+          <span class="name">FDE 入場包 · 证据版升级 · 第一步</span>
+        </div>
+        <textarea id="fdeEvidencePromptBox" spellcheck="false" readonly>我已经准备好 FDE 入场包证据版材料目录：
+./export/
+
+请先只做材料地图，不生成入场包。
+
+输出：
+1. 文件清单
+2. 可分析的时间范围
+3. 主题分类
+4. 高频工作流候选
+5. 隐私风险类型
+6. 你建议跳过或脱敏的内容类型
+
+要求：
+- 不输出原文摘录
+- 不生成 fde-pack/
+- 不做结论分析
+- 完成材料地图后等我确认，再继续生成证据版 FDE 入场包</textarea>
+        <div class="gen-main-foot">
+          <button class="btn btn-light" id="copyFdeEvidencePrompt"><iconify-icon icon="lucide:copy"></iconify-icon>复制证据版第 1 步</button>
+          <a class="btn btn-clear" href="https://github.com/ShaohuaDavidLee/simaqian/blob/main/references/fde-pack.md" target="_blank" rel="noopener"><iconify-icon icon="lucide:file-text"></iconify-icon>查看证据版说明</a>
+          <span class="copied" id="copiedFdeEvidence">已复制 ✓</span>
         </div>
       </div>
     </div>
@@ -1596,6 +1627,14 @@ document.addEventListener('click', async e=>{
     try{ await navigator.clipboard.writeText(text); }
     catch(_){ const ta=document.getElementById('fdePromptBox'); ta.select(); document.execCommand('copy'); }
     const c = document.getElementById('copiedFde'); c.classList.add('show');
+    setTimeout(()=>c.classList.remove('show'), 1600);
+    return;
+  }
+  if(e.target.closest('#copyFdeEvidencePrompt')){
+    const text = document.getElementById('fdeEvidencePromptBox').value;
+    try{ await navigator.clipboard.writeText(text); }
+    catch(_){ const ta=document.getElementById('fdeEvidencePromptBox'); ta.select(); document.execCommand('copy'); }
+    const c = document.getElementById('copiedFdeEvidence'); c.classList.add('show');
     setTimeout(()=>c.classList.remove('show'), 1600);
     return;
   }
