@@ -822,8 +822,8 @@ body.render-mode #landing{display:none}
     <div class="container">
       <div class="section-head">
         <span class="section-num">04</span>
-        <h2 class="section-q">FDE 入场包。<em>让 Fable 5 做你的第一任 FDE 工程师。</em></h2>
-        <p class="section-lead">顶级模型是请来的资深 FDE：能力最强，随时撤场。<br>退场前，让它留下一套你自己的工程师——哪怕是更便宜的模型——能接管的交接包。</p>
+        <h2 class="section-q">FDE 入场包。<em>把你的工作现场整理成 AI 可执行的交接包。</em></h2>
+        <p class="section-lead">强模型负责梳理材料、追问缺口和写清流程。<br>交付的不是模型能力，而是你的工作方式、模板和判断边界。</p>
       </div>
 
       <div class="fine-assets">
@@ -832,14 +832,14 @@ body.render-mode #landing{display:none}
             <span class="badge">Asset D</span>
             <h3>fde-pack/ 交接包</h3>
           </div>
-          <p class="desc">轻量即刻：agent 按已有记忆直接生成。全量 60 分钟：导出聊天记录，在你本地统计——数据不发给司马迁，也不发给任何人。交付即产品：压缩包 + 单文件视图。</p>
+          <p class="desc">轻量版：只用本轮明确提供的材料和 persona-agent.md。证据版：你主动准备材料目录后，先做材料地图，确认后再分析。交付即产品：压缩包 + 单文件视图。</p>
           <div class="mock mock-md">
 <span class="md-h">#</span> fde-pack/ — 编号即阅读顺序<br><br>
 ├── 00_README.md　　覆盖范围 · 隐私声明 · 喂法<br>
 ├── 01_analysis-report.md　<span class="md-bold">使用分析报告（给人看）</span><br>
 ├── 02_context.md　 工作现场<br>
 ├── 03_workflows.md　工作流 <span class="md-bold">【证据·周更】✅</span><br>
-├── 04_routing.md　 交接合同：日常归弱模型<br>
+├── 04_routing.md　 交接合同：日常归执行模型<br>
 ├── 05_skills/ · 06_templates/　✅ 级资产<br>
 └── fde-pack-all.md　单文件视图 · 一次粘贴<br><br>
 <span class="md-quote">&gt; 模型是租来的，资产是买下的。</span><br>
@@ -873,13 +873,28 @@ body.render-mode #landing{display:none}
       <div class="fine-prompt">
         <div class="gen-main-head">
           <span>simaqian-fde.txt</span>
-          <span class="name">FDE 入場包 · 一句话开始 · 给你的 Agent</span>
+          <span class="name">FDE 入場包 · 轻量版 · 给你的 Agent</span>
         </div>
-        <textarea id="fdePromptBox" spellcheck="false" readonly>帮我跑 github.com/ShaohuaDavidLee/simaqian 的 FDE 入场包（输出三）。
-如果还没装，先 clone 到 ~/.claude/skills/simaqian.skill。
-轻量输出：按你已有的记忆和 ./me/ 里的材料直接生成，标注口供/推断。
-全量输出：带我导出聊天记录放进 ./export/，在本地跑统计——
-我的记忆和数据只在本地处理，不发给司马迁，也不发给任何人。</textarea>
+        <textarea id="fdePromptBox" spellcheck="false" readonly>请使用本地 simaqian.skill 生成 FDE 入场包的轻量版。
+如果本地还没有这个 skill，请先安装公开仓库：https://github.com/ShaohuaDavidLee/simaqian
+
+本轮只使用以下来源：
+1. 我在本轮对话里明确提供的材料
+2. 当前工作区已有的 persona-agent.md
+3. 我明确指出的项目文件
+
+如果材料不足，请先问我最多 5 个问题。
+
+输出：
+1. fde-pack/00_README.md
+2. fde-pack/01_analysis-report.md
+3. fde-pack/03_workflows.md
+4. fde-pack-all.md
+
+请给每个结论标注来源：
+- 明确材料
+- 我的回答
+- 你的推断</textarea>
         <div class="gen-main-foot">
           <button class="btn btn-light" id="copyFdePrompt"><iconify-icon icon="lucide:copy"></iconify-icon>复制提示词</button>
           <a class="btn btn-clear" href="https://github.com/ShaohuaDavidLee/simaqian" target="_blank" rel="noopener"><iconify-icon icon="lucide:github"></iconify-icon>查看 GitHub</a>
