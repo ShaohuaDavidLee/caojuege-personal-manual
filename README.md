@@ -98,9 +98,11 @@ AI 时代，如果记录一个人的资源不再稀缺，我们想尝试一次�
 把下面这段粘给你的 Agent：
 
 ```text
-帮我跑 github.com/ShaohuaDavidLee/simaqian 这个 skill。
-如果还没装，先 clone 到 ~/.claude/skills/simaqian.skill。
-我的材料放在 ./me/ 里。如果我没材料，访谈我就行。
+帮我跑 github.com/ShaohuaDavidLee/simaqian 这个 skill，生成一份精列传：persona-agent.md 和 personal-homepage.html。
+
+我会直接给你文件、文字或链接。可用材料包括：个人文章 / 公众号 / 博客 / 小红书长文，简历 / 个人介绍 / 过往履历，作品链接 / GitHub / 社媒账号链接，播客、访谈、演讲、直播转写。
+
+请先读取材料，再只追问关键缺口。没有材料时，先提醒我可以提供哪些材料；如果我仍然没有材料，再访谈我。不要一上来发长问卷。
 ```
 
 Agent 会读取仓库、执行 `SKILL.md` 里的工作流，并生成个人 OS 资产包。
@@ -110,12 +112,14 @@ Agent 会读取仓库、执行 `SKILL.md` 里的工作流，并生成个人 OS �
 把下面这段粘进聊天窗口：
 
 ```text
-请按 github.com/ShaohuaDavidLee/simaqian 这个仓库的 SKILL.md
-帮我跑一份个人使用说明书。读完 README、SKILL.md 和 references/
-就能开始。我的材料下面给你。
+请按 github.com/ShaohuaDavidLee/simaqian 这个仓库的 SKILL.md，帮我生成一份精列传：persona-agent.md 和 personal-homepage.html。
+
+我会直接给你文件、文字或链接。可用材料包括：个人文章 / 公众号 / 博客 / 小红书长文，简历 / 个人介绍 / 过往履历，作品链接 / GitHub / 社媒账号链接，播客、访谈、演讲、直播转写。
+
+请先读取材料，再只追问关键缺口。没有材料时，先提醒我可以提供哪些材料；如果我仍然没有材料，再访谈我。不要一上来发长问卷。
 ```
 
-然后继续贴你的材料：文章、简历、播客转写、社媒长帖、作品链接都可以。
+然后继续贴材料、上传文件，或发链接。不需要全部都有；给得越多，写得越像你。
 
 没有材料也可以直接说：
 
