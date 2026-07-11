@@ -1,6 +1,6 @@
 ---
 name: simaqian.skill
-description: "Use when turning a person's existing materials, answers, or optional interview into a concise Personal OS: one Markdown persona document for AI agents and one polished HTML personal homepage for humans. Trigger on requests such as 个人说明书、个人主页、bio 页面、personal OS、persona pack、给 AI 的个人 skill、采访后生成个人档案、司马迁."
+description: "Use when turning a person's existing materials, answers, or optional interview into a concise Personal OS: one Markdown persona document for AI agents and one polished HTML personal homepage for humans. Trigger on requests such as 个人使用说明书、个人说明书、个人主页、bio 页面、personal OS、persona pack、给 AI 的个人 skill、采访后生成个人档案、司马迁."
 ---
 
 # 司马迁.skill
@@ -119,7 +119,7 @@ description: "Use when turning a person's existing materials, answers, or option
 
 如果这些还说不清，继续补材料，不要急着写漂亮话。用户要求“先写一版”时，可以生成低置信度 v0.1，但必须标出哪些部分是待确认。
 
-### 5. 输出两份资产
+### 5. 输出个人 OS 资产包
 
 输出规范见 [references/output-spec.md](references/output-spec.md)。
 
@@ -127,6 +127,8 @@ description: "Use when turning a person's existing materials, answers, or option
 
 - `persona-agent.md`
 - `personal-homepage.html`
+- `exports/personal-homepage.pdf`
+- `exports/personal-homepage-long.png`
 
 默认主页至少包含：
 
@@ -138,7 +140,22 @@ description: "Use when turning a person's existing materials, answers, or option
 - 如何与我合作
 - 链接
 
-生成 HTML 时，优先复用 [assets/personal-homepage-template.html](assets/personal-homepage-template.html)，再根据对象气质调整颜色、文案和内容密度。
+生成 HTML 时，先根据对象气质选择主页模板，再根据事实材料调整文案和内容密度：
+
+- **草诀歌风格**：[assets/caojuege-homepage-template.html](assets/caojuege-homepage-template.html)。偏报纸、档案、正史感，适合克制、理性、作品索引型表达。
+- **文艺复兴风格**：[assets/renaissance-homepage-template.html](assets/renaissance-homepage-template.html)。偏长卷、画廊、人文气质，适合创作者、审美驱动者和有个人作品气息的人。
+
+如果用户没有指定风格，默认使用**草诀歌风格**；如果用户提供了强烈的视觉偏好、照片、艺术图像或明确要求更有个人气息，可以改用**文艺复兴风格**。
+
+生成 `personal-homepage.html` 后，默认尝试导出 PDF 和长图：
+
+```bash
+npm install
+npm run export:setup
+npm run export:homepage
+```
+
+PDF 和长图都必须基于选定模板的屏幕渲染结果导出，不要重新排成通用 A4 文档版。PDF 用于邮件、打印、飞书/微信转发；长图用于手机查看、朋友圈、小红书或群聊直接预览。如果当前环境无法安装或运行 Playwright，仍然交付 HTML，并说明用户可以稍后在有浏览器运行环境的机器上执行上述命令补导出。
 
 `persona-agent.md` 里的 `盲区` 一节必须最后写。完成其他所有段落后，回头审视整份草稿，主动标出 2–4 处可能写偏的地方。这一步是这份文档不沦为自我美化的关键。
 
@@ -151,6 +168,14 @@ description: "Use when turning a person's existing materials, answers, or option
 - 用户改了 markdown → 你可以基于新版本重新生成 HTML。
 - 用户拿到朋友反馈 → 你可以把反馈合并进 persona，再一并更新 homepage。
 - 不要鼓励用户直接手动改 HTML。文案、视觉、结构的变化，都优先回到 markdown 或告诉你需求，由你重新渲染。
+
+## 输出三（可选）：FDE 入场包
+
+当用户要求「FDE 入场包 / 让 AI 接手我的工作 / 输出三」时，读取 [references/fde-pack.md](references/fde-pack.md) 并按其工作流执行。
+
+核心逻辑：顶级模型像请来的资深 FDE 工程师，适合梳理材料、追问缺口和写清流程；交付物是一套日常 AI 能执行的交接包。所有资产写到日常模型可执行的程度；交接考试用实际接管的日常模型来考，不用建包的资深模型考。
+
+前置：已有 `persona-agent.md`（没有则先跑精列传或做压缩访谈）。默认走轻量模式，只使用本轮明确提供的材料、已有 `persona-agent.md` 和用户明确指定的项目文件；材料不足时最多追问 5 个问题。完成轻量版后，在结尾给一个可选升级提示：如需证据版，请把更完整的历史材料、项目记录、笔记或工作文档整理到 `./export/`，再运行“证据版第 1 步”；第 1 步只做材料地图，不直接生成入场包。只有当用户明确选择证据版，并主动提供材料目录时，才进入 [references/fde-pack.md](references/fde-pack.md) 里的证据版工作流。
 
 ## 质量标准
 

@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>司马迁.skill · 轻列传</title>
-<meta name="description" content="一分钟生成你的三张轻列传：列传、毒撰、诊断。">
-<meta property="og:title" content="司马迁.skill · 轻列传">
-<meta property="og:description" content="当司马迁走进你的 AI 里。一条提示词，一个链接，三张卡。">
+<title>司马迁.skill · 愿人人都有自己的司马迁</title>
+<meta name="description" content="司马迁.skill —— 一个 skill，三种深度。轻列传 30 秒一张图，精列传 15 分钟一套个人 OS，FDE 入场包 60 分钟让 AI 接手你的工作。给正在寻找自己和自己作品的你。">
+<meta property="og:title" content="司马迁.skill · 愿人人都有自己的司马迁">
+<meta property="og:description" content="一个 skill，三种深度。轻列传 30 秒一张图，精列传 15 分钟一套个人 OS，FDE 入场包 60 分钟让 AI 接手你的工作。">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://simaqian.caojuege.com/og-card.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -110,6 +110,34 @@ button{font:inherit;cursor:pointer}
 /* Watermark on hero — vertical 列傳 */
 .hero-wm{position:absolute;right:-32px;top:8%;font-family:var(--font-serif);font-weight:900;font-size:clamp(220px,32vw,460px);line-height:.9;letter-spacing:-.16em;color:rgba(0,0,0,calc(0.045 * var(--wm-mult)));writing-mode:vertical-rl;pointer-events:none;user-select:none;z-index:0}
 .hero-inner > *{position:relative;z-index:1}
+
+/* centered hero (unified home) */
+.hero-c{position:relative;z-index:1;max-width:880px;margin:0 auto;text-align:center;padding:104px 0 116px}
+@media(min-width:960px){.hero-c{padding:140px 0 148px}}
+.hero-c .hero-badge{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--c-muted);border:1px solid var(--c-border-soft);background:var(--c-surface-40);padding:7px 14px;margin-bottom:40px}
+.hero-c .hero-badge .dot{width:6px;height:6px;border-radius:50%;background:#3f7d4e}
+.hero-c h1{font-family:var(--font-serif);font-weight:700;font-size:clamp(46px,8vw,104px);line-height:.98;letter-spacing:-.03em;margin:0;color:var(--c-ink)}
+.hero-c h1 .ext{font-weight:500;color:var(--c-btn)}
+.hero-c .slogan{font-family:var(--font-serif);font-size:clamp(24px,3.4vw,40px);font-weight:500;line-height:1.35;letter-spacing:-.01em;margin:34px 0 0;color:var(--c-ink)}
+.hero-c .slogan em{font-style:italic;font-weight:500;color:var(--c-btn)}
+.hero-c .lead{font-family:var(--font-serif);font-size:clamp(16px,1.9vw,20px);font-weight:300;line-height:1.8;color:var(--c-muted);max-width:640px;margin:22px auto 0}
+.hero-c .tag-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0;margin:40px auto 0;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--c-muted);font-family:var(--font-mono)}
+.hero-c .tag-row span{padding:0 20px;border-right:1px solid var(--c-border-strong)}
+.hero-c .tag-row span:last-child{border-right:0}
+.hero-c .hero-actions{justify-content:center;margin-top:48px}
+.btn.lg{padding:20px 32px}
+.btn .sub{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;opacity:.62;text-transform:uppercase}
+
+/* closing band (unified home) */
+.closing{padding:96px 0;background:var(--c-btn);color:var(--c-on-dark);position:relative;overflow:hidden;border-top:1px solid var(--c-border-soft)}
+.closing .closing-inner{position:relative;z-index:1;text-align:center;max-width:760px;margin:0 auto}
+.closing h2{font-family:var(--font-serif);font-weight:700;font-size:clamp(34px,5vw,60px);line-height:1.12;letter-spacing:-.02em;margin:0 0 18px}
+.closing h2 em{font-style:italic;font-weight:500;color:var(--c-on-dark-80)}
+.closing p{font-family:var(--font-serif);font-weight:300;color:var(--c-on-dark-80);font-size:17px;line-height:1.8;margin:0 0 40px}
+.closing .hero-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:0;margin-top:0}
+.closing .btn.ghost{color:var(--c-on-dark);border-color:var(--c-on-dark-border)}
+.closing .btn.ghost:hover{background:rgba(255,255,255,.08);color:#fff;border-color:var(--c-on-dark-60)}
+.closing-wm{position:absolute;right:-28px;top:50%;transform:translateY(-50%);font-family:var(--font-serif);font-weight:900;font-size:clamp(180px,26vw,360px);line-height:.85;color:rgba(255,255,255,calc(.05 * var(--wm-mult)));pointer-events:none;user-select:none;letter-spacing:-.1em;writing-mode:vertical-rl}
 
 /* Hero side card */
 .hero-side{position:relative;z-index:1;border:1px solid var(--c-border-soft);background:var(--c-surface-40);padding:32px}
@@ -384,6 +412,9 @@ body.render-mode .card-hint{display:block}
 .foot .left{font-family:var(--font-serif);font-size:16px}
 .foot .left b{font-weight:700}
 .foot .right{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--c-on-dark-60)}
+.foot-links{display:flex;flex-wrap:wrap;gap:24px;font-size:13px;color:var(--c-on-dark-80)}
+.foot-links a{transition:color .3s}
+.foot-links a:hover{color:#fff}
 
 /* ===== Result Page ===== */
 .render-page{display:none;min-height:100vh;padding:0 0 0}
@@ -498,6 +529,7 @@ body.render-mode #landing{display:none}
 .fine-materials li{font-size:13.5px;line-height:1.7;color:var(--c-ink);border-bottom:1px solid var(--c-border-soft);padding-bottom:9px}
 .fine-materials li:last-child{border-bottom:0;padding-bottom:0}
 .fine-materials li::before{content:"—";color:var(--c-muted);margin-right:8px}
+.fine-prompt + .fine-prompt{margin-top:18px}
 
 /* ===== Responsive tweaks ===== */
 @media(max-width:760px){
@@ -610,35 +642,39 @@ body.render-mode #landing{display:none}
     <div class="nav-inner">
       <div class="lockup">
         <span class="mark">司马迁<span style="font-family:var(--font-sans);font-weight:400;font-size:13px;letter-spacing:.04em;color:var(--c-muted)">.skill</span></span>
-        <span class="tag">轻列傳</span>
+        <span class="tag">Personal Historiography</span>
       </div>
       <div class="nav-links">
-        <a href="#samples">样张</a>
+        <a href="#samples">轻列传</a>
         <a href="#generate">生成</a>
         <a href="#depth">精列传</a>
+        <a href="#fde">FDE 入场包</a>
+        <!-- 宣言：明天发布的公众号文章，发布后把 href="#" 改为文章链接 -->
+        <a href="#" data-manifesto>宣言</a>
+        <a href="https://github.com/ShaohuaDavidLee/simaqian" target="_blank" rel="noopener">开源</a>
+        <a href="https://www.caojuege.com/" target="_blank" rel="noopener">草诀歌</a>
       </div>
-      <a class="nav-back" href="https://www.caojuege.com/" target="_blank" rel="noopener">
-        <iconify-icon icon="lucide:arrow-left"></iconify-icon>
-        草诀歌 AI Labs
-      </a>
     </div>
   </nav>
 
   <section class="hero">
     <div class="hero-wm">列傳</div>
     <div class="container">
-      <div class="hero-inner hero-slim">
-        <div>
-          <div class="hero-eyebrow">
-            <span class="dot"></span>
-            <span class="eyebrow">Personal Annal · 轻列傳 v4</span>
-          </div>
-          <h1>当司马迁，<em>住进你的 AI 里。</em></h1>
-          <p class="lead">一分钟，写你的三张轻列传。<br>一条提示词 → 一个链接 → 三张卡。</p>
-          <div class="hero-actions">
-            <a class="btn" href="#generate">开始立传 <iconify-icon icon="lucide:arrow-right"></iconify-icon></a>
-            <a class="btn ghost" href="#samples" style="margin-left:-1px">先看样张</a>
-          </div>
+      <div class="hero-c">
+        <span class="hero-badge"><span class="dot"></span>司马迁.skill · v0.5.1 Ready</span>
+        <h1>司马迁<span class="ext">.skill</span></h1>
+        <p class="slogan">愿人人都有<em>自己的司马迁</em>。</p>
+        <p class="lead">帮你写 AI 时代的个人使用说明书，<br>一份给 AI 看，一份给人看。</p>
+        <div class="tag-row">
+          <span>朋友圈一张图</span>
+          <span>给 AI 用的 Persona</span>
+          <span>给人看的主页</span>
+          <span>给 Agent 用的入场包</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn ghost lg" href="#generate"><iconify-icon icon="lucide:image"></iconify-icon>轻列传<span class="sub">30 秒 · 一张图</span></a>
+          <a class="btn ghost lg" href="#depth" style="margin-left:-1px"><iconify-icon icon="lucide:scroll-text"></iconify-icon>精列传<span class="sub">15 分钟 · 完整 OS</span></a>
+          <a class="btn lg" href="#fde" style="margin-left:-1px"><iconify-icon icon="lucide:briefcase"></iconify-icon>FDE 入场包<span class="sub">60 分钟 · AI 接手工作</span></a>
         </div>
       </div>
     </div>
@@ -648,7 +684,7 @@ body.render-mode #landing{display:none}
     <div class="container">
       <div class="section-head">
         <span class="section-num">01</span>
-        <h2 class="section-q">先看样张。<em>同一个人，三种判词。</em></h2>
+        <h2 class="section-q">轻列传。<em>AI 眼中的你，太史公的毒舌。</em></h2>
         <p class="section-lead">列传要体面，毒撰要刺痛，诊断要破防但不冒犯。<br>三张明显不同，这套立传才算写对了。</p>
       </div>
       <div class="swipe-hint">← 左右滑动查看三张 →</div>
@@ -660,7 +696,7 @@ body.render-mode #landing{display:none}
     <div class="container">
       <div class="section-head">
         <span class="section-num">02</span>
-        <h2 class="section-q">给谁立传？<em>你，或 TA。</em></h2>
+        <h2 class="section-q">给你自己，或朋友。<em>一份轻列传。</em></h2>
         <p class="section-lead">给自己立传，AI 调你的长期记忆。<br>给好友立传，你写几句，AI 替你下笔。</p>
       </div>
       <div class="gen">
@@ -708,7 +744,7 @@ body.render-mode #landing{display:none}
     </div>
   </section>
 
-  <section class="section" id="depth" style="border-bottom:0">
+  <section class="section" id="depth">
     <div class="container">
       <div class="section-head">
         <span class="section-num">03</span>
@@ -806,11 +842,148 @@ body.render-mode #landing{display:none}
     </div>
   </section>
 
+  <section class="section" id="fde" style="border-bottom:0">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">04</span>
+        <h2 class="section-q">FDE 入场包。<em>把你的工作现场整理成 AI 可执行的交接包。</em></h2>
+        <p class="section-lead">强模型负责梳理材料、追问缺口和写清流程。<br>交付的不是模型能力，而是你的工作方式、模板和判断边界。</p>
+      </div>
+
+      <div class="fine-assets">
+        <div class="fine-asset">
+          <div class="head">
+            <span class="badge">Asset D</span>
+            <h3>fde-pack/ 交接包</h3>
+          </div>
+          <p class="desc">轻量版：只用本轮明确提供的材料和 persona-agent.md。证据版：你主动准备材料目录后，先做材料地图，确认后再分析。交付即产品：压缩包 + 单文件视图。</p>
+          <div class="mock mock-md">
+<span class="md-h">#</span> fde-pack/ — 编号即阅读顺序<br><br>
+├── 00_README.md　　覆盖范围 · 隐私声明 · 喂法<br>
+├── 01_analysis-report.md　<span class="md-bold">使用分析报告（给人看）</span><br>
+├── 02_context.md　 工作现场<br>
+├── 03_workflows.md　工作流 <span class="md-bold">【证据·周更】✅</span><br>
+├── 04_routing.md　 交接合同：日常归执行模型<br>
+├── 05_skills/ · 06_templates/　✅ 级资产<br>
+└── fde-pack-all.md　单文件视图 · 一次粘贴<br><br>
+<span class="md-quote">&gt; 模型是租来的，资产是买下的。</span><br>
+          </div>
+          <div class="foot-label">交付：fde-pack.zip · fde-pack-all.md</div>
+        </div>
+
+        <div class="fine-asset">
+          <div class="head">
+            <span class="badge outline">给人看的那份</span>
+            <h3>使用分析报告</h3>
+          </div>
+          <p class="desc">交接包之外，先给你一份洞察：你最常用 AI 做什么、哪些自我认知被数据证伪，以及哪些重复任务该固化成 skill——报告的最后一节就是行动清单。</p>
+          <div class="mock mock-md">
+<span class="md-h">#</span> 01_analysis-report.md（节选）<br><br>
+<span class="md-h">##</span> 你最常用 AI 做什么（262 对话）<br>
+决策/战略　██████████ <span class="md-bold">131</span>——不是写作，是军师<br>
+公众号写作 █████████　127<br>
+产品开发　 █████████　120<br>
+社区运营　 ████████　　103<br><br>
+<span class="md-h">##</span> 建议固化成 Skill 的任务<br>
+<span class="md-list">-</span> 活动预告推文 <span class="md-bold">【周更】</span>→ event-post<br>
+<span class="md-list">-</span> 活动回顾文　 <span class="md-bold">【≥4 次】</span>→ event-recap<br>
+<span class="md-list">-</span> 多平台分发　 <span class="md-bold">【32 条】</span>→ repurpose<br><br>
+<span class="md-quote">&gt; 重复 ≥3 次的任务，就该变成资产。</span><br>
+          </div>
+          <div class="foot-label">01_analysis-report.md — 常常是用户觉得最值的一份</div>
+        </div>
+      </div>
+
+      <div class="fine-prompt">
+        <div class="gen-main-head">
+          <span>simaqian-fde.txt</span>
+          <span class="name">FDE 入場包 · 轻量版 · 给你的 Agent</span>
+        </div>
+        <textarea id="fdePromptBox" spellcheck="false" readonly>请使用本地 simaqian.skill 生成 FDE 入场包的轻量版。
+如果本地还没有这个 skill，请先安装公开仓库：https://github.com/ShaohuaDavidLee/simaqian
+
+本轮只使用以下来源：
+1. 我在本轮对话里明确提供的材料
+2. 当前工作区已有的 persona-agent.md
+3. 我明确指出的项目文件
+
+如果材料不足，请先问我最多 5 个问题。
+
+输出：
+1. fde-pack/00_README.md
+2. fde-pack/01_analysis-report.md
+3. fde-pack/03_workflows.md
+4. fde-pack-all.md
+
+请给每个结论标注来源：
+- 明确材料
+- 我的回答
+- 你的推断</textarea>
+        <div class="gen-main-foot">
+          <button class="btn btn-light" id="copyFdePrompt"><iconify-icon icon="lucide:copy"></iconify-icon>复制提示词</button>
+          <a class="btn btn-clear" href="https://github.com/ShaohuaDavidLee/simaqian" target="_blank" rel="noopener"><iconify-icon icon="lucide:github"></iconify-icon>查看 GitHub</a>
+          <span class="copied" id="copiedFde">已复制 ✓</span>
+        </div>
+      </div>
+
+      <div class="fine-prompt">
+        <div class="gen-main-head">
+          <span>simaqian-fde-evidence.txt</span>
+          <span class="name">FDE 入場包 · 证据版升级 · 第一步</span>
+        </div>
+        <textarea id="fdeEvidencePromptBox" spellcheck="false" readonly>我已经准备好 FDE 入场包证据版材料目录：
+./export/
+
+请先只做材料地图，不生成入场包。
+
+输出：
+1. 文件清单
+2. 可分析的时间范围
+3. 主题分类
+4. 高频工作流候选
+5. 隐私风险类型
+6. 你建议跳过或脱敏的内容类型
+
+要求：
+- 不输出原文摘录
+- 不生成 fde-pack/
+- 不做结论分析
+- 完成材料地图后等我确认，再继续生成证据版 FDE 入场包</textarea>
+        <div class="gen-main-foot">
+          <button class="btn btn-light" id="copyFdeEvidencePrompt"><iconify-icon icon="lucide:copy"></iconify-icon>复制证据版第 1 步</button>
+          <a class="btn btn-clear" href="https://github.com/ShaohuaDavidLee/simaqian/blob/main/references/fde-pack.md" target="_blank" rel="noopener"><iconify-icon icon="lucide:file-text"></iconify-icon>查看证据版说明</a>
+          <span class="copied" id="copiedFdeEvidence">已复制 ✓</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="closing-wm">遷</div>
+    <div class="container">
+      <div class="closing-inner">
+        <h2>愿人人都有<em>自己的司马迁</em>。</h2>
+        <p>给正在寻找自己和自己作品的你。</p>
+        <div class="hero-actions">
+          <a class="btn light lg" href="#generate"><iconify-icon icon="lucide:image"></iconify-icon>30 秒 · 轻列传</a>
+          <a class="btn ghost lg" href="#depth" style="margin-left:-1px"><iconify-icon icon="lucide:scroll-text"></iconify-icon>15 分钟 · 精列传</a>
+          <a class="btn ghost lg" href="#fde" style="margin-left:-1px"><iconify-icon icon="lucide:briefcase"></iconify-icon>60 分钟 · FDE 入场包</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer class="foot">
     <div class="container">
       <div class="foot-inner">
-        <div class="left"><b>司马迁.skill</b> · 轻列传是入口，精列传是个人操作系统。</div>
-        <div class="right">草诀歌 AI Labs · 2026</div>
+        <div class="left"><b>司马迁.skill</b> · 愿人人都有自己的司马迁</div>
+        <div class="foot-links">
+          <!-- 宣言：明天发布的公众号文章，发布后把 href="#" 改为文章链接 -->
+          <a href="#" data-manifesto>宣言</a>
+          <a href="https://github.com/ShaohuaDavidLee/simaqian" target="_blank" rel="noopener">开源 · GitHub</a>
+          <a href="https://www.caojuege.com/" target="_blank" rel="noopener">草诀歌 AI Labs</a>
+        </div>
+        <div class="right">© 2026</div>
       </div>
     </div>
   </footer>
@@ -864,10 +1037,11 @@ body.render-mode #landing{display:none}
         <div>
           <div class="eyebrow" style="color:var(--c-on-dark-60);margin-bottom:16px">Next · 想要再深一层</div>
           <h2>这只是<em>轻列传</em>。</h2>
-          <p>如果你想让 AI 真正理解你，可以继续生成精列传：<br>一份给 AI 看的 <code style="font-family:'JetBrains Mono',monospace;font-size:14px;background:rgba(255,255,255,.1);padding:2px 6px">persona-agent.md</code>，一份给人看的 personal homepage。</p>
+          <p>如果你想让 AI 真正理解你，可以继续生成精列传：<br>一份给 AI 看的 <code style="font-family:'JetBrains Mono',monospace;font-size:14px;background:rgba(255,255,255,.1);padding:2px 6px">persona-agent.md</code>，一份给人看的 personal homepage。<br>再往深一层：FDE 入场包，让 AI 接管你的工作现场。</p>
         </div>
         <div class="actions">
           <a class="btn primary" href="#" onclick="goLanding('#depth');return false">生成我的精列传 <iconify-icon icon="lucide:arrow-right"></iconify-icon></a>
+          <a class="btn" href="#" onclick="goLanding('#fde');return false">生成 FDE 入场包</a>
           <a class="btn" href="#" onclick="goLanding('#generate');return false">再生成一版轻列传</a>
         </div>
       </div>
@@ -988,7 +1162,7 @@ const selfPrompt = `你现在是「司馬遷.skill」的三卡轻列传生成器
 具体事实包括：姓名/称呼、地域/背景、专业/行业/项目/经历、常用工具/技术栈/兴趣、长期目标/价值取向/反复关心的话题、表达风格/审美/做事习惯。
 必须基于「当前用户本人」，不要用示例人物，不要套固定模板。信息不足时宁可承认不足，不要编造经历。
 
-【内部创作方法：像李继刚，但写人】
+【内部创作方法：以凝练克制、意象精准、字字有力的文学笔法写人】
 先在内部生成，不要输出：
 1. 10 条关于 TA 的事实；
 2. 5 个 TA 身上的矛盾/张力；
@@ -1078,7 +1252,7 @@ TA 最可爱的毛病/反差：${flaw}
 - 不要编造重大经历、收入、婚恋、疾病、公司机密。
 - 如果线索太少，mode=template，并在 warn 写：这是模板版——我对 TA 的具体信息还不多，改两句就是 TA。
 
-【内部创作方法：像李继刚，但写人】
+【内部创作方法：以凝练克制、意象精准、字字有力的文学笔法写人】
 先在内部生成，不要输出：
 1. 从四条线索里抽取 8 条事实/可推断特质；
 2. 找出 3 个反差：表面 X，深处 Y；
@@ -1178,10 +1352,9 @@ function revokeRendered(key){
 
 async function renderOneCard(c){
   currentCards.set(c.style, {...c});
-  const img = document.querySelector(`[data-card-img="${c.style}"]`);
-  if(!img) return;
-  img.alt = c.label || c.title || '轻列传';
-  const frame = img.closest('.card-image-frame');
+  const cell = document.querySelector(`.card-cell[data-key="${c.style}"]`);
+  const frame = cell?.querySelector('.card-image-frame');
+  if(!frame) return;
   try{
     // 本地 file:// 预览时，部分浏览器会因为 canvas 安全策略导致 toBlob/Blob URL 不显示。
     // 先直接渲染 canvas 挂到页面上，保证「打开 HTML 就能看见」。下载时仍走 Blob。
@@ -1257,6 +1430,21 @@ function canonicaliseRenderHash(q, params){
   history.replaceState(null, '', `${location.pathname}${location.search}#render?${canonical}`);
 }
 
+function smartDecode(value){
+  if(value == null) return '';
+  let out = String(value);
+  // 有的模型（如 DeepSeek）会把字段值重复百分号编码；URLSearchParams 只解一次，
+  // 这里反复解码直到稳定，避免出现 %E8%80%81 这种乱码。
+  for(let i = 0; i < 3 && /%[0-9A-Fa-f]{2}/.test(out); i++){
+    try{
+      const dec = decodeURIComponent(out);
+      if(dec === out) break;
+      out = dec;
+    }catch(_){ break; }
+  }
+  return out;
+}
+
 function parseCards(){
   if(!location.hash.startsWith('#render')) return null;
   const q = location.hash.includes('?') ? location.hash.slice(location.hash.indexOf('?')+1) : '';
@@ -1264,15 +1452,15 @@ function parseCards(){
   if(params.get('v') !== '2') return null;
   canonicaliseRenderHash(q, params);
   const isTemplate = params.get('mode') === 'template';
-  const globalWarn = params.get('warn') || (isTemplate ? '这是模板版——具体信息还不多，修改一下就是你的' : '');
+  const globalWarn = smartDecode(params.get('warn')) || (isTemplate ? '这是模板版——具体信息还不多，修改一下就是你的' : '');
   const map = [
     {style:'classic',legacy:'classic',prefix:'c1',label:'列传',watermark:'傳',volumeLabel:'列傳',sealChars:['司','馬','遷','撰'],fallbackTitle:'今人列传'},
     {style:'roast',legacy:'roast',prefix:'c2',label:'毒撰',watermark:'毒',volumeLabel:'毒撰',sealChars:['司','馬','毒','撰'],fallbackTitle:'今人毒撰'},
     {style:'diagnosis',legacy:'observer',prefix:'c3',label:'诊断',watermark:'診',volumeLabel:'診斷',sealChars:['太','史','診','斷'],fallbackTitle:'今人诊断'}
   ];
-  const get = (m, field, fallback='') => params.get(`${m.prefix}_${field}`) || params.get(`${m.legacy}_${field}`) || fallback;
+  const get = (m, field, fallback='') => smartDecode(params.get(`${m.prefix}_${field}`)) || smartDecode(params.get(`${m.legacy}_${field}`)) || fallback;
   const titleSeed = map.map(m=>get(m,'title','')).filter(Boolean).join('|');
-  const seed = params.get('name') || titleSeed || params.get('from_relation') || q;
+  const seed = smartDecode(params.get('name')) || titleSeed || smartDecode(params.get('from_relation')) || q;
   const volume = normaliseVolumeParam(params.get('volume'), seed);
   return map.map(m=>({
     ...m,
@@ -1454,6 +1642,22 @@ document.addEventListener('click', async e=>{
     try{ await navigator.clipboard.writeText(text); }
     catch(_){ const ta=document.getElementById('finePromptBox'); ta.select(); document.execCommand('copy'); }
     const c = document.getElementById('copiedFine'); c.classList.add('show');
+    setTimeout(()=>c.classList.remove('show'), 1600);
+    return;
+  }
+  if(e.target.closest('#copyFdePrompt')){
+    const text = document.getElementById('fdePromptBox').value;
+    try{ await navigator.clipboard.writeText(text); }
+    catch(_){ const ta=document.getElementById('fdePromptBox'); ta.select(); document.execCommand('copy'); }
+    const c = document.getElementById('copiedFde'); c.classList.add('show');
+    setTimeout(()=>c.classList.remove('show'), 1600);
+    return;
+  }
+  if(e.target.closest('#copyFdeEvidencePrompt')){
+    const text = document.getElementById('fdeEvidencePromptBox').value;
+    try{ await navigator.clipboard.writeText(text); }
+    catch(_){ const ta=document.getElementById('fdeEvidencePromptBox'); ta.select(); document.execCommand('copy'); }
+    const c = document.getElementById('copiedFdeEvidence'); c.classList.add('show');
     setTimeout(()=>c.classList.remove('show'), 1600);
     return;
   }
