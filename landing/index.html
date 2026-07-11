@@ -490,6 +490,14 @@ body.render-mode #landing{display:none}
 .fine-prompt .btn-light:hover{background:#fff;border-color:#fff}
 .fine-prompt .btn-clear{background:transparent;color:var(--c-on-dark-80);border-color:var(--c-on-dark-border)}
 .fine-prompt .btn-clear:hover{background:rgba(255,255,255,.08);color:var(--c-on-dark);border-color:var(--c-on-dark-60)}
+.fine-materials{margin:-24px 0 32px;padding:26px 28px;border:1px solid var(--c-border-soft);background:rgba(255,255,255,.45);display:grid;grid-template-columns:1fr;gap:18px}
+@media(min-width:900px){.fine-materials{grid-template-columns:.9fr 1.4fr;align-items:start}}
+.fine-materials h3{font-family:var(--font-serif);font-size:24px;line-height:1.2;margin:0 0 8px;letter-spacing:-.02em}
+.fine-materials p{margin:0;color:var(--c-muted);font-size:14px;line-height:1.8;font-family:var(--font-serif)}
+.fine-materials ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.fine-materials li{font-size:13.5px;line-height:1.7;color:var(--c-ink);border-bottom:1px solid var(--c-border-soft);padding-bottom:9px}
+.fine-materials li:last-child{border-bottom:0;padding-bottom:0}
+.fine-materials li::before{content:"—";color:var(--c-muted);margin-right:8px}
 
 /* ===== Responsive tweaks ===== */
 @media(max-width:760px){
@@ -705,7 +713,7 @@ body.render-mode #landing{display:none}
       <div class="section-head">
         <span class="section-num">03</span>
         <h2 class="section-q">想再深一层？<em>精列传。</em></h2>
-        <p class="section-lead">轻列传是入口，精列传才是个人操作系统。<br>一份给 AI 看，一份给人看。</p>
+        <p class="section-lead">轻列传是入口，精列传才是个人操作系统。<br>先读你的文件、文字或链接；没有材料，再访谈。</p>
       </div>
 
       <div class="fine-assets">
@@ -765,14 +773,29 @@ body.render-mode #landing{display:none}
         </div>
       </div>
 
+      <div class="fine-materials">
+        <div>
+          <h3>精列传先读材料</h3>
+          <p>直接把文件、文字或链接给你的 Agent。不需要全部都有；给得越多，写得越像你。</p>
+        </div>
+        <ul>
+          <li>个人文章 / 公众号 / 博客 / 小红书长文</li>
+          <li>简历 / 个人介绍 / 过往履历</li>
+          <li>作品链接 / GitHub / 社媒账号链接</li>
+          <li>播客、访谈、演讲、直播转写</li>
+        </ul>
+      </div>
+
       <div class="fine-prompt">
         <div class="gen-main-head">
           <span>simaqian-skill.txt</span>
-          <span class="name">精列傳 · 一句话开始 · 给你的 Agent</span>
+          <span class="name">精列傳 · 先读材料 · 再补缺口</span>
         </div>
-        <textarea id="finePromptBox" spellcheck="false" readonly>帮我用 github.com/ShaohuaDavidLee/simaqian 这个 skill。
-如果还没装，先 clone 到 ~/.claude/skills/simaqian.skill。
-我的材料放在 ./me 里。如果我没有材料，访谈我就行。</textarea>
+        <textarea id="finePromptBox" spellcheck="false" readonly>请按 github.com/ShaohuaDavidLee/simaqian 这个仓库的 SKILL.md，帮我生成一份精列传：persona-agent.md 和 personal-homepage.html。
+
+我会直接给你文件、文字或链接。可用材料包括：个人文章 / 公众号 / 博客 / 小红书长文，简历 / 个人介绍 / 过往履历，作品链接 / GitHub / 社媒账号链接，播客、访谈、演讲、直播转写。
+
+请先读取材料，再只追问关键缺口。没有材料时，先提醒我可以提供哪些材料；如果我仍然没有材料，再访谈我。不要一上来发长问卷。</textarea>
         <div class="gen-main-foot">
           <button class="btn btn-light" id="copyFinePrompt"><iconify-icon icon="lucide:copy"></iconify-icon>复制提示词</button>
           <a class="btn btn-clear" href="https://github.com/ShaohuaDavidLee/simaqian" target="_blank" rel="noopener"><iconify-icon icon="lucide:github"></iconify-icon>查看 GitHub</a>
