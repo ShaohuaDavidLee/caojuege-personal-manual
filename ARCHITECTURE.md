@@ -11,6 +11,7 @@
 
 ```text
 simaqian/
+├── index.html            仓库根：本地预览跳到 landing/
 ├── SKILL.md              技能入口：目标、隐私、七步工作流、一源多投影
 ├── README.md             面向人的说明与启动提示词
 ├── MANIFESTO.md          宣言，作者手写

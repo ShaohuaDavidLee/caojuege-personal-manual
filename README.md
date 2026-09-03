@@ -8,6 +8,14 @@
 
 打开：<https://simaqian.caojuege.com>
 
+本地预览不要用 `file://`，也不要从家目录起服务。在仓库根目录：
+
+```bash
+npm run preview
+```
+
+浏览器打开 <http://127.0.0.1:8765/> 。页面在 `landing/`，根路径会自动跳过去。若自己加了 `--directory landing`，地址不要再写成 `/landing/`。
+
 ## 你会得到什么
 
 ```text
