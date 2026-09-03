@@ -1,5 +1,15 @@
 /* 司马迁.skill · 落地页
-   零外部字体：系统宋体 / 黑体回退栈。 */
+   正文走系统栈，零外部请求。
+   水印字自托管 Noto Serif SC 900 子集（列 / 傳 / 遷）。 */
+
+@font-face{
+  font-family:"Noto Serif SC WM";
+  font-style:normal;
+  font-weight:900;
+  font-display:swap;
+  src:url("./fonts/noto-serif-sc-900-wm.woff2") format("woff2");
+  unicode-range:U+5217,U+50B3,U+9077;
+}
 
 :root{
   --c-bg:#e5e5e5;
@@ -21,6 +31,8 @@
               "Microsoft YaHei","WenQuanYi Micro Hei",ui-sans-serif,system-ui,sans-serif;
   --font-serif:"Source Han Serif SC","Source Han Serif CN",
                "Songti SC","STSong","SimSun","FangSong",Georgia,serif;
+  --font-wm:"Noto Serif SC WM","Noto Serif SC","Source Han Serif SC",
+            "Source Han Serif CN","Songti SC","STSong","SimSun",serif;
   --font-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"PingFang SC",monospace;
   --container:1280px;
   --pad-x:24px;
@@ -50,7 +62,7 @@ button{font:inherit;cursor:pointer}
 @media(min-width:760px){.nav-links{display:flex}}
 
 .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--c-border-soft)}
-.hero-wm{position:absolute;right:-32px;top:8%;font-family:var(--font-serif);font-weight:900;font-size:clamp(220px,32vw,460px);line-height:.9;letter-spacing:-.16em;color:rgba(0,0,0,.045);writing-mode:vertical-rl;pointer-events:none;user-select:none}
+.hero-wm{position:absolute;right:-32px;top:8%;font-family:var(--font-wm);font-weight:900;font-size:clamp(220px,32vw,460px);line-height:.9;letter-spacing:-.16em;color:rgba(0,0,0,.045);writing-mode:vertical-rl;pointer-events:none;user-select:none}
 .hero-c{position:relative;z-index:1;max-width:880px;margin:0 auto;text-align:center;padding:104px 0 116px}
 @media(min-width:960px){.hero-c{padding:140px 0 148px}}
 .hero-c .badge{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--c-muted);border:1px solid var(--c-border-soft);background:var(--c-surface-40);padding:7px 14px;margin-bottom:40px}
@@ -137,7 +149,7 @@ button{font:inherit;cursor:pointer}
 .closing .hero-actions{justify-content:center;margin-top:0}
 .closing .btn.ghost{color:var(--c-on-dark);border-color:var(--c-on-dark-border)}
 .closing .btn.ghost:hover{background:rgba(255,255,255,.08);color:#fff;border-color:var(--c-on-dark-60)}
-.closing-wm{position:absolute;right:-28px;top:50%;transform:translateY(-50%);font-family:var(--font-serif);font-weight:900;font-size:clamp(180px,26vw,360px);line-height:.85;color:rgba(255,255,255,calc(.05 * var(--wm-mult)));pointer-events:none;user-select:none;letter-spacing:-.1em;writing-mode:vertical-rl}
+.closing-wm{position:absolute;right:-28px;top:50%;transform:translateY(-50%);font-family:var(--font-wm);font-weight:900;font-size:clamp(180px,26vw,360px);line-height:.85;color:rgba(255,255,255,calc(.05 * var(--wm-mult)));pointer-events:none;user-select:none;letter-spacing:-.1em;writing-mode:vertical-rl}
 
 .foot{padding:48px 0 56px;border-top:1px solid var(--c-border-soft);background:var(--c-btn);color:var(--c-on-dark)}
 .foot-inner{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:20px}
