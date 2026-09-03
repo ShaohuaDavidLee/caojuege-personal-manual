@@ -26,6 +26,7 @@
   --pad-x:24px;
   --pad-x-lg:48px;
   --section-pad:96px;
+  --wm-mult:1;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -56,9 +57,11 @@ button{font:inherit;cursor:pointer}
 .hero-c .badge .dot{width:6px;height:6px;border-radius:50%;background:#3f7d4e}
 .hero-c h1{font-family:var(--font-serif);font-weight:700;font-size:clamp(46px,8vw,104px);line-height:.98;letter-spacing:-.03em;margin:0}
 .hero-c h1 .ext{font-weight:500;color:var(--c-btn)}
-.hero-c .slogan{font-family:var(--font-serif);font-size:clamp(24px,3.4vw,40px);font-weight:500;line-height:1.35;margin:34px 0 0}
+.hero-c .slogan{font-family:var(--font-serif);font-size:clamp(24px,3.4vw,40px);font-weight:500;line-height:1.35;letter-spacing:-.01em;margin:34px 0 0}
+.hero-c .slogan em{font-style:italic;font-weight:500;color:var(--c-btn)}
 .hero-c .lead{font-family:var(--font-serif);font-size:clamp(16px,1.9vw,20px);font-weight:300;line-height:1.8;color:var(--c-muted);max-width:640px;margin:22px auto 0}
-.hero-c .actions{display:flex;flex-wrap:wrap;justify-content:center;margin-top:48px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:0;margin-top:36px}
+.hero-c .hero-actions{justify-content:center;margin-top:48px}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:500;font-size:14px;letter-spacing:.02em;padding:16px 26px;border:1px solid var(--c-btn);background:var(--c-btn);color:var(--c-on-dark);transition:background .3s,color .3s,border-color .3s;border-radius:0}
 .btn:hover{background:var(--c-ink-pure);border-color:var(--c-ink-pure)}
@@ -66,6 +69,7 @@ button{font:inherit;cursor:pointer}
 .btn.ghost:hover{background:var(--c-btn);color:var(--c-on-dark)}
 .btn.light{background:var(--c-bg);color:var(--c-ink);border-color:var(--c-bg)}
 .btn.light:hover{background:#fff;border-color:#fff}
+.btn.lg{padding:20px 32px}
 .btn svg{width:16px;height:16px}
 
 .section{padding:var(--section-pad) 0;border-bottom:1px solid var(--c-border-soft)}
@@ -86,7 +90,7 @@ button{font:inherit;cursor:pointer}
 .fine-asset .desc{font-family:var(--font-serif);font-size:14.5px;color:var(--c-muted);line-height:1.8;margin:0;font-weight:300}
 .fine-asset .mock{position:relative;height:440px;overflow:hidden;border:1px solid var(--c-border-soft)}
 .fine-asset .foot-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--c-muted)}
-.home-shot{display:block;width:100%;height:440px;object-fit:cover;object-position:top center;border:1px solid var(--c-border-soft)}
+.home-shot{display:block;width:100%;height:auto;object-fit:contain;object-position:top center;border:1px solid var(--c-border-soft);background:#f7f4ee}
 
 .mock-md{background:#1a1a1a;color:#d4d4d4;padding:26px 28px;font-family:var(--font-mono);font-size:12px;line-height:1.95}
 .mock-md::after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(to top,#1a1a1a,transparent);pointer-events:none}
@@ -125,11 +129,35 @@ button{font:inherit;cursor:pointer}
 .update-step code{font-family:var(--font-mono);background:rgba(71,73,75,.08);padding:1px 6px;font-size:12.5px}
 .update-note{margin-top:28px;font-family:var(--font-serif);color:var(--c-muted);font-size:15px}
 
-.foot{padding:48px 0 56px;background:var(--c-btn);color:var(--c-on-dark)}
+.projections{display:grid;grid-template-columns:1fr;border:1px solid var(--c-border-soft);margin-top:36px}
+@media(min-width:900px){.projections{grid-template-columns:1.2fr .9fr .9fr}}
+.projection{padding:32px 28px;border-bottom:1px solid var(--c-border-soft)}
+@media(min-width:900px){.projection{border-bottom:0;border-right:1px solid var(--c-border-soft)}}
+@media(min-width:900px){.projection:last-child{border-right:0}}
+.projection .badge{font-family:var(--font-mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;background:var(--c-btn);color:var(--c-on-dark);padding:5px 10px}
+.projection .badge.outline{background:transparent;color:var(--c-ink);border:1px solid var(--c-border-strong)}
+.projection h3{font-family:var(--font-serif);font-weight:700;font-size:20px;margin:14px 0 10px}
+.projection p{margin:0;font-family:var(--font-serif);font-size:14.5px;color:var(--c-muted);line-height:1.8;font-weight:300}
+.projection ul{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:8px}
+.projection li{font-size:13px;line-height:1.65;color:var(--c-ink)}
+.projection li::before{content:"—";color:var(--c-muted);margin-right:8px}
+
+.closing{padding:96px 0;background:var(--c-btn);color:var(--c-on-dark);position:relative;overflow:hidden;border-top:1px solid var(--c-border-soft)}
+.closing .closing-inner{position:relative;z-index:1;text-align:center;max-width:760px;margin:0 auto}
+.closing h2{font-family:var(--font-serif);font-weight:700;font-size:clamp(34px,5vw,60px);line-height:1.12;letter-spacing:-.02em;margin:0 0 18px}
+.closing h2 em{font-style:italic;font-weight:500;color:var(--c-on-dark-80)}
+.closing p{font-family:var(--font-serif);font-weight:300;color:var(--c-on-dark-80);font-size:17px;line-height:1.8;margin:0 0 40px}
+.closing .hero-actions{justify-content:center;margin-top:0}
+.closing .btn.ghost{color:var(--c-on-dark);border-color:var(--c-on-dark-border)}
+.closing .btn.ghost:hover{background:rgba(255,255,255,.08);color:#fff;border-color:var(--c-on-dark-60)}
+.closing-wm{position:absolute;right:-28px;top:50%;transform:translateY(-50%);font-family:var(--font-serif);font-weight:900;font-size:clamp(180px,26vw,360px);line-height:.85;color:rgba(255,255,255,calc(.05 * var(--wm-mult)));pointer-events:none;user-select:none;letter-spacing:-.1em;writing-mode:vertical-rl}
+
+.foot{padding:48px 0 56px;border-top:1px solid var(--c-border-soft);background:var(--c-btn);color:var(--c-on-dark)}
 .foot-inner{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:20px}
 .foot .left{font-family:var(--font-serif);font-size:16px}
 .foot .left b{font-weight:700}
 .foot-links{display:flex;flex-wrap:wrap;gap:24px;font-size:13px;color:var(--c-on-dark-80)}
+.foot-links a{transition:color .3s}
 .foot-links a:hover{color:#fff}
 .foot .right{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--c-on-dark-60)}
 
@@ -139,5 +167,8 @@ button{font:inherit;cursor:pointer}
   .hero-c h1{font-size:48px}
   .section-q{font-size:36px}
   .section-head{margin-bottom:36px}
-  .fine-asset .mock,.home-shot{height:320px}
+  .fine-asset .mock{height:320px}
+  .hero-actions{justify-content:stretch}
+  .hero-actions .btn{flex:1 1 100%;margin-left:0 !important}
+  .closing{padding:72px 0}
 }

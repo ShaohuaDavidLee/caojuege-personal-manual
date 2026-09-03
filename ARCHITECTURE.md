@@ -24,8 +24,8 @@ simaqian/
 │   └── update.md                 台账、增量、重审、路由表
 ├── examples/             作者同意公开的脱敏样例
 ├── landing/              simaqian.caojuege.com
-│   ├── index.html · styles.css   落地页：定位 / 产物 / 开始 / 更新
-│   ├── davidli.jpg               真实主页截图占位
+│   ├── index.html · styles.css   落地页：定位 / 产物 / 开始 / 更新 / 旧式页脚
+│   ├── davidli.jpg               真实主页完整第一屏
 │   ├── legacy/render.html        旧版卡片结果页，不断链
 │   └── legacy/card.js            Canvas 渲染器
 ├── scripts/export-homepage.mjs   Playwright：主页 → PDF + 长图
