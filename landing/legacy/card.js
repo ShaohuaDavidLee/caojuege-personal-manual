@@ -7,7 +7,7 @@
 
   const W = 600;
   const H = 800;
-  const QR_SRC = './qr-simaqian.png';
+  const QR_SRC = '../qr-simaqian.png';
   let qrPromise = null;
 
   const SERIF = '"Noto Serif SC","Source Han Serif SC","Source Han Serif CN","Songti SC","STSongti","STSong","SimSun","NSimSun","FangSong",Georgia,"Times New Roman",serif';

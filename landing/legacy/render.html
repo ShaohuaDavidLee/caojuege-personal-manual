@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>旧版轻列传 · 存档 · 司马迁.skill</title>
+<link rel="icon" type="image/png" sizes="64x64" href="../favicon.png">
+<script src="./card.js"></script>
+<style>
+:root{
+  --c-bg:#e5e5e5;--c-surface:#ffffff;--c-ink:#1a1a1a;--c-ink-pure:#000;--c-btn:#47494b;
+  --c-border-soft:rgba(71,73,75,0.20);--c-muted:#5c5e60;--c-on-dark:#e5e5e5;
+  --c-on-dark-60:rgba(229,229,229,0.60);--c-on-dark-80:rgba(229,229,229,0.80);
+  --c-on-dark-border:rgba(255,255,255,0.18);
+  --font-sans:"PingFang SC","Hiragino Sans GB","Source Han Sans SC","Microsoft YaHei",ui-sans-serif,system-ui,sans-serif;
+  --font-serif:"Source Han Serif SC","Songti SC","STSong","SimSun","FangSong",Georgia,serif;
+  --font-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --container:1280px;--pad-x:24px;--pad-x-lg:48px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--c-bg);color:var(--c-ink);font-family:var(--font-sans);font-size:16px;line-height:1.65}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+.container{max-width:var(--container);margin:0 auto;padding:0 var(--pad-x)}
+@media(min-width:960px){.container{padding:0 var(--pad-x-lg)}}
+.eyebrow{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.2em;color:var(--c-muted)}
+.nav{position:sticky;top:0;z-index:30;background:var(--c-bg);border-bottom:1px solid var(--c-border-soft)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;height:64px;max-width:var(--container);margin:0 auto;padding:0 var(--pad-x)}
+.lockup{display:flex;align-items:baseline;gap:10px}
+.lockup .mark{font-family:var(--font-serif);font-weight:700;font-size:18px}
+.lockup .tag{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--c-muted)}
+.archive-banner{padding:10px var(--pad-x);background:#1a1a1a;color:#e5e5e5;font-size:13px;text-align:center}
+.archive-banner a{border-bottom:1px solid rgba(229,229,229,.4)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:500;font-size:14px;padding:14px 22px;border:1px solid var(--c-btn);background:var(--c-btn);color:var(--c-on-dark);border-radius:0}
+.btn:hover{background:var(--c-ink-pure);border-color:var(--c-ink-pure)}
+.btn.ghost{background:transparent;color:var(--c-ink);border-color:var(--c-btn)}
+.btn.primary{background:var(--c-btn);color:var(--c-on-dark)}
+.cards-grid{display:grid;grid-template-columns:1fr;gap:32px;min-width:0}
+@media(min-width:760px){.cards-grid{grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--c-border-soft);border-left:1px solid var(--c-border-soft)}}
+.card-cell{padding:36px 28px;border-right:1px solid var(--c-border-soft);border-bottom:1px solid var(--c-border-soft);display:flex;flex-direction:column;gap:20px;min-width:0}
+.card-cap{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.card-cap .lbl{font-family:var(--font-serif);font-weight:700;font-size:18px}
+.card-cap .meta{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--c-muted)}
+.card-actions{display:flex;gap:0;border-top:1px solid var(--c-border-soft)}
+.card-actions .btn{flex:1;min-width:0;border-right:1px solid var(--c-border-soft);background:transparent;color:var(--c-ink);border-top:0;border-bottom:0;border-left:0}
+.card-actions .btn:last-child{border-right:0}
+.card-actions .btn:hover,.card-actions .btn.primary:hover{background:var(--c-btn);color:var(--c-on-dark)}
+.card-actions .btn.primary{background:var(--c-btn);color:var(--c-on-dark)}
+.card-hint{margin-top:10px;font-family:var(--font-serif);font-size:12.5px;color:var(--c-muted);text-align:center}
+.card-image{display:block;width:100%;height:auto}
+.card-image-frame{background:transparent;border:1px solid var(--c-border-soft);overflow:hidden}
+.edit-backdrop{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.42);display:none;align-items:flex-end;justify-content:center}
+.edit-backdrop.show{display:flex}
+.edit-panel{width:min(720px,100%);max-height:88vh;overflow:auto;background:var(--c-bg);border:1px solid var(--c-border-soft);padding:28px}
+@media(min-width:760px){.edit-backdrop{align-items:center}.edit-panel{padding:36px}}
+.edit-panel h3{font-family:var(--font-serif);font-size:28px;margin:0 0 8px}
+.edit-panel p{margin:0 0 22px;color:var(--c-muted);font-size:14px}
+.edit-grid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:760px){.edit-grid.two{grid-template-columns:repeat(3,1fr)}}
+.edit-field label{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--c-muted);margin-bottom:6px}
+.edit-field input,.edit-field textarea{width:100%;border:1px solid var(--c-border-soft);background:rgba(255,255,255,.48);padding:10px 12px;font:inherit;color:var(--c-ink);outline:none}
+.edit-field textarea{min-height:86px;resize:vertical}
+.edit-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:22px}
+.render-head{padding:80px 0 56px;border-bottom:1px solid var(--c-border-soft);position:relative;overflow:hidden}
+.render-head-inner{display:grid;grid-template-columns:1fr;gap:32px;align-items:end}
+@media(min-width:760px){.render-head-inner{grid-template-columns:1fr auto}}
+.render-head h1{font-family:var(--font-serif);font-weight:700;font-size:clamp(40px,6vw,72px);line-height:1.05;letter-spacing:-.02em;margin:0 0 16px}
+.render-head h1 em{font-style:italic;font-weight:500;color:var(--c-btn)}
+.render-head p{margin:0;color:var(--c-muted);font-size:16px;max-width:520px;font-family:var(--font-serif);font-weight:300}
+.render-head .render-actions{display:flex;gap:0;border:1px solid var(--c-border-soft)}
+.render-head .render-actions .btn{border:0;border-right:1px solid var(--c-border-soft);background:transparent;color:var(--c-ink)}
+.render-head .render-actions .btn:last-child{border-right:0}
+.render-head .render-actions .btn:hover{background:var(--c-btn);color:var(--c-on-dark)}
+.render-head .render-actions .btn.primary{background:var(--c-btn);color:var(--c-on-dark)}
+.render-body{padding:64px 0 0}
+.result-cta{margin:96px 0 0;padding:64px 0;background:var(--c-btn);color:var(--c-on-dark)}
+.result-cta h2{font-family:var(--font-serif);font-size:clamp(34px,4.5vw,52px);line-height:1.1;margin:0 0 16px}
+.result-cta p{margin:0;font-family:var(--font-serif);font-weight:300;color:var(--c-on-dark-80);font-size:17px;max-width:560px}
+.result-cta .actions{display:flex;flex-direction:column;border:1px solid var(--c-on-dark-border);margin-top:28px;max-width:320px}
+.result-cta .actions .btn{border:0;border-bottom:1px solid var(--c-on-dark-border);background:transparent;color:var(--c-on-dark);justify-content:flex-start;padding:18px 24px}
+.result-cta .actions .btn:last-child{border-bottom:0}
+.result-cta .actions .btn.primary{background:var(--c-on-dark);color:var(--c-ink)}
+.render-foot{padding:48px 0;border-top:1px solid var(--c-border-soft)}
+.render-foot-inner{display:flex;justify-content:space-between;gap:18px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--c-muted)}
+@media(min-width:960px){.render-body .container{max-width:1480px}.card-cell{padding:30px 16px}}
+@media(max-width:760px){
+  .render-head{padding:36px 0 28px}
+  .render-head h1{font-size:34px}
+  .render-head .render-actions{display:none}
+  .render-body{padding:24px 0 0}
+  .cards-grid{display:flex;flex-direction:column;gap:36px;border:0}
+  .card-cell{padding:0;border:0}
+  .card-actions{border:1px solid var(--c-border-soft)}
+  .result-cta{margin-top:48px;padding:48px 0}
+}
+</style>
+</head>
+<body>
+<div class="archive-banner">这是旧版轻列传的存档页。新的司马迁.skill 只做一件事：把你是谁，整理成一式两份。 <a href="../index.html">回到首页</a></div>
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="lockup">
+      <span class="mark">司马迁.skill</span>
+      <span class="tag">旧版存档</span>
+    </div>
+    <a class="btn ghost" href="../index.html">回到首页</a>
+  </div>
+</nav>
+<section class="render-head">
+  <div class="container">
+    <div class="render-head-inner">
+      <div>
+        <div class="eyebrow" style="margin-bottom:18px">Personal Annal · 你的三张</div>
+        <h1>我的<em>三张轻列传</em>。</h1>
+        <p>长按或点击下载单张图。觉得不够像，点「修改一下」再分享。</p>
+      </div>
+      <div class="render-actions">
+        <button class="btn primary" id="downloadAll">下载全部</button>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="render-body">
+  <div class="container">
+    <div class="cards-grid" id="renderGrid"></div>
+  </div>
+</div>
+<section class="result-cta">
+  <div class="container">
+    <h2>这只是旧版存档。</h2>
+    <p>现在的司马迁.skill 会生成一份给 AI 的 persona，和一份给人看的个人主页。</p>
+    <div class="actions">
+      <a class="btn primary" href="../index.html">生成我的个人 OS</a>
+    </div>
+  </div>
+</section>
+<footer class="render-foot">
+  <div class="container">
+    <div class="render-foot-inner">
+      <span>司马迁.skill · 旧版轻列传</span>
+      <span>simaqian.caojuege.com</span>
+    </div>
+  </div>
+</footer>
+<script>
+function esc(s){return String(s||'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]))}
+const currentCards = new Map();
+const renderedCards = new Map();
+
+function cellHtml(c){
+  return `
+  <div class="card-cell" data-key="${c.style}">
+    <div class="card-cap">
+      <div class="lbl">${esc(c.title)}</div>
+      <div class="meta">${esc(c.label)}</div>
+    </div>
+    <div class="poster-shell">
+      <div class="card-image-frame"></div>
+    </div>
+    <div class="card-actions">
+      <button class="btn" data-action="edit" data-key="${c.style}">修改一下</button>
+      <button class="btn primary" data-action="download" data-key="${c.style}">保存图片</button>
+    </div>
+    <div class="card-hint"><b>手机可长按图片保存</b></div>
+  </div>`;
+}
+
+function revokeRendered(key){
+  const old = renderedCards.get(key);
+  if(old?.url) URL.revokeObjectURL(old.url);
+  renderedCards.delete(key);
+}
+
+async function renderOneCard(c){
+  currentCards.set(c.style, {...c});
+  const cell = document.querySelector(`.card-cell[data-key="${c.style}"]`);
+  const frame = cell?.querySelector('.card-image-frame');
+  if(!frame) return;
+  try{
+    const canvas = await LieZhuanCard.renderToCanvas(c, {ratio: 2.5});
+    canvas.className = 'card-image';
+    canvas.style.width = '100%';
+    canvas.style.height = 'auto';
+    frame.innerHTML = '';
+    frame.appendChild(canvas);
+    try{
+      const blob = await LieZhuanCard.renderToBlob(c, {ratio: 2.5});
+      if(blob){
+        revokeRendered(c.style);
+        renderedCards.set(c.style, {blob, url: URL.createObjectURL(blob)});
+      }
+    }catch(_){}
+  }catch(err){
+    console.error(err);
+    setCardHint(cell, '<b>图片生成失败</b>：请刷新后重试。');
+  }
+}
+
+function updateCardCaption(key){
+  const c = currentCards.get(key);
+  const cell = document.querySelector(`.card-cell[data-key="${key}"]`);
+  if(!c || !cell) return;
+  const title = cell.querySelector('.card-cap .lbl');
+  if(title) title.textContent = c.title || '';
+}
+
+function stableVolume(seed){
+  let h = 2166136261;
+  for(const ch of String(seed || '今人')){
+    h ^= ch.codePointAt(0);
+    h = Math.imul(h, 16777619);
+  }
+  return String(Math.abs(h % 999) + 1).padStart(3,'0');
+}
+
+function normaliseVolumeParam(v, seed){
+  const raw = String(v || '').trim();
+  if(!raw || raw === 'auto') return stableVolume(seed);
+  const digits = raw.match(/\d+/)?.[0];
+  if(!digits) return stableVolume(seed || raw);
+  return String(Math.max(1, Math.min(999, parseInt(digits, 10)))).padStart(3,'0');
+}
+
+function canonicaliseRenderHash(q, params){
+  const canonical = params.toString();
+  if(!canonical || canonical === q) return;
+  history.replaceState(null, '', `${location.pathname}${location.search}#render?${canonical}`);
+}
+
+function smartDecode(value){
+  if(value == null) return '';
+  let out = String(value);
+  for(let i = 0; i < 3 && /%[0-9A-Fa-f]{2}/.test(out); i++){
+    try{
+      const dec = decodeURIComponent(out);
+      if(dec === out) break;
+      out = dec;
+    }catch(_){ break; }
+  }
+  return out;
+}
+
+function parseCards(){
+  const hash = location.hash || '';
+  if(!hash.includes('render')) return null;
+  const q = hash.includes('?') ? hash.slice(hash.indexOf('?')+1) : '';
+  const params = new URLSearchParams(q);
+  if(params.get('v') !== '2') return null;
+  canonicaliseRenderHash(q, params);
+  const isTemplate = params.get('mode') === 'template';
+  const globalWarn = smartDecode(params.get('warn')) || (isTemplate ? '这是模板版——具体信息还不多，修改一下就是你的' : '');
+  const map = [
+    {style:'classic',legacy:'classic',prefix:'c1',label:'列传',watermark:'傳',volumeLabel:'列傳',sealChars:['司','馬','遷','撰'],fallbackTitle:'今人列传'},
+    {style:'roast',legacy:'roast',prefix:'c2',label:'毒撰',watermark:'毒',volumeLabel:'毒撰',sealChars:['司','馬','毒','撰'],fallbackTitle:'今人毒撰'},
+    {style:'diagnosis',legacy:'observer',prefix:'c3',label:'诊断',watermark:'診',volumeLabel:'診斷',sealChars:['太','史','診','斷'],fallbackTitle:'今人诊断'}
+  ];
+  const get = (m, field, fallback='') => smartDecode(params.get(`${m.prefix}_${field}`)) || smartDecode(params.get(`${m.legacy}_${field}`)) || fallback;
+  const titleSeed = map.map(m=>get(m,'title','')).filter(Boolean).join('|');
+  const seed = smartDecode(params.get('name')) || titleSeed || smartDecode(params.get('from_relation')) || q;
+  const volume = normaliseVolumeParam(params.get('volume'), seed);
+  return map.map(m=>({
+    ...m, volume,
+    title: get(m,'title', m.fallbackTitle),
+    chip1: get(m,'chip1', m.style === 'diagnosis' ? '未命名症' : '行路人'),
+    chip2: get(m,'chip2', m.style === 'diagnosis' ? '主诉不详' : '问学者'),
+    chip3: get(m,'chip3', m.style === 'diagnosis' ? '仍需复诊' : '造物者'),
+    quote: get(m,'quote', m.style === 'diagnosis' ? '症状即线索' : '向未知处行'),
+    p1: get(m,'p1', m.style === 'diagnosis' ? '症候：未命名之症。主诉：材料尚少，仍需补充具体事实与真实细节。' : '今人者，华夏人也。少习诸艺，长而问己，未竟之事尤多。'),
+    p2: get(m,'p2', m.style === 'diagnosis' ? '医嘱：少写形容词，多补一件真事；少求万能判断，先让朋友改两句。' : '其所求者，行远自迩，沉之为作。所好者深文，所厌者喧嚣。'),
+    taishi:get(m,'taishi', m.style === 'diagnosis' ? '信息太少，不宜草率确诊。' : '志之所趋，无远弗届。'),
+    warn:  globalWarn
+  }));
+}
+
+function setCardHint(cell, html){
+  const h=cell?.querySelector('.card-hint');
+  if(h) h.innerHTML=html;
+}
+function filenameFor(key){ return `simaqian-${key || 'card'}.png`; }
+
+async function getCardBlob(key){
+  const cached = renderedCards.get(key);
+  if(cached?.blob) return cached.blob;
+  const data = currentCards.get(key);
+  if(!data) return null;
+  const blob = await LieZhuanCard.renderToBlob(data, {ratio: 2.5});
+  renderedCards.set(key, {blob, url: URL.createObjectURL(blob)});
+  return blob;
+}
+
+async function downloadCard(key){
+  const cell=document.querySelector(`.card-cell[data-key="${key}"]`);
+  try{
+    setCardHint(cell, '<b>正在生成</b>：准备图片中。');
+    const blob = await getCardBlob(key);
+    if(!blob) throw new Error('missing card blob');
+    const url = URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=url; a.download=filenameFor(key); a.rel='noopener';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url), 5000);
+    setCardHint(cell, '<b>已下载</b>：如果浏览器拦截下载，请右键/长按上方图片保存。');
+  }catch(err){
+    console.error(err);
+    setCardHint(cell, '<b>保存失败</b>：请右键/长按上方图片保存。');
+  }
+}
+
+async function downloadAllCards(){
+  for(const key of ['classic','roast','diagnosis','observer'].filter(k=>currentCards.has(k))){
+    await downloadCard(key);
+    await new Promise(r=>setTimeout(r,350));
+  }
+}
+
+function editFields(){
+  return [
+    ['title','标题','input'], ['chip1','标签一','input'], ['chip2','标签二','input'], ['chip3','标签三','input'],
+    ['quote','引言','input'], ['p1','第一段','textarea'], ['p2','第二段','textarea'], ['taishi','太史公曰','textarea']
+  ];
+}
+
+function ensureEditPanel(){
+  let panel = document.getElementById('editBackdrop');
+  if(panel) return panel;
+  panel = document.createElement('div');
+  panel.id = 'editBackdrop';
+  panel.className = 'edit-backdrop';
+  panel.innerHTML = `
+    <div class="edit-panel" role="dialog" aria-modal="true" aria-labelledby="editTitle">
+      <h3 id="editTitle">修改一下</h3>
+      <p>改完后会重新生成这张图片。建议只改最不像你的两三处。</p>
+      <div class="edit-grid two" id="editShortFields"></div>
+      <div class="edit-grid" id="editLongFields" style="margin-top:14px"></div>
+      <div class="edit-actions">
+        <button class="btn ghost" data-edit-cancel>取消</button>
+        <button class="btn primary" data-edit-save>重新生成图片</button>
+      </div>
+    </div>`;
+  document.body.appendChild(panel);
+  panel.addEventListener('click', e=>{
+    if(e.target === panel || e.target.closest('[data-edit-cancel]')) closeEditPanel();
+    if(e.target.closest('[data-edit-save]')) saveEditPanel();
+  });
+  return panel;
+}
+
+let editingKey = null;
+function openEditPanel(key){
+  const data = currentCards.get(key);
+  if(!data) return;
+  editingKey = key;
+  const panel = ensureEditPanel();
+  const shortBox = panel.querySelector('#editShortFields');
+  const longBox = panel.querySelector('#editLongFields');
+  shortBox.innerHTML = '';
+  longBox.innerHTML = '';
+  for(const [name,label,type] of editFields()){
+    const wrap = document.createElement('div');
+    wrap.className = 'edit-field';
+    const value = data[name] || '';
+    if(type === 'textarea'){
+      wrap.innerHTML = `<label>${label}</label><textarea data-edit-field="${name}"></textarea>`;
+      wrap.querySelector('textarea').value = value;
+      longBox.appendChild(wrap);
+    }else{
+      wrap.innerHTML = `<label>${label}</label><input data-edit-field="${name}" />`;
+      wrap.querySelector('input').value = value;
+      shortBox.appendChild(wrap);
+    }
+  }
+  panel.classList.add('show');
+  panel.querySelector('[data-edit-field="quote"]')?.focus();
+}
+function closeEditPanel(){
+  document.getElementById('editBackdrop')?.classList.remove('show');
+  editingKey = null;
+}
+async function saveEditPanel(){
+  if(!editingKey) return;
+  const key = editingKey;
+  const panel = ensureEditPanel();
+  const data = {...(currentCards.get(key) || {})};
+  panel.querySelectorAll('[data-edit-field]').forEach(el=>{
+    data[el.dataset.editField] = el.value.trim();
+  });
+  currentCards.set(key, data);
+  updateCardCaption(key);
+  closeEditPanel();
+  await renderOneCard(data);
+  setCardHint(document.querySelector(`.card-cell[data-key="${key}"]`), '<b>已更新</b>：可以长按保存，或点「保存图片」。');
+}
+
+document.addEventListener('click', async e=>{
+  const act = e.target.closest('[data-action]');
+  if(act){
+    if(act.dataset.action==='download') downloadCard(act.dataset.key);
+    if(act.dataset.action==='edit') openEditPanel(act.dataset.key);
+  }
+  if(e.target.closest('#downloadAll')) downloadAllCards();
+});
+
+(function route(){
+  const cards = parseCards();
+  if(!cards){
+    document.getElementById('renderGrid').innerHTML = '<p style="padding:48px 0;color:#5c5e60">没有可解析的旧版链接。请从原来的卡片二维码进入，或 <a href="../index.html" style="border-bottom:1px solid currentColor">回到首页</a>。</p>';
+    return;
+  }
+  document.getElementById('renderGrid').innerHTML = cards.map(cellHtml).join('');
+  cards.forEach(c => renderOneCard(c));
+})();
+</script>
+</body>
+</html>
