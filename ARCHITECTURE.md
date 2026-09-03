@@ -36,7 +36,10 @@ simaqian/
 └── docs/
     ├── DEVELOPMENT-PLAN-v1.md
     ├── landing-hero.jpg          README：落地页首屏
-    └── homepage-fold.jpg         README：persona 主页第一屏
+    ├── homepage-fold.jpg         README：persona 主页第一屏
+    ├── preview-01-renaissance.jpg  方案 B 预览：默认文艺复兴
+    ├── preview-01-caojuege.jpg     方案 B 预览：草诀歌报纸
+    └── preview-01-mobile.jpg       方案 B 预览：手机
 ```
 
 用户产物目录：
