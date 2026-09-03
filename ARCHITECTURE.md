@@ -27,7 +27,8 @@ simaqian/
 ├── landing/              simaqian.caojuege.com
 │   ├── index.html · styles.css   落地页：定位 / 产物 / 开始 / 更新 / 旧式页脚
 │   ├── fonts/                    水印自托管 Noto Serif SC 900 子集（列傳遷）
-│   ├── davidli-fold.jpg          真实主页完整第一屏
+│   ├── davidli-fold.jpg          文艺复兴主页完整第一屏
+│   ├── caojuege-fold.jpg         草诀歌主页完整第一屏
 │   ├── legacy/render.html        旧版卡片结果页，不断链
 │   └── legacy/card.js            Canvas 渲染器
 ├── scripts/export-homepage.mjs   Playwright：主页 → PDF + 长图
@@ -61,6 +62,7 @@ SKILL.md ──→ references/*.md ──→ assets/*-template.*
 
 landing/index.html ──→ landing/styles.css
                  │                 └──→ landing/fonts/noto-serif-sc-900-wm.woff2
+                 ├──→ landing/davidli-fold.jpg · caojuege-fold.jpg
                  └──→ landing/legacy/render.html  （#render 跳转）
                               └──→ landing/legacy/card.js
 ```

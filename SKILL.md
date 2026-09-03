@@ -127,7 +127,7 @@ npm run export:homepage
 | `persona-agent.md` | 源 | AI · 自己 |
 | `persona-agent.compact.md` | 投影 · ≤2000 token | CLAUDE.md / 自定义指令 |
 | `calibration.md` | 投影 · 校准题+期望答案 | 换模型时测「它懂不懂我」 |
-| `bios.md` | 投影 · 一句 / 三句 / 一段 × 一三人称 | 微信、活动、简历 |
+| `bios.md` | 投影 · 短介绍 / 长介绍 | 社媒、活动 |
 | `personal-homepage.html` | 投影 · 合作入口 | 人 |
 | `materials.md` | 台账 · 只追加 | 更新时用 |
 

@@ -19,7 +19,7 @@
 ├── persona-agent.md              源 · 给 AI 的人物档案
 ├── persona-agent.compact.md      投影 · 给 CLAUDE.md / 自定义指令
 ├── calibration.md                投影 · 换模型时测「它懂不懂你」
-├── bios.md                       投影 · 一句 / 三句 / 一段 × 一三人称
+├── bios.md                       投影 · 短介绍 / 长介绍
 ├── personal-homepage.html        投影 · 给合作方的个人主页
 ├── materials.md                  台账 · 只追加
 ├── materials/
