@@ -96,14 +96,22 @@ h1{font-family:var(--serif);font-size:clamp(32px,5vw,56px);line-height:.98;margi
 }
 
 /* ========== 方案二 拓片 ========== */
-.split{display:grid;grid-template-columns:minmax(280px,42%) 1fr;min-height:520px}
+.split{display:grid;grid-template-columns:minmax(220px,280px) 1fr;min-height:520px}
 .split .md{min-height:100%}
-.split-right{display:flex;flex-direction:column;background:rgba(255,255,255,.28)}
-.split-tabs{display:flex;border-bottom:1px solid var(--hair);flex-wrap:wrap}
-.split-tabs button{flex:1;border:0;border-right:1px solid var(--hair);background:transparent;padding:12px 8px;font-family:var(--serif);font-size:14px;color:var(--muted)}
-.split-tabs button.on{background:var(--ink);color:var(--on)}
-.split-view{flex:1;padding:18px}
-@media(max-width:860px){.split{grid-template-columns:1fr}}
+.split-right{display:flex;flex-direction:column;background:rgba(255,255,255,.28);min-width:0}
+.split-view{flex:1;min-height:240px}
+.peeks{border-top:1px solid var(--hair);display:flex;flex-direction:column}
+.peek{display:grid;grid-template-columns:136px minmax(0,1fr);gap:14px;align-items:baseline;width:100%;padding:13px 18px;border:0;border-bottom:1px solid var(--hair);background:transparent;text-align:left;color:inherit;cursor:pointer}
+.peek:last-child{border-bottom:0}
+.peek:hover{background:rgba(255,255,255,.72)}
+.peek.on{background:#fff;box-shadow:inset 2px 0 0 var(--ink)}
+.peek .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.peek .v{font-family:var(--serif);font-size:14.5px;line-height:1.55}
+@media(max-width:860px){
+  .split{grid-template-columns:1fr}
+  .split-right{order:-1}
+  .peek{grid-template-columns:1fr;gap:5px}
+}
 
 /* ========== 方案三 篇幅尺 ========== */
 .ruler{padding:22px}
@@ -152,14 +160,14 @@ h1{font-family:var(--serif);font-size:clamp(32px,5vw,56px);line-height:.98;margi
   </header>
 
   <nav class="nav" aria-label="方案">
-    <button data-scheme="desk" class="active">一 · 案头</button>
-    <button data-scheme="split">二 · 拓片</button>
+    <button data-scheme="desk">一 · 案头</button>
+    <button data-scheme="split" class="active">二 · 拓片</button>
     <button data-scheme="ruler">三 · 篇幅尺</button>
     <button data-scheme="dos">四 · 卷宗</button>
   </nav>
 
   <!-- 1 -->
-  <section class="screen on" id="scheme-desk">
+  <section class="screen" id="scheme-desk">
     <p class="note"><b>方案一 · 案头。</b>底稿是桌上那叠发黑的手稿，主页、签名、简介、介绍是已经印出来的纸片。没有箭头。映射靠点选：点四周，底稿里被用到的句子会亮；点底稿里的一节，就跳到最贴那一节的场合。</p>
     <div class="panel desk">
       <div class="desk-grid">
@@ -178,16 +186,16 @@ h1{font-family:var(--serif);font-size:clamp(32px,5vw,56px);line-height:.98;margi
   </section>
 
   <!-- 2 -->
-  <section class="screen" id="scheme-split">
-    <p class="note"><b>方案二 · 拓片对照。</b>左源右印。左边永远是 markdown，右边是当前场合。这是编译器，不是信息图。最直观，也最好做进落地页的窄屏。</p>
+  <section class="screen on" id="scheme-split">
+    <p class="note"><b>方案二 · 拓片对照 · 落地页采用。</b>底稿收窄。右边默认个人主页。下面四条是真实文案，不是空标签——不用点也能看见四种篇幅。悬停点亮底稿；点一条，看完整拓片。手机上先看拓片，底稿沉到下面。</p>
     <div class="panel split">
       <div class="md">
-        <div class="hd"><span>persona-agent.md</span><span>只改这一份</span></div>
+        <div class="hd"><span>persona-agent.md</span><span>底稿</span></div>
         <div class="body" data-md></div>
       </div>
       <div class="split-right">
-        <div class="split-tabs" data-tabs></div>
         <div class="split-view" data-expand></div>
+        <div class="peeks" data-peeks></div>
       </div>
     </div>
   </section>
@@ -287,10 +295,10 @@ const DESTS = {
 };
 
 const TABS = [
-  ['home','个人主页','一屏'],
-  ['sign','签名','16 字'],
-  ['bio','简介','80 字'],
-  ['guest','介绍','220 字']
+  ['home','个人主页','一屏','身份、标题、一段简介。判断原则不进首屏。'],
+  ['sign','签名','16 字','以产品为笔，和世界对话。'],
+  ['bio','简介','80 字','我是 David，草诀歌 AI Labs 发起人。做过翻译、产品和 LanguageX。'],
+  ['guest','介绍','220 字','韶华 David，前翻译、记者、产品经理。判断原则终于可以露面。']
 ];
 
 function highlight(root, srcs){
@@ -328,17 +336,27 @@ function mountDesk(){
 function mountSplit(){
   const root = document.getElementById('scheme-split');
   root.querySelector('[data-md]').innerHTML = MD;
-  root.querySelector('[data-tabs]').innerHTML = TABS.map(([id,l,n])=>`<button data-dest="${id}">${l}<br><small style="opacity:.65;font-family:var(--mono);font-size:10px;letter-spacing:.12em">${n}</small></button>`).join('');
+  root.querySelector('[data-peeks]').innerHTML = TABS.map(([id,l,n,v])=>`<button class="peek" data-dest="${id}" type="button"><span class="k">${l} · ${n}</span><span class="v">${v}</span></button>`).join('');
+  let current = 'home';
   const setDest = (id) => {
+    current = id;
     root.querySelectorAll('[data-dest]').forEach(b => b.classList.toggle('on', b.dataset.dest===id));
     highlight(root, DESTS[id].src);
     root.querySelector('[data-expand]').innerHTML = DESTS[id].html;
   };
-  root.querySelector('[data-tabs]').addEventListener('click', e => {
+  root.querySelector('[data-peeks]').addEventListener('click', e => {
     const b = e.target.closest('[data-dest]'); if(b) setDest(b.dataset.dest);
   });
+  root.querySelector('[data-peeks]').addEventListener('pointerover', e => {
+    if(window.matchMedia('(hover: none)').matches) return;
+    const b = e.target.closest('[data-dest]'); if(b) highlight(root, DESTS[b.dataset.dest].src);
+  });
+  root.querySelector('[data-peeks]').addEventListener('pointerout', e => {
+    if(e.relatedTarget && root.querySelector('[data-peeks]').contains(e.relatedTarget)) return;
+    highlight(root, DESTS[current].src);
+  });
   bindMdClicks(root, setDest);
-  setDest('sign');
+  setDest('home');
 }
 
 function mountRuler(){

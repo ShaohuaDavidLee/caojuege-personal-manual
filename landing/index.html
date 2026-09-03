@@ -531,42 +531,30 @@ body.render-mode #landing{display:none}
 .fine-materials li::before{content:"—";color:var(--c-muted);margin-right:8px}
 .fine-prompt + .fine-prompt{margin-top:18px}
 
-/* ===== Persona map · 底稿四散 ===== */
+/* ===== Persona map · 拓片对照 ===== */
 .persona-map{margin-bottom:56px}
-.persona-map .map-legend{font-family:var(--font-serif);font-weight:300;font-size:17px;line-height:1.8;color:var(--c-muted);max-width:62ch;margin:0 0 28px}
+.persona-map .map-legend{font-family:var(--font-serif);font-weight:300;font-size:17px;line-height:1.8;color:var(--c-muted);max-width:64ch;margin:0 0 28px}
 .persona-map .map-legend em{font-style:italic;color:var(--c-ink)}
-.persona-map .map-legend code{font-family:var(--font-mono);font-size:13px;background:rgba(71,73,75,.08);padding:1px 6px}
-.map-stage{
-  display:grid;
-  grid-template-columns:minmax(200px,260px) minmax(300px,400px) minmax(200px,260px);
-  grid-template-areas:". north ." "west core east" ". south .";
-  gap:14px 18px;align-items:stretch;justify-content:center
-}
-.map-core{grid-area:core;display:flex;flex-direction:column;background:#1a1a1a;color:#d4d4d4;border:1px solid #1a1a1a;min-height:420px}
-.map-core-head{display:flex;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--c-on-dark-border);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--c-on-dark-60);font-family:var(--font-mono)}
+.split-stage{display:grid;grid-template-columns:minmax(220px,280px) minmax(0,1fr);border:1px solid var(--c-border-soft);align-items:stretch;background:rgba(255,255,255,.22)}
+.map-core{display:flex;flex-direction:column;background:#1a1a1a;color:#d4d4d4;min-height:520px;min-width:0}
+.map-core-head{display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border-bottom:1px solid var(--c-on-dark-border);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--c-on-dark-60);font-family:var(--font-mono)}
 .map-core-head .name{color:var(--c-on-dark-80)}
-.map-md{padding:18px 20px 22px;font-family:var(--font-mono);font-size:12.5px;line-height:1.95;flex:1}
+.map-md{padding:14px 12px 18px;font-family:var(--font-mono);font-size:11.5px;line-height:1.9;flex:1}
 .map-md .md-h{color:#7ab2d4;font-weight:700}
 .map-md .md-quote{color:#7da46a;font-style:italic}
 .map-md .md-list,.map-md .md-num{color:#c89178}
-.map-md .md-blk{padding:8px 10px;margin:0 -10px 4px;border-left:2px solid transparent;cursor:pointer;opacity:.48;transition:background .25s,border-color .25s,opacity .25s}
+.map-md .md-blk{padding:7px 8px;margin:0 -8px 3px;border-left:2px solid transparent;cursor:pointer;opacity:.48;transition:background .25s,border-color .25s,opacity .25s}
 .map-md .md-blk:hover{opacity:.85;background:rgba(255,255,255,.05)}
 .map-md .md-blk.on{opacity:1;background:rgba(255,255,255,.10);border-left-color:var(--c-on-dark)}
-.map-sat{border:1px solid var(--c-border-soft);background:rgba(255,255,255,.55);padding:18px 20px;text-align:left;color:inherit;transition:background .3s,border-color .3s}
-.map-sat:hover{background:#fff}
-.map-sat.on{background:#fff;border-color:var(--c-ink)}
-.map-sat .k{display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--c-muted);margin-bottom:10px}
-.map-sat b{display:block;font-family:var(--font-serif);font-size:20px;font-weight:700;letter-spacing:-.01em;margin:0 0 8px}
-.map-sat p{margin:0;font-family:var(--font-serif);font-size:13.5px;line-height:1.65;color:var(--c-muted);font-weight:300}
-.map-sat[data-dest="home"]{grid-area:north}
-.map-sat[data-dest="sign"]{grid-area:west}
-.map-sat[data-dest="guest"]{grid-area:east}
-.map-sat[data-dest="bio"]{grid-area:south}
-.map-chips{display:none;gap:0;margin-top:14px;border:1px solid var(--c-border-soft);flex-wrap:wrap}
-.map-chips button{flex:1;min-width:25%;border:0;border-right:1px solid var(--c-border-soft);background:transparent;padding:12px 10px;font-family:var(--font-serif);font-size:14px;color:var(--c-muted);white-space:nowrap}
-.map-chips button:last-child{border-right:0}
-.map-chips button.on{background:var(--c-ink);color:var(--c-on-dark)}
-.map-expand{margin-top:16px;border:1px solid var(--c-border-soft);background:rgba(255,255,255,.48);overflow:hidden}
+.split-main{display:flex;flex-direction:column;min-width:0;background:rgba(255,255,255,.38)}
+.map-expand{margin:0;border:0;flex:1;min-height:260px;overflow:hidden;background:transparent}
+.map-peeks{border-top:1px solid var(--c-border-soft);display:flex;flex-direction:column}
+.map-peek{display:grid;grid-template-columns:136px minmax(0,1fr);gap:14px;align-items:baseline;width:100%;padding:13px 18px;border:0;border-bottom:1px solid var(--c-border-soft);background:transparent;text-align:left;color:inherit;cursor:pointer}
+.map-peek:last-child{border-bottom:0}
+.map-peek:hover{background:rgba(255,255,255,.72)}
+.map-peek.on{background:#fff;box-shadow:inset 2px 0 0 var(--c-ink)}
+.map-peek .k{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--c-muted);white-space:nowrap}
+.map-peek .v{font-family:var(--font-serif);font-size:14.5px;line-height:1.55;color:var(--c-ink);font-weight:400;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .map-home{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;padding:26px 26px 22px;background:#f7f7f4;color:#26251e}
 .map-home .mh-badge{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#c08532;border:1px solid rgba(192,133,50,.32);padding:5px 10px}
 .map-home .mh-badge i{width:6px;height:6px;border-radius:50%;background:#f54e00;display:block}
@@ -584,12 +572,14 @@ body.render-mode #landing{display:none}
 .map-cap{padding:14px 22px 16px;border-top:1px solid var(--c-border-soft);font-family:var(--font-serif);font-size:13px;color:var(--c-muted);line-height:1.7;background:rgba(255,255,255,.55)}
 .map-cap b{font-weight:500;color:var(--c-ink)}
 @media(max-width:860px){
-  .map-stage{grid-template-columns:1fr;grid-template-areas:"core"}
-  .map-sat{display:none}
-  .map-chips{display:flex}
+  .split-stage{grid-template-columns:1fr}
+  .split-main{order:-1}
   .map-core{min-height:0}
+  .map-peek{grid-template-columns:1fr;gap:5px;padding:12px 16px}
+  .map-peek .k{white-space:normal}
   .map-home{grid-template-columns:1fr}
   .map-photo{min-height:140px}
+  .map-expand{min-height:0}
 }
 
 /* ===== Responsive tweaks ===== */
@@ -814,22 +804,12 @@ body.render-mode #landing{display:none}
       </div>
 
       <div class="persona-map" id="personaMap">
-        <p class="map-legend">点四周的纸片，底稿里被用到的句子会亮起来。点底稿里的一节，就跳到最贴那一节的场合。<a href="./persona-map-lab.html" style="border-bottom:1px solid var(--c-border-strong)">另外三案对照</a></p>
-        <div class="map-stage">
-          <button class="map-sat" data-dest="home" type="button">
-            <span class="k">给人看 · 一屏</span>
-            <b>个人主页</b>
-            <p>以产品为笔，和世界对话。</p>
-          </button>
-          <button class="map-sat" data-dest="sign" type="button">
-            <span class="k">微信 / 小红书 · 16 字</span>
-            <b>签名</b>
-            <p>只取那一句。场合不够长。</p>
-          </button>
+        <p class="map-legend">四种篇幅同时写在右边，<em>不用点也能看见映射</em>。点一条看完整拓片；悬停会点亮底稿里被用到的句子。<a href="./persona-map-lab.html" style="border-bottom:1px solid var(--c-border-strong)">另外三案</a></p>
+        <div class="split-stage">
           <div class="map-core">
             <div class="map-core-head">
               <span>persona-agent.md</span>
-              <span class="name">Source · 底稿</span>
+              <span class="name">底稿</span>
             </div>
             <div class="map-md">
               <div class="md-blk" data-src="who"><span class="md-h"># 我是谁</span></div>
@@ -851,24 +831,28 @@ body.render-mode #landing{display:none}
               </div>
             </div>
           </div>
-          <button class="map-sat" data-dest="guest" type="button">
-            <span class="k">活动手册 · 第三人称</span>
-            <b>嘉宾介绍</b>
-            <p>判断原则终于可以露面。</p>
-          </button>
-          <button class="map-sat" data-dest="bio" type="button">
-            <span class="k">公众号 / 群 · 80 字</span>
-            <b>简介</b>
-            <p>一句话的意思，加上做过什么。</p>
-          </button>
+          <div class="split-main">
+            <div class="map-expand" id="personaExpand"></div>
+            <div class="map-peeks">
+              <button class="map-peek" data-dest="home" type="button">
+                <span class="k">个人主页 · 一屏</span>
+                <span class="v">身份、标题、一段简介。判断原则不进首屏。</span>
+              </button>
+              <button class="map-peek" data-dest="sign" type="button">
+                <span class="k">签名 · 16 字</span>
+                <span class="v">以产品为笔，和世界对话。</span>
+              </button>
+              <button class="map-peek" data-dest="bio" type="button">
+                <span class="k">简介 · 80 字</span>
+                <span class="v">我是 David，草诀歌 AI Labs 发起人。做过翻译、产品和 LanguageX。</span>
+              </button>
+              <button class="map-peek" data-dest="guest" type="button">
+                <span class="k">介绍 · 220 字</span>
+                <span class="v">韶华 David，前翻译、记者、产品经理。判断原则终于可以露面。</span>
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="map-chips" id="personaChips">
-          <button data-dest="home" type="button">主页</button>
-          <button data-dest="sign" type="button">签名</button>
-          <button data-dest="bio" type="button">简介</button>
-          <button data-dest="guest" type="button">介绍</button>
-        </div>
-        <div class="map-expand" id="personaExpand"></div>
       </div>
 
       <div class="fine-materials">
@@ -1784,12 +1768,21 @@ const PERSONA_DESTS = {
 };
 const PERSONA_SRC_TO_DEST = {who:'home', oneliner:'sign', facts:'bio', principles:'guest'};
 
+let personaDest = 'home';
+function highlightPersonaSrc(srcs){
+  const map = document.getElementById('personaMap');
+  if(!map) return;
+  map.querySelectorAll('[data-src]').forEach(el => {
+    el.classList.toggle('on', srcs.includes(el.dataset.src));
+  });
+}
 function setPersonaDest(id){
   const map = document.getElementById('personaMap');
   const dest = PERSONA_DESTS[id];
   if(!map || !dest) return;
+  personaDest = id;
   map.querySelectorAll('[data-dest]').forEach(el => el.classList.toggle('on', el.dataset.dest===id));
-  map.querySelectorAll('[data-src]').forEach(el => el.classList.toggle('on', dest.src.includes(el.dataset.src)));
+  highlightPersonaSrc(dest.src);
   const box = document.getElementById('personaExpand');
   if(box) box.innerHTML = dest.html;
 }
@@ -1802,6 +1795,17 @@ function setPersonaDest(id){
     if(dest){ setPersonaDest(dest.dataset.dest); return; }
     const src = e.target.closest('[data-src]');
     if(src) setPersonaDest(PERSONA_SRC_TO_DEST[src.dataset.src] || 'home');
+  });
+  map.addEventListener('pointerover', e => {
+    if(window.matchMedia('(hover: none)').matches) return;
+    const peek = e.target.closest('.map-peek[data-dest]');
+    if(!peek) return;
+    const dest = PERSONA_DESTS[peek.dataset.dest];
+    if(dest) highlightPersonaSrc(dest.src);
+  });
+  map.addEventListener('pointerout', e => {
+    if(e.relatedTarget && map.contains(e.relatedTarget) && e.relatedTarget.closest('.map-peek')) return;
+    highlightPersonaSrc(PERSONA_DESTS[personaDest].src);
   });
   setPersonaDest('home');
 })();
