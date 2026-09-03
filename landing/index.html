@@ -536,6 +536,11 @@ body.render-mode #landing{display:none}
 .persona-map .map-legend{font-family:var(--font-serif);font-weight:300;font-size:17px;line-height:1.8;color:var(--c-muted);max-width:64ch;margin:0 0 28px}
 .persona-map .map-legend em{font-style:italic;color:var(--c-ink)}
 .split-stage{display:grid;grid-template-columns:minmax(220px,280px) minmax(0,1fr);border:1px solid var(--c-border-soft);align-items:stretch;background:rgba(255,255,255,.22)}
+@media(min-width:861px){
+  .split-stage{grid-template-columns:minmax(220px,280px) minmax(0,1fr)}
+  .split-main{order:0}
+  .map-core{order:0}
+}
 .map-core{display:flex;flex-direction:column;background:#1a1a1a;color:#d4d4d4;min-height:520px;min-width:0}
 .map-core-head{display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border-bottom:1px solid var(--c-on-dark-border);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--c-on-dark-60);font-family:var(--font-mono)}
 .map-core-head .name{color:var(--c-on-dark-80)}
@@ -803,7 +808,7 @@ body.render-mode #landing{display:none}
       </div>
 
       <div class="persona-map" id="personaMap">
-        <p class="map-legend">左边底稿，右边拓片。横向四个场合：主页、签名、简介、介绍。默认先看个人主页；点标签或点底稿里的一节，看它如何展开。<a href="./persona-map-lab.html" style="border-bottom:1px solid var(--c-border-strong)">另外三案</a></p>
+        <p class="map-legend">电脑和手机都是同一份拓片：左边底稿，右边印出来的场合。横向四个标签——主页、签名、简介、介绍。默认个人主页；点标签或点底稿里的一节，看它如何展开。</p>
         <div class="split-stage">
           <div class="map-core">
             <div class="map-core-head">
