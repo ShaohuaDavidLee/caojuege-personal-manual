@@ -32,7 +32,10 @@ simaqian/
 │   └── legacy/card.js            Canvas 渲染器
 ├── scripts/export-homepage.mjs   Playwright：主页 → PDF + 长图
 ├── tests/                export + VERSION 一致性
-└── docs/DEVELOPMENT-PLAN-v1.md
+└── docs/
+    ├── DEVELOPMENT-PLAN-v1.md
+    ├── landing-hero.jpg          README：落地页首屏
+    └── homepage-fold.jpg         README：persona 主页第一屏
 ```
 
 用户产物目录：

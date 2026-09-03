@@ -8,13 +8,9 @@
 
 打开：<https://simaqian.caojuege.com>
 
-本地预览不要用 `file://`，也不要从家目录起服务。在仓库根目录：
+![司马迁.skill 落地页](docs/landing-hero.jpg)
 
-```bash
-npm run preview
-```
-
-浏览器打开 <http://127.0.0.1:8765/> 。页面在 `landing/`，根路径会自动跳过去。若自己加了 `--directory landing`，地址不要再写成 `/landing/`。
+![由 persona 写成的个人主页](docs/homepage-fold.jpg)
 
 ## 你会得到什么
 
