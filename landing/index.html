@@ -531,6 +531,66 @@ body.render-mode #landing{display:none}
 .fine-materials li::before{content:"—";color:var(--c-muted);margin-right:8px}
 .fine-prompt + .fine-prompt{margin-top:18px}
 
+/* ===== Persona map · 底稿四散 ===== */
+.persona-map{margin-bottom:56px}
+.persona-map .map-legend{font-family:var(--font-serif);font-weight:300;font-size:17px;line-height:1.8;color:var(--c-muted);max-width:62ch;margin:0 0 28px}
+.persona-map .map-legend em{font-style:italic;color:var(--c-ink)}
+.persona-map .map-legend code{font-family:var(--font-mono);font-size:13px;background:rgba(71,73,75,.08);padding:1px 6px}
+.map-stage{
+  display:grid;
+  grid-template-columns:minmax(200px,260px) minmax(300px,400px) minmax(200px,260px);
+  grid-template-areas:". north ." "west core east" ". south .";
+  gap:14px 18px;align-items:stretch;justify-content:center
+}
+.map-core{grid-area:core;display:flex;flex-direction:column;background:#1a1a1a;color:#d4d4d4;border:1px solid #1a1a1a;min-height:420px}
+.map-core-head{display:flex;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--c-on-dark-border);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--c-on-dark-60);font-family:var(--font-mono)}
+.map-core-head .name{color:var(--c-on-dark-80)}
+.map-md{padding:18px 20px 22px;font-family:var(--font-mono);font-size:12.5px;line-height:1.95;flex:1}
+.map-md .md-h{color:#7ab2d4;font-weight:700}
+.map-md .md-quote{color:#7da46a;font-style:italic}
+.map-md .md-list,.map-md .md-num{color:#c89178}
+.map-md .md-blk{padding:8px 10px;margin:0 -10px 4px;border-left:2px solid transparent;cursor:pointer;transition:background .25s,border-color .25s}
+.map-md .md-blk.on{background:rgba(255,255,255,.08);border-left-color:var(--c-on-dark-80)}
+.map-sat{border:1px solid var(--c-border-soft);background:rgba(255,255,255,.55);padding:18px 20px;text-align:left;color:inherit;transition:background .3s,border-color .3s}
+.map-sat:hover{background:#fff}
+.map-sat.on{background:#fff;border-color:var(--c-ink)}
+.map-sat .k{display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--c-muted);margin-bottom:10px}
+.map-sat b{display:block;font-family:var(--font-serif);font-size:20px;font-weight:700;letter-spacing:-.01em;margin:0 0 8px}
+.map-sat p{margin:0;font-family:var(--font-serif);font-size:13.5px;line-height:1.65;color:var(--c-muted);font-weight:300}
+.map-sat[data-dest="home"]{grid-area:north}
+.map-sat[data-dest="sign"]{grid-area:west}
+.map-sat[data-dest="guest"]{grid-area:east}
+.map-sat[data-dest="bio"]{grid-area:south}
+.map-chips{display:none;gap:0;margin-top:14px;border:1px solid var(--c-border-soft);flex-wrap:wrap}
+.map-chips button{flex:1;min-width:25%;border:0;border-right:1px solid var(--c-border-soft);background:transparent;padding:12px 10px;font-family:var(--font-serif);font-size:14px;color:var(--c-muted)}
+.map-chips button:last-child{border-right:0}
+.map-chips button.on{background:var(--c-ink);color:var(--c-on-dark)}
+.map-expand{margin-top:16px;border:1px solid var(--c-border-soft);background:rgba(255,255,255,.48);overflow:hidden}
+.map-home{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;padding:26px 26px 22px;background:#f7f7f4;color:#26251e}
+.map-home .mh-badge{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#c08532;border:1px solid rgba(192,133,50,.32);padding:5px 10px}
+.map-home .mh-badge i{width:6px;height:6px;border-radius:50%;background:#f54e00;display:block}
+.map-home .mh-tags{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 14px}
+.map-home .mh-tags span{font-size:11px;border:1px solid rgba(38,37,30,.14);padding:3px 10px;border-radius:999px;color:#4a4636}
+.map-home h4{font-family:var(--font-serif);font-size:clamp(22px,2.4vw,32px);line-height:1.15;margin:0 0 10px;letter-spacing:-.02em}
+.map-home h4 em{font-style:italic;color:#b3003f}
+.map-home .mh-bio{margin:0;font-size:13.5px;line-height:1.75;color:#4a4636;max-width:46ch}
+.map-photo{background:linear-gradient(160deg,#3a1c1c 0%,#6a2b2b 42%,#2c3a28 100%);position:relative;min-height:180px}
+.map-photo span{position:absolute;left:12px;bottom:12px;font-family:var(--font-serif);font-style:italic;font-size:13px;color:#f0e8d8;background:rgba(28,20,12,.55);padding:5px 12px}
+.map-typeset{padding:32px 32px 28px;background:#f4efe4}
+.map-typeset .k{font-family:var(--font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--c-muted);margin-bottom:16px}
+.map-typeset .line{font-family:var(--font-serif);font-style:italic;font-size:clamp(24px,3.2vw,40px);line-height:1.35;display:block;color:var(--c-ink)}
+.map-typeset p{margin:0;font-family:var(--font-serif);font-size:17px;line-height:1.85;max-width:60ch}
+.map-cap{padding:14px 22px 16px;border-top:1px solid var(--c-border-soft);font-family:var(--font-serif);font-size:13px;color:var(--c-muted);line-height:1.7;background:rgba(255,255,255,.55)}
+.map-cap b{font-weight:500;color:var(--c-ink)}
+@media(max-width:860px){
+  .map-stage{grid-template-columns:1fr;grid-template-areas:"core"}
+  .map-sat{display:none}
+  .map-chips{display:flex}
+  .map-core{min-height:0}
+  .map-home{grid-template-columns:1fr}
+  .map-photo{min-height:140px}
+}
+
 /* ===== Responsive tweaks ===== */
 @media(max-width:760px){
   :root{--section-pad:64px}
@@ -749,64 +809,65 @@ body.render-mode #landing{display:none}
       <div class="section-head">
         <span class="section-num">03</span>
         <h2 class="section-q">想再深一层？<em>精列传。</em></h2>
-        <p class="section-lead">轻列传是入口，精列传才是个人操作系统。<br>先读你的文件、文字或链接；没有材料，再访谈。</p>
+        <p class="section-lead">轻列传是入口，精列传才是个人操作系统。<br>一份 <code style="font-family:var(--font-mono);font-size:13px;background:rgba(71,73,75,.08);padding:1px 6px">persona.md</code> 是底稿；主页、签名、介绍，都是它按场合展开的拓片。</p>
       </div>
 
-      <div class="fine-assets">
-        <div class="fine-asset">
-          <div class="head">
-            <span class="badge">Asset B</span>
-            <h3>给 AI 的 Persona 文档</h3>
-          </div>
-          <p class="desc">persona-agent.md 是给 AI 的人物档案：事实、动机、判断、边界、表达风格、禁区和校准题。</p>
-          <div class="mock mock-md">
-<span class="md-h">#</span> David Persona Agent<br><br>
-<span class="md-h">##</span> 核心定位<br>
-<span class="md-quote">&gt; 以产品和内容为笔，和世界对话的 AI 作品陪跑者</span><br><br>
-<span class="md-h">##</span> 已知事实<br>
-<span class="md-list">-</span> 前翻译、记者、产品经理，长期做 AI + 翻译创业<br>
-<span class="md-list">-</span> LanguageX Co-founder，草诀歌 AI Labs 发起人<br>
-<span class="md-list">-</span> 主理「David 的 AI 全景图」，关注技术、产业、历史和人的位置<br>
-<span class="md-list">-</span> 现在帮助非技术背景的人做"作品型产品"<br><br>
-<span class="md-h">##</span> 判断原则<br>
-<span class="md-num">1.</span> <span class="md-bold">作品优先：</span>先问"是否像你、是否值得长期做"<br>
-<span class="md-num">2.</span> <span class="md-bold">审美底线：</span>MVP 也要有排版、节奏和表达品味<br>
-<span class="md-num">3.</span> <span class="md-bold">人本导向：</span>技术服务人，而不是替代人<br>
-<span class="md-num">4.</span> <span class="md-bold">克制叙事：</span>不要把探索写成成功学包装<br><br>
-<span class="md-h">##</span> 协作偏好<br>
-<span class="md-list">-</span> 适合讨论 AI Agent、Vibe Coding、社区和内容产品<br>
-<span class="md-list">-</span> 喜欢真实、复杂、值得被做成作品的合作<br>
-<span class="md-list">-</span> 不要替他说"颠覆""遥遥领先""all in 某风口"<br><br>
-<span class="md-h">##</span> Agent 校准题<br>
-<span class="md-list">-</span> 这个产品为什么必须他做？<br>
-          </div>
-          <div class="foot-label">persona-agent.md — Markdown</div>
-        </div>
-
-        <div class="fine-asset">
-          <div class="head">
-            <span class="badge outline">Asset C</span>
-            <h3>给人的个人主页</h3>
-          </div>
-          <p class="desc">personal-homepage.html 是给合作方看的页面：你是谁、你能提供什么、你正在寻找什么合作。</p>
-          <div class="mock mock-browser">
-            <div class="bar">
-              <div class="dots"><i></i><i></i><i></i></div>
-              <div class="url">david.me/profile</div>
+      <div class="persona-map" id="personaMap">
+        <p class="map-legend">点四周的纸片，底稿里被用到的句子会亮起来。点底稿里的一节，就跳到最贴那一节的场合。</p>
+        <div class="map-stage">
+          <button class="map-sat" data-dest="home" type="button">
+            <span class="k">给人看 · 一屏</span>
+            <b>个人主页</b>
+            <p>以产品为笔，和世界对话。</p>
+          </button>
+          <button class="map-sat" data-dest="sign" type="button">
+            <span class="k">微信 / 小红书 · 16 字</span>
+            <b>签名</b>
+            <p>只取那一句。场合不够长。</p>
+          </button>
+          <div class="map-core">
+            <div class="map-core-head">
+              <span>persona-agent.md</span>
+              <span class="name">Source · 底稿</span>
             </div>
-            <div class="content">
-              <div class="eb">Personal Manual / Vol.01</div>
-              <h4>韶华 David</h4>
-              <div class="tags"><span>草诀歌 AI Labs</span><span>LanguageX</span><span>作品型产品</span></div>
-              <p class="lead">以产品和内容为笔，和世界对话。</p>
-              <div class="sect"><b>我是谁</b><p>前翻译、产品经理，LanguageX Co-founder，草诀歌 AI Labs 发起人，公众号和小宇宙「David 的 AI 全景图」主理人。</p></div>
-              <div class="sect"><b>我能提供什么</b><p>AI 产品判断 / Vibe Coding 陪跑 / 个人和企业 AI 咨询。</p></div>
-              <div class="sect"><b>我正在寻找</b><p>面向创作者、知识工作者、教育、语言和个人成长的作品型产品合作。</p></div>
-              <div class="sect"><b>代表作品</b><p>草诀歌 AI Labs / David 的 AI 全景图 / LanguageX / Personal OS。</p></div>
+            <div class="map-md">
+              <div class="md-blk" data-src="who"><span class="md-h"># 我是谁</span></div>
+              <div class="md-blk" data-src="oneliner">
+                <span class="md-h">## 一句话</span><br>
+                <span class="md-quote">&gt; 以产品和内容为笔，和世界对话</span>
+              </div>
+              <div class="md-blk" data-src="facts">
+                <span class="md-h">## 做过什么</span><br>
+                <span class="md-list">-</span> 前翻译、记者、产品经理，长期做 AI + 翻译<br>
+                <span class="md-list">-</span> LanguageX Co-founder，草诀歌 AI Labs 发起人<br>
+                <span class="md-list">-</span> 主理「David 的 AI 全景图」
+              </div>
+              <div class="md-blk" data-src="principles">
+                <span class="md-h">## 怎么判断</span><br>
+                <span class="md-num">1.</span> 先问是否像你、是否值得长期做<br>
+                <span class="md-num">2.</span> MVP 也要有排版、节奏和品味<br>
+                <span class="md-num">3.</span> 不要把探索写成成功学包装
+              </div>
             </div>
           </div>
-          <div class="foot-label">personal-homepage.html — 单文件</div>
+          <button class="map-sat" data-dest="guest" type="button">
+            <span class="k">活动手册 · 第三人称</span>
+            <b>嘉宾介绍</b>
+            <p>判断原则终于可以露面。</p>
+          </button>
+          <button class="map-sat" data-dest="bio" type="button">
+            <span class="k">公众号 / 群 · 80 字</span>
+            <b>简介</b>
+            <p>一句话的意思，加上做过什么。</p>
+          </button>
         </div>
+        <div class="map-chips" id="personaChips">
+          <button data-dest="home" type="button">主页</button>
+          <button data-dest="sign" type="button">签名</button>
+          <button data-dest="bio" type="button">简介</button>
+          <button data-dest="guest" type="button">介绍</button>
+        </div>
+        <div class="map-expand" id="personaExpand"></div>
       </div>
 
       <div class="fine-materials">
@@ -1679,6 +1740,70 @@ document.addEventListener('input', e=>{
     }
   }
 });
+
+/* ============= Persona map (精列传 · 底稿四散) ============= */
+const PERSONA_DESTS = {
+  home: {
+    src: ['who','oneliner','facts','principles'],
+    html: `<div class="map-home">
+      <div>
+        <span class="mh-badge"><i></i>Personal Homepage · 个人主页</span>
+        <div class="mh-tags"><span>草诀歌 AI Labs Founder</span><span>ex LanguageX Co-founder</span><span>AI 时代创作者</span></div>
+        <h4>以产品为笔，和世界<em>对话</em>。</h4>
+        <p class="mh-bio">前翻译、产品经理，LanguageX Co-founder。发起草诀歌 AI Labs，帮非技术背景的人做出作品型产品。</p>
+      </div>
+      <div class="map-photo"><span>韶华 David</span></div>
+    </div>
+    <div class="map-cap"><b>映射 · 主页。</b>一句话变成标题；做过什么变成简介；怎么判断不进首屏，沉到后面的合作原则。</div>`
+  },
+  sign: {
+    src: ['oneliner'],
+    html: `<div class="map-typeset">
+      <div class="k">微信签名 · 小红书简介</div>
+      <span class="line">以产品为笔，和世界对话。</span>
+    </div>
+    <div class="map-cap"><b>映射 · 签名。</b>只取「一句话」。事实和原则全部丢掉——场合不够长。</div>`
+  },
+  bio: {
+    src: ['oneliner','facts'],
+    html: `<div class="map-typeset">
+      <div class="k">公众号简介 · 群自我介绍</div>
+      <p>我是 David，草诀歌 AI Labs 发起人。做过翻译、产品和 LanguageX。现在帮非技术背景的人用 AI 做出像自己的作品。</p>
+    </div>
+    <div class="map-cap"><b>映射 · 简介。</b>取一句话的意思，加上做过什么。判断原则仍不进简介。</div>`
+  },
+  guest: {
+    src: ['oneliner','facts','principles'],
+    html: `<div class="map-typeset">
+      <div class="k">活动手册 · 嘉宾介绍</div>
+      <p>韶华 David，前翻译、记者、产品经理，LanguageX 联合创始人，草诀歌 AI Labs 发起人。公众号与播客「David 的 AI 全景图」主理人。他相信产品是笔，作品是留在世界上的痕迹；也坚持 MVP 要有排版和节奏，不把探索包装成成功学。</p>
+    </div>
+    <div class="map-cap"><b>映射 · 介绍。</b>第三人称。判断原则终于可以露面——场合够长，听众需要知道他怎么选。</div>`
+  }
+};
+const PERSONA_SRC_TO_DEST = {who:'home', oneliner:'sign', facts:'bio', principles:'guest'};
+
+function setPersonaDest(id){
+  const map = document.getElementById('personaMap');
+  const dest = PERSONA_DESTS[id];
+  if(!map || !dest) return;
+  map.querySelectorAll('[data-dest]').forEach(el => el.classList.toggle('on', el.dataset.dest===id));
+  map.querySelectorAll('[data-src]').forEach(el => el.classList.toggle('on', dest.src.includes(el.dataset.src)));
+  const box = document.getElementById('personaExpand');
+  if(box) box.innerHTML = dest.html;
+}
+
+(function initPersonaMap(){
+  const map = document.getElementById('personaMap');
+  if(!map) return;
+  map.addEventListener('click', e => {
+    const dest = e.target.closest('[data-dest]');
+    if(dest){ setPersonaDest(dest.dataset.dest); return; }
+    const src = e.target.closest('[data-src]');
+    if(src) setPersonaDest(PERSONA_SRC_TO_DEST[src.dataset.src] || 'home');
+  });
+  setPersonaDest('home');
+})();
 
 /* ============= Init ============= */
 applyTweaks();

@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>精列传映射 · 四案对照</title>
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#e5e5e5; --ink:#1a1a1a; --btn:#47494b; --muted:#5c5e60;
+  --hair:rgba(71,73,75,.20); --hair-2:rgba(71,73,75,.45);
+  --on:#e5e5e5; --on-60:rgba(229,229,229,.60); --on-80:rgba(229,229,229,.80);
+  --paper:#fff; --cream:#f4efe4; --dark:#1a1a1a;
+  --serif:"Noto Serif SC","Songti SC","SimSun",Georgia,serif;
+  --sans:"Inter","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+button{font:inherit;cursor:pointer}
+.page{width:min(1240px,calc(100vw - 40px));margin:0 auto;padding:36px 0 80px}
+.top{display:flex;justify-content:space-between;gap:24px;align-items:flex-end;border-bottom:1px solid var(--hair);padding-bottom:28px;margin-bottom:28px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+h1{font-family:var(--serif);font-size:clamp(32px,5vw,56px);line-height:.98;margin:0;letter-spacing:-.03em;font-weight:700}
+.sub{font-family:var(--serif);font-weight:300;color:var(--muted);font-size:16px;line-height:1.75;max-width:54ch;margin:12px 0 0}
+.badge{border:1px solid var(--hair-2);padding:10px 14px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.nav{display:flex;gap:0;border:1px solid var(--hair);margin-bottom:22px;flex-wrap:wrap}
+.nav button{flex:1;min-width:140px;border:0;border-right:1px solid var(--hair);background:transparent;padding:14px 12px;font-family:var(--serif);font-size:15px;color:var(--muted)}
+.nav button:last-child{border-right:0}
+.nav button.active{background:var(--ink);color:var(--on)}
+.note{font-family:var(--serif);font-size:15px;line-height:1.8;color:var(--muted);max-width:72ch;margin:0 0 22px}
+.note b{color:var(--ink);font-weight:500}
+.screen{display:none}
+.screen.on{display:block}
+.panel{border:1px solid var(--hair);background:rgba(255,255,255,.38)}
+
+/* shared markdown */
+.md{background:var(--dark);color:#d4d4d4;font-family:var(--mono);font-size:12.5px;line-height:1.95}
+.md .hd{display:flex;justify-content:space-between;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.12);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--on-60)}
+.md .body{padding:18px 20px 22px}
+.md .h{color:#7ab2d4;font-weight:700}
+.md .q{color:#7da46a;font-style:italic}
+.md .l{color:#c89178}
+.md .blk{padding:8px 10px;margin:0 -10px 4px;border-left:2px solid transparent;transition:background .25s,border-color .25s}
+.md .blk.on{background:rgba(255,255,255,.08);border-left-color:var(--on-80)}
+.md .blk[data-src]{cursor:pointer}
+
+/* slips / artifacts */
+.slip{border:1px solid var(--hair);background:rgba(255,255,255,.62);padding:16px 18px;text-align:left;color:inherit;transition:background .25s,border-color .25s}
+.slip:hover,.slip.on{background:#fff;border-color:var(--ink)}
+.slip .k{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.slip b{display:block;font-family:var(--serif);font-size:18px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
+.slip p{margin:0;font-family:var(--serif);font-size:13.5px;line-height:1.65;color:var(--muted)}
+
+/* homepage mini */
+.home{background:#f7f7f4;color:#26251e;display:grid;grid-template-columns:1.2fr .8fr;gap:18px;padding:22px 22px 18px;min-height:220px}
+.home .badge{display:inline-flex;border-color:rgba(192,133,50,.35);color:#c08532;padding:5px 10px;font-size:9px;letter-spacing:.16em}
+.home .tags{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 12px}
+.home .tags span{border:1px solid rgba(38,37,30,.14);padding:3px 9px;border-radius:999px;font-size:10.5px;color:#4a4636}
+.home h4{font-family:var(--serif);font-size:22px;line-height:1.2;margin:0 0 8px;letter-spacing:-.02em}
+.home h4 em{font-style:italic;color:#b3003f}
+.home .bio{margin:0;font-size:12px;line-height:1.7;color:#4a4636}
+.photo{background:linear-gradient(160deg,#3a1c1c,#6a2b2b 40%,#2c3a28);position:relative;min-height:140px}
+.photo i{position:absolute;left:10px;bottom:10px;font-family:var(--serif);font-style:italic;font-size:12px;color:#f0e8d8;background:rgba(28,20,12,.55);padding:4px 10px}
+
+/* typeset */
+.typeset{background:var(--cream);padding:28px 28px 24px}
+.typeset .k{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.typeset q,.typeset .line{font-family:var(--serif);font-style:italic;font-size:clamp(22px,3vw,34px);line-height:1.4;display:block}
+.typeset p{font-family:var(--serif);font-size:16px;line-height:1.85;margin:0;max-width:58ch}
+.typeset .meta{margin-top:16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* ========== 方案一 案头 ========== */
+.desk{padding:22px}
+.desk-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(280px,390px) minmax(0,1fr);
+  grid-template-areas:". n ." "w c e" ". s .";
+  gap:14px 16px;align-items:stretch
+}
+.desk .n{grid-area:n}.desk .w{grid-area:w}.desk .e{grid-area:e}.desk .s{grid-area:s}.desk .c{grid-area:c}
+.desk .md{min-height:420px}
+.expand{margin-top:16px;border:1px solid var(--hair);background:rgba(255,255,255,.5);min-height:240px}
+.chips{display:none;gap:8px;flex-wrap:wrap;margin-top:14px}
+.chips button{border:1px solid var(--hair);background:rgba(255,255,255,.5);padding:8px 12px;font-size:13px;font-family:var(--serif)}
+.chips button.on{background:var(--ink);color:var(--on);border-color:var(--ink)}
+@media(max-width:860px){
+  .desk-grid{grid-template-columns:1fr;grid-template-areas:"c"}
+  .desk .slip{display:none}
+  .chips{display:flex}
+  .home{grid-template-columns:1fr}
+}
+
+/* ========== 方案二 拓片 ========== */
+.split{display:grid;grid-template-columns:minmax(280px,42%) 1fr;min-height:520px}
+.split .md{min-height:100%}
+.split-right{display:flex;flex-direction:column;background:rgba(255,255,255,.28)}
+.split-tabs{display:flex;border-bottom:1px solid var(--hair);flex-wrap:wrap}
+.split-tabs button{flex:1;border:0;border-right:1px solid var(--hair);background:transparent;padding:12px 8px;font-family:var(--serif);font-size:14px;color:var(--muted)}
+.split-tabs button.on{background:var(--ink);color:var(--on)}
+.split-view{flex:1;padding:18px}
+@media(max-width:860px){.split{grid-template-columns:1fr}}
+
+/* ========== 方案三 篇幅尺 ========== */
+.ruler{padding:22px}
+.ruler-top{display:grid;grid-template-columns:minmax(240px,320px) 1fr;gap:20px;align-items:start}
+.ruler-scale{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--hair)}
+.ruler-scale button{border:0;border-right:1px solid var(--hair);background:rgba(255,255,255,.45);padding:16px 12px;text-align:left}
+.ruler-scale button:last-child{border-right:0}
+.ruler-scale button.on{background:var(--ink);color:var(--on)}
+.ruler-scale .n{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;opacity:.7;display:block;margin-bottom:6px}
+.ruler-scale b{font-family:var(--serif);font-size:18px;display:block}
+.ruler-scale small{display:block;margin-top:6px;font-size:12px;opacity:.75}
+.ruler-stage{margin-top:16px;border:1px solid var(--hair);min-height:280px;background:rgba(255,255,255,.42)}
+@media(max-width:860px){
+  .ruler-top{grid-template-columns:1fr}
+  .ruler-scale{grid-template-columns:1fr 1fr}
+  .ruler-scale button:nth-child(2){border-right:0}
+}
+
+/* ========== 方案四 卷宗 ========== */
+.dos{padding:0}
+.dos-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;padding:18px 22px 0;border-bottom:1px solid var(--hair)}
+.dos-head h2{font-family:var(--serif);font-size:22px;margin:0 0 12px;font-weight:700}
+.tabs{display:flex;gap:0}
+.tabs button{border:1px solid var(--hair);border-bottom:0;background:rgba(255,255,255,.35);padding:10px 16px;font-family:var(--serif);margin-right:-1px}
+.tabs button.on{background:#fff;position:relative;z-index:1}
+.dos-body{display:grid;grid-template-columns:200px 1fr;min-height:460px}
+.rail{background:var(--dark);color:#d4d4d4;padding:18px 16px;font-family:var(--mono);font-size:11.5px;line-height:1.9}
+.rail .h{color:#7ab2d4}
+.rail .q{color:#7da46a;font-style:italic}
+.dos-main{padding:22px;background:rgba(255,255,255,.5)}
+@media(max-width:860px){.dos-body{grid-template-columns:1fr}.rail{display:none}}
+
+.foot{margin-top:28px;padding-top:18px;border-top:1px solid var(--hair);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.foot a{color:var(--ink)}
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="top">
+    <div>
+      <div class="eyebrow">Simaqian.skill · Design Lab</div>
+      <h1>底稿在中间。<br>四周是它的拓片。</h1>
+      <p class="sub">对照页，不影响正式站。点方案，再点纸片或标题，看同一份 persona.md 如何映射到主页、签名、简介、介绍。</p>
+    </div>
+    <div class="badge">本地实验 · 四案</div>
+  </header>
+
+  <nav class="nav" aria-label="方案">
+    <button data-scheme="desk" class="active">一 · 案头</button>
+    <button data-scheme="split">二 · 拓片</button>
+    <button data-scheme="ruler">三 · 篇幅尺</button>
+    <button data-scheme="dos">四 · 卷宗</button>
+  </nav>
+
+  <!-- 1 -->
+  <section class="screen on" id="scheme-desk">
+    <p class="note"><b>方案一 · 案头。</b>底稿是桌上那叠发黑的手稿，主页、签名、简介、介绍是已经印出来的纸片。没有箭头。映射靠点选：点四周，底稿里被用到的句子会亮；点底稿里的一节，就跳到最贴那一节的场合。</p>
+    <div class="panel desk">
+      <div class="desk-grid">
+        <button class="slip n" data-dest="home"><span class="k">给人看 · 一屏</span><b>个人主页</b><p>以产品为笔，和世界对话。</p></button>
+        <button class="slip w" data-dest="sign"><span class="k">微信 / 小红书 · 16 字</span><b>签名</b><p>以产品为笔，和世界对话。</p></button>
+        <div class="md c">
+          <div class="hd"><span>persona-agent.md</span><span>Source · 底稿</span></div>
+          <div class="body" data-md></div>
+        </div>
+        <button class="slip e" data-dest="guest"><span class="k">活动手册 · 第三人称</span><b>嘉宾介绍</b><p>韶华 David，前翻译、产品经理，LanguageX 联合创始人……</p></button>
+        <button class="slip s" data-dest="bio"><span class="k">公众号 / 群 · 80 字</span><b>简介</b><p>草诀歌 AI Labs 发起人。帮非技术背景的人做出作品型产品。</p></button>
+      </div>
+      <div class="chips" data-chips></div>
+      <div class="expand" data-expand></div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="screen" id="scheme-split">
+    <p class="note"><b>方案二 · 拓片对照。</b>左源右印。左边永远是 markdown，右边是当前场合。这是编译器，不是信息图。最直观，也最好做进落地页的窄屏。</p>
+    <div class="panel split">
+      <div class="md">
+        <div class="hd"><span>persona-agent.md</span><span>只改这一份</span></div>
+        <div class="body" data-md></div>
+      </div>
+      <div class="split-right">
+        <div class="split-tabs" data-tabs></div>
+        <div class="split-view" data-expand></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="screen" id="scheme-ruler">
+    <p class="note"><b>方案三 · 篇幅尺。</b>映射的本质不是东南西北，是同一句话的四种长度。签名是压缩，主页是展开。这是四案里最克制、最印刷的一版——和草诀歌的报纸气质最贴。</p>
+    <div class="panel ruler">
+      <div class="ruler-top">
+        <div class="md">
+          <div class="hd"><span>一句话</span><span>From 底稿</span></div>
+          <div class="body" data-md></div>
+        </div>
+        <div>
+          <div class="ruler-scale" data-tabs></div>
+          <p style="font-family:var(--serif);font-size:13px;color:var(--muted);margin:12px 0 0;line-height:1.7">同一份底稿，按场合展开成不同篇幅。改 markdown，四种输出一起变。</p>
+        </div>
+      </div>
+      <div class="ruler-stage" data-expand></div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="screen" id="scheme-dos">
+    <p class="note"><b>方案四 · 打开的卷宗。</b>列传是档案，不是产品截图。三页：给 AI、给人、给场合。左侧始终留一条底稿 mill。映射弱一点，叙事强一点——更像司马迁，不太像「四散」。</p>
+    <div class="panel dos">
+      <div class="dos-head">
+        <h2>David · 个人使用说明书</h2>
+        <div class="tabs" data-tabs>
+          <button data-dest="md" class="on">给 AI</button>
+          <button data-dest="home">给人</button>
+          <button data-dest="guest">给场合</button>
+        </div>
+      </div>
+      <div class="dos-body">
+        <aside class="rail" data-md></aside>
+        <div class="dos-main" data-expand></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>司马迁.skill · 精列传映射实验室</span>
+    <a href="./index.html#depth">回落地页精列传</a>
+  </footer>
+</main>
+
+<script>
+const MD = `
+<div class="blk" data-src="who"><span class="h"># 我是谁</span></div>
+<div class="blk" data-src="oneliner"><span class="h">## 一句话</span><br><span class="q">&gt; 以产品和内容为笔，和世界对话</span></div>
+<div class="blk" data-src="facts"><span class="h">## 做过什么</span><br><span class="l">-</span> 前翻译、记者、产品经理，长期做 AI + 翻译<br><span class="l">-</span> LanguageX Co-founder，草诀歌 AI Labs 发起人<br><span class="l">-</span> 主理「David 的 AI 全景图」</div>
+<div class="blk" data-src="principles"><span class="h">## 怎么判断</span><br>1. 先问是否像你、是否值得长期做<br>2. MVP 也要有排版、节奏和品味<br>3. 不要把探索写成成功学包装</div>`;
+
+const DESTS = {
+  home: {
+    label:'个人主页', k:'给人看 · 一屏', src:['who','oneliner','facts','principles'],
+    html:`<div class="home">
+      <div>
+        <span class="badge">Personal Homepage · 个人主页</span>
+        <div class="tags"><span>草诀歌 AI Labs Founder</span><span>ex LanguageX Co-founder</span><span>AI 时代创作者</span></div>
+        <h4>以产品为笔，和世界<em>对话</em>。</h4>
+        <p class="bio">前翻译、产品经理，LanguageX Co-founder。发起草诀歌 AI Labs，帮非技术背景的人做出作品型产品。</p>
+      </div>
+      <div class="photo"><i>韶华 David</i></div>
+    </div>
+    <p class="typeset meta" style="padding:12px 22px 16px;margin:0">映射：一句话 → 标题 · 做过什么 → 简介 · 怎么判断 → 不写进首屏，沉到合作原则</p>`
+  },
+  sign: {
+    label:'签名', k:'微信 / 小红书 · 16 字', src:['oneliner'],
+    html:`<div class="typeset">
+      <div class="k">微信签名 · 小红书简介</div>
+      <span class="line">以产品为笔，和世界对话。</span>
+      <div class="meta">只取「一句话」。事实和原则全部丢掉——场合不够长。</div>
+    </div>`
+  },
+  bio: {
+    label:'简介', k:'公众号 / 群 · 80 字', src:['oneliner','facts'],
+    html:`<div class="typeset">
+      <div class="k">公众号简介 · 群自我介绍</div>
+      <p>我是 David，草诀歌 AI Labs 发起人。做过翻译、产品和 LanguageX。现在帮非技术背景的人用 AI 做出像自己的作品。</p>
+      <div class="meta">取「一句话」的意思 + 「做过什么」的身份。判断原则仍不进简介。</div>
+    </div>`
+  },
+  guest: {
+    label:'嘉宾介绍', k:'活动手册 · 第三人称', src:['oneliner','facts','principles'],
+    html:`<div class="typeset">
+      <div class="k">活动手册 · 嘉宾介绍</div>
+      <p>韶华 David，前翻译、记者、产品经理，LanguageX 联合创始人，草诀歌 AI Labs 发起人。公众号与播客「David 的 AI 全景图」主理人。他相信产品是笔，作品是留在世界上的痕迹；也坚持 MVP 要有排版和节奏，不把探索包装成成功学。</p>
+      <div class="meta">第三人称。判断原则终于可以露面——场合够长，听众需要知道他怎么选。</div>
+    </div>`
+  },
+  md: {
+    label:'给 AI', k:'persona-agent.md', src:['who','oneliner','facts','principles'],
+    html:`<div class="md" style="min-height:380px"><div class="hd"><span>persona-agent.md</span><span>给 Agent 的那一份</span></div><div class="body">${MD}</div></div>`
+  }
+};
+
+const TABS = [
+  ['home','个人主页','一屏'],
+  ['sign','签名','16 字'],
+  ['bio','简介','80 字'],
+  ['guest','介绍','220 字']
+];
+
+function highlight(root, srcs){
+  root.querySelectorAll('[data-src]').forEach(el => {
+    el.classList.toggle('on', srcs.includes(el.dataset.src));
+  });
+}
+function bindMdClicks(root, setDest){
+  root.querySelectorAll('[data-src]').forEach(el => {
+    el.addEventListener('click', () => {
+      const map = {who:'home', oneliner:'sign', facts:'bio', principles:'guest'};
+      setDest(map[el.dataset.src] || 'home');
+    });
+  });
+}
+
+function mountDesk(){
+  const root = document.getElementById('scheme-desk');
+  root.querySelector('[data-md]').innerHTML = MD;
+  const chips = root.querySelector('[data-chips]');
+  chips.innerHTML = TABS.map(([id,l])=>`<button data-dest="${id}">${l}</button>`).join('');
+  const setDest = (id) => {
+    root.querySelectorAll('[data-dest]').forEach(b => b.classList.toggle('on', b.dataset.dest===id));
+    highlight(root, DESTS[id].src);
+    root.querySelector('[data-expand]').innerHTML = DESTS[id].html;
+  };
+  root.addEventListener('click', e => {
+    const b = e.target.closest('[data-dest]'); if(!b) return;
+    setDest(b.dataset.dest);
+  });
+  bindMdClicks(root, setDest);
+  setDest('home');
+}
+
+function mountSplit(){
+  const root = document.getElementById('scheme-split');
+  root.querySelector('[data-md]').innerHTML = MD;
+  root.querySelector('[data-tabs]').innerHTML = TABS.map(([id,l,n])=>`<button data-dest="${id}">${l}<br><small style="opacity:.65;font-family:var(--mono);font-size:10px;letter-spacing:.12em">${n}</small></button>`).join('');
+  const setDest = (id) => {
+    root.querySelectorAll('[data-dest]').forEach(b => b.classList.toggle('on', b.dataset.dest===id));
+    highlight(root, DESTS[id].src);
+    root.querySelector('[data-expand]').innerHTML = DESTS[id].html;
+  };
+  root.querySelector('[data-tabs]').addEventListener('click', e => {
+    const b = e.target.closest('[data-dest]'); if(b) setDest(b.dataset.dest);
+  });
+  bindMdClicks(root, setDest);
+  setDest('sign');
+}
+
+function mountRuler(){
+  const root = document.getElementById('scheme-ruler');
+  root.querySelector('[data-md]').innerHTML = MD;
+  root.querySelector('[data-tabs]').innerHTML = TABS.map(([id,l,n])=>`<button data-dest="${id}"><span class="n">${n}</span><b>${l}</b><small>从底稿展开</small></button>`).join('');
+  const setDest = (id) => {
+    root.querySelectorAll('[data-dest]').forEach(b => b.classList.toggle('on', b.dataset.dest===id));
+    highlight(root, DESTS[id].src);
+    root.querySelector('[data-expand]').innerHTML = DESTS[id].html;
+  };
+  root.querySelector('[data-tabs]').addEventListener('click', e => {
+    const b = e.target.closest('[data-dest]'); if(b) setDest(b.dataset.dest);
+  });
+  bindMdClicks(root, setDest);
+  setDest('sign');
+}
+
+function mountDos(){
+  const root = document.getElementById('scheme-dos');
+  root.querySelector('[data-md]').innerHTML = MD;
+  const setDest = (id) => {
+    root.querySelectorAll('[data-dest]').forEach(b => b.classList.toggle('on', b.dataset.dest===id));
+    highlight(root, DESTS[id].src);
+    root.querySelector('[data-expand]').innerHTML = DESTS[id].html;
+  };
+  root.querySelector('[data-tabs]').addEventListener('click', e => {
+    const b = e.target.closest('[data-dest]'); if(b) setDest(b.dataset.dest);
+  });
+  setDest('md');
+}
+
+mountDesk(); mountSplit(); mountRuler(); mountDos();
+
+document.querySelector('.nav').addEventListener('click', e => {
+  const b = e.target.closest('button[data-scheme]'); if(!b) return;
+  document.querySelectorAll('.nav button').forEach(x => x.classList.toggle('active', x===b));
+  document.querySelectorAll('.screen').forEach(s => s.classList.toggle('on', s.id==='scheme-'+b.dataset.scheme));
+});
+</script>
+</body>
+</html>
