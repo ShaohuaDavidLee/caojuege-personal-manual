@@ -549,8 +549,9 @@ body.render-mode #landing{display:none}
 .map-md .md-h{color:#7ab2d4;font-weight:700}
 .map-md .md-quote{color:#7da46a;font-style:italic}
 .map-md .md-list,.map-md .md-num{color:#c89178}
-.map-md .md-blk{padding:8px 10px;margin:0 -10px 4px;border-left:2px solid transparent;cursor:pointer;transition:background .25s,border-color .25s}
-.map-md .md-blk.on{background:rgba(255,255,255,.08);border-left-color:var(--c-on-dark-80)}
+.map-md .md-blk{padding:8px 10px;margin:0 -10px 4px;border-left:2px solid transparent;cursor:pointer;opacity:.48;transition:background .25s,border-color .25s,opacity .25s}
+.map-md .md-blk:hover{opacity:.85;background:rgba(255,255,255,.05)}
+.map-md .md-blk.on{opacity:1;background:rgba(255,255,255,.10);border-left-color:var(--c-on-dark)}
 .map-sat{border:1px solid var(--c-border-soft);background:rgba(255,255,255,.55);padding:18px 20px;text-align:left;color:inherit;transition:background .3s,border-color .3s}
 .map-sat:hover{background:#fff}
 .map-sat.on{background:#fff;border-color:var(--c-ink)}
@@ -562,7 +563,7 @@ body.render-mode #landing{display:none}
 .map-sat[data-dest="guest"]{grid-area:east}
 .map-sat[data-dest="bio"]{grid-area:south}
 .map-chips{display:none;gap:0;margin-top:14px;border:1px solid var(--c-border-soft);flex-wrap:wrap}
-.map-chips button{flex:1;min-width:25%;border:0;border-right:1px solid var(--c-border-soft);background:transparent;padding:12px 10px;font-family:var(--font-serif);font-size:14px;color:var(--c-muted)}
+.map-chips button{flex:1;min-width:25%;border:0;border-right:1px solid var(--c-border-soft);background:transparent;padding:12px 10px;font-family:var(--font-serif);font-size:14px;color:var(--c-muted);white-space:nowrap}
 .map-chips button:last-child{border-right:0}
 .map-chips button.on{background:var(--c-ink);color:var(--c-on-dark)}
 .map-expand{margin-top:16px;border:1px solid var(--c-border-soft);background:rgba(255,255,255,.48);overflow:hidden}

@@ -44,9 +44,10 @@ h1{font-family:var(--serif);font-size:clamp(32px,5vw,56px);line-height:.98;margi
 .md .h{color:#7ab2d4;font-weight:700}
 .md .q{color:#7da46a;font-style:italic}
 .md .l{color:#c89178}
-.md .blk{padding:8px 10px;margin:0 -10px 4px;border-left:2px solid transparent;transition:background .25s,border-color .25s}
-.md .blk.on{background:rgba(255,255,255,.08);border-left-color:var(--on-80)}
+.md .blk{padding:8px 10px;margin:0 -10px 4px;border-left:2px solid transparent;transition:background .25s,border-color .25s,opacity .25s;opacity:.48}
+.md .blk.on{background:rgba(255,255,255,.10);border-left-color:var(--on-80);opacity:1}
 .md .blk[data-src]{cursor:pointer}
+.md .blk[data-src]:hover{opacity:.85;background:rgba(255,255,255,.05)}
 
 /* slips / artifacts */
 .slip{border:1px solid var(--hair);background:rgba(255,255,255,.62);padding:16px 18px;text-align:left;color:inherit;transition:background .25s,border-color .25s}
