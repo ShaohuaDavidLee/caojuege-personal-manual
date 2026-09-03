@@ -14,3 +14,6 @@
 
 /favicon-32.png
   Cache-Control: public, max-age=86400
+
+/davidli.jpg
+  Cache-Control: public, max-age=86400

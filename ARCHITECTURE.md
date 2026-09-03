@@ -1,33 +1,50 @@
 # ARCHITECTURE
 
-> 当前状态：v0.5.1。v1.0 的目标结构与迁移路径见 [`docs/DEVELOPMENT-PLAN-v1.md`](./docs/DEVELOPMENT-PLAN-v1.md)。
+> 当前状态：v1.0.0。决策来源：[`docs/DEVELOPMENT-PLAN-v1.md`](./docs/DEVELOPMENT-PLAN-v1.md)。
 > 每次文件级结构变更后同步本文件。
 
 ## 一句话
 
-司马迁.skill 是一个 Agent Skill：把一个人的材料蒸馏成 `persona-agent.md`（给 AI）和 `personal-homepage.html`（给人）。仓库同时托管一个静态落地页。
+司马迁.skill 是「草诀歌之笔」的第一件：把一个人蒸馏成 `persona-agent.md`（唯一源），再投影成主页、简介、紧凑版和校准题。仓库同时托管一个静态落地页。
 
 ## 目录
 
 ```text
 simaqian/
-├── SKILL.md              技能入口：目标、隐私默认、六步工作流、质量标准。agent 读的第一个文件
+├── SKILL.md              技能入口：目标、隐私、七步工作流、一源多投影
 ├── README.md             面向人的说明与启动提示词
-├── MANIFESTO.md          宣言，作者手写，产品的意图来源
-├── VERSION               版本号（v1.0 起为唯一真相源）
-├── agents/openai.yaml    Codex 侧的技能元数据
-├── assets/               输出模板：两套主页模板、朋友校对模板
-├── references/           SKILL.md 的展开：采集访谈框架、输出规格、FDE 入场包（v1.0 归档）
-├── examples/             作者本人同意公开的脱敏样例，供参照
-├── landing/              simaqian.caojuege.com 静态站
-│   ├── index.html        单文件：落地页 + 轻列传结果页(#render) + 内联 CSS/JS/提示词
-│   ├── card.js           轻列传 Canvas 渲染器，预览即导出
-│   ├── preview.html      本地预览页（v1.0 删除）
-│   ├── verdict-lab.html  太史判词流程实验页（v1.0 删除）
-│   └── _headers          Cloudflare Pages 缓存头
+├── MANIFESTO.md          宣言，作者手写
+├── ARCHITECTURE.md       本文件
+├── VERSION               版本号唯一真相源
+├── agents/openai.yaml    Codex 侧技能元数据
+├── assets/               输出模板：两套主页 + bios / compact / calibration / materials / 朋友校对
+├── references/
+│   ├── intake-and-interview.md   采集问题池
+│   ├── output-spec.md            源文件与投影的规格
+│   └── update.md                 台账、增量、重审、路由表
+├── examples/             作者同意公开的脱敏样例
+├── landing/              simaqian.caojuege.com
+│   ├── index.html · styles.css   落地页：定位 / 产物 / 开始 / 更新
+│   ├── davidli.jpg               真实主页截图占位
+│   ├── legacy/render.html        旧版卡片结果页，不断链
+│   └── legacy/card.js            Canvas 渲染器
 ├── scripts/export-homepage.mjs   Playwright：主页 → PDF + 长图
-├── tests/                         node --test
-└── docs/DEVELOPMENT-PLAN-v1.md    v1.0 开发文档
+├── tests/                export + VERSION 一致性
+└── docs/DEVELOPMENT-PLAN-v1.md
+```
+
+用户产物目录：
+
+```text
+<person>-personal-os/
+├── persona-agent.md              源
+├── persona-agent.compact.md      投影
+├── calibration.md                投影
+├── bios.md                       投影
+├── personal-homepage.html        投影
+├── materials.md                  台账 · 只追加
+├── materials/
+└── exports/
 ```
 
 ## 依赖方向
@@ -37,7 +54,9 @@ SKILL.md ──→ references/*.md ──→ assets/*-template.*
     │
     └──→ scripts/export-homepage.mjs（可选导出）
 
-landing/index.html ──→ landing/card.js
+landing/index.html ──→ landing/styles.css
+                 └──→ landing/legacy/render.html  （#render 跳转）
+                              └──→ landing/legacy/card.js
 ```
 
 skill 文本与落地页互不依赖；落地页只承载启动提示词。
@@ -45,4 +64,6 @@ skill 文本与落地页互不依赖；落地页只承载启动提示词。
 ## 边界
 
 - 仓库不接收、不存储用户数据。所有生成都发生在用户自己的 agent 环境。
-- `persona-agent.md` 是用户产物的唯一源，主页等均为投影（见 `SKILL.md` 第 6 步）。
+- `persona-agent.md` 是用户产物的唯一源。投影永不手改，源变则全量重渲。
+- 与草诀歌之笔其他工具松耦合：不共享契约，只共享受众。
+- 已流出的 `#render?...` 链接由 `landing/legacy/` 继续渲染，不进入产品叙事。
