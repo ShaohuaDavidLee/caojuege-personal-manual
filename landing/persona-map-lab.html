@@ -99,18 +99,18 @@ h1{font-family:var(--serif);font-size:clamp(32px,5vw,56px);line-height:.98;margi
 .split{display:grid;grid-template-columns:minmax(220px,280px) 1fr;min-height:520px}
 .split .md{min-height:100%}
 .split-right{display:flex;flex-direction:column;background:rgba(255,255,255,.28);min-width:0}
-.split-view{flex:1;min-height:240px}
-.peeks{border-top:1px solid var(--hair);display:flex;flex-direction:column}
-.peek{display:grid;grid-template-columns:136px minmax(0,1fr);gap:14px;align-items:baseline;width:100%;padding:13px 18px;border:0;border-bottom:1px solid var(--hair);background:transparent;text-align:left;color:inherit;cursor:pointer}
-.peek:last-child{border-bottom:0}
-.peek:hover{background:rgba(255,255,255,.72)}
-.peek.on{background:#fff;box-shadow:inset 2px 0 0 var(--ink)}
-.peek .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
-.peek .v{font-family:var(--serif);font-size:14.5px;line-height:1.55}
+.split-tabs{display:flex;border-bottom:1px solid var(--hair);flex-wrap:nowrap}
+.split-tabs button{flex:1;min-width:0;border:0;border-right:1px solid var(--hair);background:transparent;padding:12px 8px;font-family:var(--serif);font-size:15px;color:var(--muted);text-align:center;line-height:1.25}
+.split-tabs button:last-child{border-right:0}
+.split-tabs button:hover{color:var(--ink);background:rgba(255,255,255,.55)}
+.split-tabs button.on{background:var(--ink);color:var(--on)}
+.split-tabs button.on:hover{color:var(--on);background:var(--ink)}
+.split-tabs small{display:block;margin-top:4px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;opacity:.65}
+.split-view{flex:1;min-height:280px}
 @media(max-width:860px){
   .split{grid-template-columns:1fr}
   .split-right{order:-1}
-  .peek{grid-template-columns:1fr;gap:5px}
+  .split-tabs button{font-size:13px;padding:10px 4px}
 }
 
 /* ========== 方案三 篇幅尺 ========== */
@@ -187,15 +187,15 @@ h1{font-family:var(--serif);font-size:clamp(32px,5vw,56px);line-height:.98;margi
 
   <!-- 2 -->
   <section class="screen on" id="scheme-split">
-    <p class="note"><b>方案二 · 拓片对照 · 落地页采用。</b>底稿收窄。右边默认个人主页。下面四条是真实文案，不是空标签——不用点也能看见四种篇幅。悬停点亮底稿；点一条，看完整拓片。手机上先看拓片，底稿沉到下面。</p>
+    <p class="note"><b>方案二 · 拓片对照 · 落地页采用。</b>左源右印。底稿收窄。右边顶上一排横向场合，默认个人主页。点标签换拓片；悬停点亮底稿里被用到的句子。手机上先看拓片，底稿沉到下面。</p>
     <div class="panel split">
       <div class="md">
         <div class="hd"><span>persona-agent.md</span><span>底稿</span></div>
         <div class="body" data-md></div>
       </div>
       <div class="split-right">
+        <div class="split-tabs" data-tabs></div>
         <div class="split-view" data-expand></div>
-        <div class="peeks" data-peeks></div>
       </div>
     </div>
   </section>
@@ -336,7 +336,7 @@ function mountDesk(){
 function mountSplit(){
   const root = document.getElementById('scheme-split');
   root.querySelector('[data-md]').innerHTML = MD;
-  root.querySelector('[data-peeks]').innerHTML = TABS.map(([id,l,n,v])=>`<button class="peek" data-dest="${id}" type="button"><span class="k">${l} · ${n}</span><span class="v">${v}</span></button>`).join('');
+  root.querySelector('[data-tabs]').innerHTML = TABS.map(([id,l,n])=>`<button data-dest="${id}" type="button">${l}<small>${n}</small></button>`).join('');
   let current = 'home';
   const setDest = (id) => {
     current = id;
@@ -344,15 +344,16 @@ function mountSplit(){
     highlight(root, DESTS[id].src);
     root.querySelector('[data-expand]').innerHTML = DESTS[id].html;
   };
-  root.querySelector('[data-peeks]').addEventListener('click', e => {
+  const tabs = root.querySelector('[data-tabs]');
+  tabs.addEventListener('click', e => {
     const b = e.target.closest('[data-dest]'); if(b) setDest(b.dataset.dest);
   });
-  root.querySelector('[data-peeks]').addEventListener('pointerover', e => {
+  tabs.addEventListener('pointerover', e => {
     if(window.matchMedia('(hover: none)').matches) return;
     const b = e.target.closest('[data-dest]'); if(b) highlight(root, DESTS[b.dataset.dest].src);
   });
-  root.querySelector('[data-peeks]').addEventListener('pointerout', e => {
-    if(e.relatedTarget && root.querySelector('[data-peeks]').contains(e.relatedTarget)) return;
+  tabs.addEventListener('pointerout', e => {
+    if(e.relatedTarget && tabs.contains(e.relatedTarget)) return;
     highlight(root, DESTS[current].src);
   });
   bindMdClicks(root, setDest);

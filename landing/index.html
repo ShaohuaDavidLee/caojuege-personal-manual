@@ -547,14 +547,14 @@ body.render-mode #landing{display:none}
 .map-md .md-blk:hover{opacity:.85;background:rgba(255,255,255,.05)}
 .map-md .md-blk.on{opacity:1;background:rgba(255,255,255,.10);border-left-color:var(--c-on-dark)}
 .split-main{display:flex;flex-direction:column;min-width:0;background:rgba(255,255,255,.38)}
-.map-expand{margin:0;border:0;flex:1;min-height:260px;overflow:hidden;background:transparent}
-.map-peeks{border-top:1px solid var(--c-border-soft);display:flex;flex-direction:column}
-.map-peek{display:grid;grid-template-columns:136px minmax(0,1fr);gap:14px;align-items:baseline;width:100%;padding:13px 18px;border:0;border-bottom:1px solid var(--c-border-soft);background:transparent;text-align:left;color:inherit;cursor:pointer}
-.map-peek:last-child{border-bottom:0}
-.map-peek:hover{background:rgba(255,255,255,.72)}
-.map-peek.on{background:#fff;box-shadow:inset 2px 0 0 var(--c-ink)}
-.map-peek .k{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--c-muted);white-space:nowrap}
-.map-peek .v{font-family:var(--font-serif);font-size:14.5px;line-height:1.55;color:var(--c-ink);font-weight:400;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.map-tabs{display:flex;border-bottom:1px solid var(--c-border-soft);flex:none}
+.map-tab{flex:1;min-width:0;border:0;border-right:1px solid var(--c-border-soft);background:transparent;padding:12px 8px;font-family:var(--font-serif);font-size:15px;color:var(--c-muted);text-align:center;line-height:1.25}
+.map-tab:last-child{border-right:0}
+.map-tab:hover{color:var(--c-ink);background:rgba(255,255,255,.55)}
+.map-tab.on{background:var(--c-ink);color:var(--c-on-dark)}
+.map-tab.on:hover{color:var(--c-on-dark);background:var(--c-ink)}
+.map-tab small{display:block;margin-top:4px;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;opacity:.65;font-weight:400}
+.map-expand{margin:0;border:0;flex:1;min-height:280px;overflow:hidden;background:transparent}
 .map-home{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;padding:26px 26px 22px;background:#f7f7f4;color:#26251e}
 .map-home .mh-badge{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#c08532;border:1px solid rgba(192,133,50,.32);padding:5px 10px}
 .map-home .mh-badge i{width:6px;height:6px;border-radius:50%;background:#f54e00;display:block}
@@ -575,8 +575,7 @@ body.render-mode #landing{display:none}
   .split-stage{grid-template-columns:1fr}
   .split-main{order:-1}
   .map-core{min-height:0}
-  .map-peek{grid-template-columns:1fr;gap:5px;padding:12px 16px}
-  .map-peek .k{white-space:normal}
+  .map-tab{font-size:13px;padding:10px 4px}
   .map-home{grid-template-columns:1fr}
   .map-photo{min-height:140px}
   .map-expand{min-height:0}
@@ -804,7 +803,7 @@ body.render-mode #landing{display:none}
       </div>
 
       <div class="persona-map" id="personaMap">
-        <p class="map-legend">四种篇幅同时写在右边，<em>不用点也能看见映射</em>。点一条看完整拓片；悬停会点亮底稿里被用到的句子。<a href="./persona-map-lab.html" style="border-bottom:1px solid var(--c-border-strong)">另外三案</a></p>
+        <p class="map-legend">左边底稿，右边拓片。横向四个场合：主页、签名、简介、介绍。默认先看个人主页；点标签或点底稿里的一节，看它如何展开。<a href="./persona-map-lab.html" style="border-bottom:1px solid var(--c-border-strong)">另外三案</a></p>
         <div class="split-stage">
           <div class="map-core">
             <div class="map-core-head">
@@ -832,25 +831,13 @@ body.render-mode #landing{display:none}
             </div>
           </div>
           <div class="split-main">
-            <div class="map-expand" id="personaExpand"></div>
-            <div class="map-peeks">
-              <button class="map-peek" data-dest="home" type="button">
-                <span class="k">个人主页 · 一屏</span>
-                <span class="v">身份、标题、一段简介。判断原则不进首屏。</span>
-              </button>
-              <button class="map-peek" data-dest="sign" type="button">
-                <span class="k">签名 · 16 字</span>
-                <span class="v">以产品为笔，和世界对话。</span>
-              </button>
-              <button class="map-peek" data-dest="bio" type="button">
-                <span class="k">简介 · 80 字</span>
-                <span class="v">我是 David，草诀歌 AI Labs 发起人。做过翻译、产品和 LanguageX。</span>
-              </button>
-              <button class="map-peek" data-dest="guest" type="button">
-                <span class="k">介绍 · 220 字</span>
-                <span class="v">韶华 David，前翻译、记者、产品经理。判断原则终于可以露面。</span>
-              </button>
+            <div class="map-tabs">
+              <button class="map-tab" data-dest="home" type="button">个人主页<small>一屏</small></button>
+              <button class="map-tab" data-dest="sign" type="button">签名<small>16 字</small></button>
+              <button class="map-tab" data-dest="bio" type="button">简介<small>80 字</small></button>
+              <button class="map-tab" data-dest="guest" type="button">介绍<small>220 字</small></button>
             </div>
+            <div class="map-expand" id="personaExpand"></div>
           </div>
         </div>
       </div>
@@ -1798,13 +1785,13 @@ function setPersonaDest(id){
   });
   map.addEventListener('pointerover', e => {
     if(window.matchMedia('(hover: none)').matches) return;
-    const peek = e.target.closest('.map-peek[data-dest]');
+    const peek = e.target.closest('.map-tab[data-dest]');
     if(!peek) return;
     const dest = PERSONA_DESTS[peek.dataset.dest];
     if(dest) highlightPersonaSrc(dest.src);
   });
   map.addEventListener('pointerout', e => {
-    if(e.relatedTarget && map.contains(e.relatedTarget) && e.relatedTarget.closest('.map-peek')) return;
+    if(e.relatedTarget && map.contains(e.relatedTarget) && e.relatedTarget.closest('.map-tab')) return;
     highlightPersonaSrc(PERSONA_DESTS[personaDest].src);
   });
   setPersonaDest('home');
