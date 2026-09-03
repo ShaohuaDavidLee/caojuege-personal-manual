@@ -89,8 +89,15 @@ button{font:inherit;cursor:pointer}
 .fine-asset .head h3{font-family:var(--font-serif);font-weight:700;font-size:22px;margin:0}
 .fine-asset .desc{font-family:var(--font-serif);font-size:14.5px;color:var(--c-muted);line-height:1.8;margin:0;font-weight:300}
 .fine-asset .mock{position:relative;height:440px;overflow:hidden;border:1px solid var(--c-border-soft)}
+.foot-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--c-muted)}
 .fine-asset .foot-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--c-muted)}
-.home-shot{display:block;width:100%;height:auto;object-fit:contain;object-position:top center;border:1px solid var(--c-border-soft);background:#f7f4ee}
+.home-points{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:10px}
+.home-points li{font-size:14px;line-height:1.7;border-bottom:1px solid var(--c-border-soft);padding-bottom:9px}
+.home-points li:last-child{border-bottom:0;padding-bottom:0}
+.home-points li::before{content:"—";color:var(--c-muted);margin-right:8px}
+.home-showcase{display:block;margin-top:36px}
+.home-shot{display:block;width:100%;height:auto;object-fit:contain;object-position:top center;border:1px solid var(--c-border-soft);background:#f7f7f4}
+.home-caption{margin-top:12px}
 
 .mock-md{background:#1a1a1a;color:#d4d4d4;padding:26px 28px;font-family:var(--font-mono);font-size:12px;line-height:1.95}
 .mock-md::after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(to top,#1a1a1a,transparent);pointer-events:none}

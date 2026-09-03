@@ -4,9 +4,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>司马迁.skill · 愿人人都有自己的司马迁</title>
-<meta name="description" content="司马迁.skill —— 草诀歌之笔的第一件。把你是谁，整理成一份给 agent 的 persona，再投影成主页、签名和个人介绍。约 15-30 分钟。">
+<meta name="description" content="司马迁.skill —— 草诀歌之笔的第一件。先写清你是谁。AI 按这份理解你，主页、签名、介绍也从这份来。约 15-30 分钟。">
 <meta property="og:title" content="司马迁.skill · 愿人人都有自己的司马迁">
-<meta property="og:description" content="一份给 agent 的 persona，投影成主页、签名、介绍。草诀歌之笔 · 第一件。">
+<meta property="og:description" content="先写清你是谁。AI 按这份理解你，主页、签名、介绍也从这份来。">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://simaqian.caojuege.com/og-card.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -43,7 +43,7 @@ if (location.hash.indexOf('#render') === 0) {
       <span class="badge"><span class="dot"></span>司马迁.skill · v1.0.0</span>
       <h1>司马迁<span class="ext">.skill</span></h1>
       <p class="slogan">愿人人都有<em>自己的司马迁</em>。</p>
-      <p class="lead">给正在寻找自己和自己作品的你。<br>persona 是唯一源。主页、签名、介绍，都从它投影出来。</p>
+      <p class="lead">给正在寻找自己和自己作品的你。<br>先写清你是谁。AI 按这份理解你；主页、签名、介绍也从这份来。</p>
       <div class="hero-actions">
         <a class="btn lg" href="#start">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
@@ -62,16 +62,16 @@ if (location.hash.indexOf('#render') === 0) {
   <div class="container">
     <div class="section-head">
       <span class="section-num">01</span>
-      <h2 class="section-q">一份源，多处用。<em>主页、签名、介绍，都是投影。</em></h2>
-      <p class="section-lead">persona 是唯一源。源变则全量重渲，不要手改投影。</p>
+      <h2 class="section-q">写一次，到处能用。<em>主页、签名、介绍，都从同一份来。</em></h2>
+      <p class="section-lead">先写一份「我是谁」。改这一份，其他都会跟着改。不要分开改。</p>
     </div>
     <div class="fine-assets">
       <div class="fine-asset">
         <div class="head">
           <span class="badge">给 AI</span>
-          <h3>persona-agent.md</h3>
+          <h3>你是谁</h3>
         </div>
-        <p class="desc">事实、动机、判断、边界、表达风格、禁区和校准题。以后每次开 agent，先读这一份。</p>
+        <p class="desc">你做过什么、怎么判断、什么不能碰。以后每次让 AI 帮你做事，先让它读这一份。</p>
         <div class="mock mock-md">
 <span class="md-h">#</span> David Persona Agent<br><br>
 <span class="md-h">##</span> 核心定位<br>
@@ -85,40 +85,46 @@ if (location.hash.indexOf('#render') === 0) {
 <span class="md-bold">2.</span> 审美底线：MVP 也要有排版和节奏<br>
 <span class="md-bold">3.</span> 克制叙事：不要把探索写成成功学包装<br>
         </div>
-        <div class="foot-label">persona-agent.md — 唯一源</div>
+        <div class="foot-label">给 AI 的说明书</div>
       </div>
       <div class="fine-asset">
         <div class="head">
-          <span class="badge outline">给人</span>
-          <h3>personal-homepage.html</h3>
+          <span class="badge outline">给人看</span>
+          <h3>个人主页</h3>
         </div>
-        <p class="desc">给合作方看：你是谁、你能提供什么、你正在寻找什么。这张主页就是它写的。</p>
-        <a href="https://www.caojuege.com/davidli" target="_blank" rel="noopener">
-          <img class="home-shot" src="./davidli.jpg" alt="韶华 David 的个人主页第一屏，由司马迁.skill 写成" width="1440" height="900" loading="lazy">
-        </a>
-        <div class="foot-label">caojuege.com/davidli — 文艺复兴版 · 完整第一屏</div>
+        <p class="desc">给合作方看：你是谁、能提供什么、正在找什么。下面这张就是它写出来的。</p>
+        <ul class="home-points">
+          <li>打开就能看见你是谁</li>
+          <li>作品、你能提供什么、你正在找什么</li>
+          <li>点图可看完整主页</li>
+        </ul>
+        <div class="foot-label">给合作方看的主页</div>
       </div>
     </div>
+    <a class="home-showcase" href="https://www.caojuege.com/davidli" target="_blank" rel="noopener">
+      <img class="home-shot" src="./davidli.jpg" alt="韶华 David 的个人主页完整第一屏，由司马迁.skill 写成" width="1920" height="1020">
+    </a>
+    <div class="foot-label home-caption">caojuege.com/davidli · 完整第一屏 · 点开看整站</div>
     <div class="projections">
       <div class="projection">
-        <span class="badge outline">给人</span>
-        <h3>bios.md</h3>
-        <p>签名和个人介绍。一句 / 三句 / 一段，第一人称和第三人称各一份。</p>
+        <span class="badge outline">给人看</span>
+        <h3>签名和个人介绍</h3>
+        <p>微信签名、名片页、播客嘉宾介绍：短的、长的，自己说和别人介绍你，都有。</p>
         <ul>
-          <li>微信签名、小红书简介、X bio</li>
-          <li>微信名片页、公众号简介、群自我介绍</li>
-          <li>播客嘉宾简介、活动手册、LinkedIn About</li>
+          <li>微信签名、小红书简介</li>
+          <li>公众号简介、群里自我介绍</li>
+          <li>活动手册、嘉宾介绍</li>
         </ul>
       </div>
       <div class="projection">
         <span class="badge">给 AI</span>
-        <h3>persona-agent.compact.md</h3>
-        <p>不超过 2000 token。塞进 CLAUDE.md 或自定义指令，日常模型先读这一份。</p>
+        <h3>给日常用的短版</h3>
+        <p>一份更短的「我是谁」，贴进常用 AI 的说明里。平时聊天先读这个。</p>
       </div>
       <div class="projection">
         <span class="badge">给 AI</span>
-        <h3>calibration.md</h3>
-        <p>十道题，带期望答案和常见错答。换模型时两分钟测它懂不懂你。</p>
+        <h3>十道测验题</h3>
+        <p>换一个 AI 时，用这十道题看它懂不懂你。每题有参考答案，和它最容易写错的那种。</p>
       </div>
     </div>
   </div>
@@ -169,26 +175,26 @@ if (location.hash.indexOf('#render') === 0) {
     <div class="section-head">
       <span class="section-num">03</span>
       <h2 class="section-q">怎么更新。<em>发生了什么，和我是谁，分开。</em></h2>
-      <p class="section-lead">新作品、复盘、播客先进台账。persona 靠重写，不靠追加。</p>
+      <p class="section-lead">新作品、复盘、播客，先记下来。你是谁这件事，要改就整份重写，不要往上贴。</p>
     </div>
     <div class="update-steps">
       <div class="update-step">
         <div class="n">一</div>
-        <h4>记进台账</h4>
-        <p>一行一条：日期、类型、标题、链接。只追加，不改旧账。</p>
+        <h4>记下来</h4>
+        <p>一行一条：日期、什么类型、标题、链接。只往下加，不改旧的。</p>
       </div>
       <div class="update-step">
         <div class="n">二</div>
-        <h4>增量写入</h4>
-        <p>对 agent 说 <code>司马迁，更新：&lt;链接&gt;</code>。它先给你看 diff，你确认后才改 persona。</p>
+        <h4>让它接着改</h4>
+        <p>对 AI 说 <code>司马迁，更新：&lt;链接&gt;</code>。它先给你看改了什么，你点头才真改。</p>
       </div>
       <div class="update-step">
         <div class="n">三</div>
-        <h4>主动重审</h4>
-        <p>身份变了，再说 <code>司马迁，重审</code>。重写排序、未竟之处和盲区。</p>
+        <h4>你变了，再说一声</h4>
+        <p>身份变了，就说 <code>司马迁，重审</code>。重新排你是谁、还没做完的事、容易看走眼的地方。</p>
       </div>
     </div>
-    <p class="update-note">细节见 <a href="https://github.com/ShaohuaDavidLee/simaqian/blob/main/README.md" style="border-bottom:1px solid var(--c-border-strong)">README</a>。已有 persona 的人，从这里接着改。</p>
+    <p class="update-note">细节见 <a href="https://github.com/ShaohuaDavidLee/simaqian/blob/main/README.md" style="border-bottom:1px solid var(--c-border-strong)">README</a>。已经有一份「我是谁」的人，从这里接着改。</p>
   </div>
 </section>
 
