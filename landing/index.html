@@ -4,9 +4,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>司马迁.skill · 愿人人都有自己的司马迁</title>
-<meta name="description" content="司马迁.skill —— 草诀歌之笔的第一件。先写清你是谁。AI 按这份理解你，主页、签名、介绍也从这份来。约 15-30 分钟。">
+<meta name="description" content="司马迁.skill —— 草诀歌之笔的第一件。先写清你是谁。AI 按这份理解你，主页、短介绍、长介绍也从这份来。约 15-30 分钟。">
 <meta property="og:title" content="司马迁.skill · 愿人人都有自己的司马迁">
-<meta property="og:description" content="先写清你是谁。AI 按这份理解你，主页、签名、介绍也从这份来。">
+<meta property="og:description" content="先写清你是谁。AI 按这份理解你，主页、短介绍、长介绍也从这份来。">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://simaqian.caojuege.com/og-card.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -43,7 +43,7 @@ if (location.hash.indexOf('#render') === 0) {
       <span class="badge"><span class="dot"></span>司马迁.skill · v4.5.3</span>
       <h1>司马迁<span class="ext">.skill</span></h1>
       <p class="slogan">愿人人都有<em>自己的司马迁</em>。</p>
-      <p class="lead">给正在寻找自己和自己作品的你。<br>先写清你是谁。AI 按这份理解你；主页、签名、介绍也从这份来。</p>
+      <p class="lead">给正在寻找自己和自己作品的你。<br>先写清你是谁。AI 按这份理解你；主页、短介绍、长介绍也从这份来。</p>
       <div class="hero-actions">
         <a class="btn lg" href="#start">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
@@ -62,13 +62,10 @@ if (location.hash.indexOf('#render') === 0) {
   <div class="container">
     <div class="section-head">
       <span class="section-num">01</span>
-      <h2 class="section-q">写一次，到处能用。<em>主页、签名、介绍，都从同一份来。</em></h2>
-      <p class="section-lead">先写一份「我是谁」。改这一份，其他都会跟着改。不要分开改。</p>
+      <h2 class="section-q">写一次，到处能用。<em>改这一份，主页和介绍跟着改。</em></h2>
+      <p class="section-lead">先写一份「我是谁」。下面这些都从这份来，不要分开改。</p>
     </div>
-    <a class="home-showcase" href="https://www.caojuege.com/davidli" target="_blank" rel="noopener">
-      <img class="home-shot" src="./davidli-fold.jpg" alt="韶华 David 的个人主页完整第一屏，由司马迁.skill 写成" width="1920" height="1020">
-    </a>
-    <p class="home-caption">点开看完整主页 · caojuege.com/davidli</p>
+
     <div class="source-mock">
       <div class="mock-md">
 <span class="md-h">#</span> 我是谁<br><br>
@@ -84,14 +81,55 @@ if (location.hash.indexOf('#render') === 0) {
 <span class="md-bold">3.</span> 不要把探索包装成成功学
       </div>
     </div>
-    <div class="bios-block">
-      <h3>签名和个人介绍</h3>
-      <p>微信签名、名片页、播客嘉宾介绍：短的、长的，自己说和别人介绍你，都有。</p>
-      <ul>
-        <li>微信签名、小红书简介</li>
-        <li>公众号简介、群里自我介绍</li>
-        <li>活动手册、嘉宾介绍</li>
-      </ul>
+
+    <div class="proj">
+      <div class="proj-head">
+        <h3>个人主页</h3>
+        <p>同一份「我是谁」，两套气质。点标签看另一套。</p>
+      </div>
+      <div class="style-switch">
+        <input class="sr-only" type="radio" name="hp" id="hp-cao">
+        <input class="sr-only" type="radio" name="hp" id="hp-ren" checked>
+        <div class="style-tabs">
+          <label for="hp-cao">草诀歌 · 报纸</label>
+          <label for="hp-ren">文艺复兴 · 长卷</label>
+        </div>
+        <div class="home-frame">
+          <img class="home-shot shot-cao" src="./caojuege-fold.jpg" alt="草诀歌风格个人主页第一屏，报纸档案气质" width="1920" height="1020">
+          <a class="shot-ren" href="https://www.caojuege.com/davidli" target="_blank" rel="noopener">
+            <img class="home-shot" src="./davidli-fold.jpg" alt="文艺复兴风格个人主页第一屏，由司马迁.skill 写成" width="1920" height="1020">
+          </a>
+        </div>
+        <p class="home-caption">
+          <span class="cap-cao">报纸、档案气质。完整样例在仓库 <a href="https://github.com/ShaohuaDavidLee/simaqian/blob/main/examples/david-personal-homepage.public.html" target="_blank" rel="noopener">examples/</a></span>
+          <span class="cap-ren">点开看完整主页 · <a href="https://www.caojuege.com/davidli" target="_blank" rel="noopener">caojuege.com/davidli</a></span>
+        </p>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head">
+        <h3>介绍</h3>
+        <p>短的自己贴，长的给别人念。</p>
+      </div>
+      <div class="bio-stack">
+        <div class="bio-row">
+          <div>
+            <div class="k">2–3 句</div>
+            <h4>短介绍</h4>
+            <p class="use">社媒和微信自我介绍。用「我」。</p>
+          </div>
+          <p class="sample">我是 David，草诀歌 AI Labs Founder，前 LanguageX Co-founder。做过翻译、媒体和 AI 产品，现在写「David 的 AI 全景图」，并和一群非技术背景的人一起做作品型产品。</p>
+        </div>
+        <div class="bio-row long">
+          <div>
+            <div class="k">100–300 字</div>
+            <h4>长介绍</h4>
+            <p class="use">活动手册和嘉宾介绍。用「他 / 她」。</p>
+          </div>
+          <p class="sample">David 是草诀歌 AI Labs Founder，前 LanguageX Co-founder，「David 的 AI 全景图」主理人。俄语专业，长期在翻译、媒体和语言科技里工作，2026 年转向 AI 内容、Vibe Coding 和社区。他把产品看作表达媒介：建造不是目的，作品才是。判断上先问一件事是局部优化，还是通用能力扩张后的新形态。他可以提供 AI 产品判断、Vibe Coding 陪跑和人物叙事。</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>

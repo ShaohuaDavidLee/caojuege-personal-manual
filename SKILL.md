@@ -10,7 +10,7 @@ description: "Use when turning a person's materials into a living Personal OS: p
 把一个人蒸馏成一份可复用的源，再投影成给人和给 AI 的几种形态：
 
 1. `persona-agent.md`：唯一源。给 AI 用，写清事实、判断、风格、边界。
-2. 投影：给人看的主页、场合简介、紧凑版 persona、校准题。只能从源文件派生，不新增事实。
+2. 投影：给人看的主页、短介绍和长介绍、紧凑版 persona、校准题。只能从源文件派生，不新增事实。
 
 默认不做完整传记，不做人格测试，不做营销包装。跑一次约 15-30 分钟。
 
@@ -85,7 +85,12 @@ description: "Use when turning a person's materials into a living Personal OS: p
 - **草诀歌风格**：[assets/caojuege-homepage-template.html](assets/caojuege-homepage-template.html)。报纸、档案、正史感。
 - **文艺复兴风格**：[assets/renaissance-homepage-template.html](assets/renaissance-homepage-template.html)。长卷、画廊、人文气质。
 
-未指定时默认草诀歌风格；用户有强烈视觉偏好、照片或明确要求个人气息时改用文艺复兴。
+未指定时默认草诀歌风格；用户有强烈视觉偏好、照片或明确要求个人气息时改用文艺复兴。一次只生成一套主页，不要默认吐两份 HTML。
+
+`bios.md` 只写两块，不要再展开「一句 / 三句 / 一段 × 两种人称」：
+
+- **短介绍**：2–3 句，第一人称。给社媒和微信自我介绍，能直接贴。
+- **长介绍**：100–300 字，第三人称。给活动手册和嘉宾介绍，给别人念。
 
 生成主页后尝试导出 PDF 和长图：
 
@@ -127,7 +132,7 @@ npm run export:homepage
 | `persona-agent.md` | 源 | AI · 自己 |
 | `persona-agent.compact.md` | 投影 · ≤2000 token | CLAUDE.md / 自定义指令 |
 | `calibration.md` | 投影 · 校准题+期望答案 | 换模型时测「它懂不懂我」 |
-| `bios.md` | 投影 · 一句 / 三句 / 一段 × 一三人称 | 微信、活动、简历 |
+| `bios.md` | 投影 · 短介绍 / 长介绍 | 社媒、活动 |
 | `personal-homepage.html` | 投影 · 合作入口 | 人 |
 | `materials.md` | 台账 · 只追加 | 更新时用 |
 

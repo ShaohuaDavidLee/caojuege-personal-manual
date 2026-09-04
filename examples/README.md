@@ -10,7 +10,7 @@
 
 - [`david-persona-agent.public.md`](./david-persona-agent.public.md)：persona 公开版（源）。
 - [`david-persona-agent.compact.public.md`](./david-persona-agent.compact.public.md)：紧凑版投影。
-- [`david-bios.public.md`](./david-bios.public.md)：场合简介投影。
+- [`david-bios.public.md`](./david-bios.public.md)：短介绍 / 长介绍投影。
 - [`david-calibration.public.md`](./david-calibration.public.md)：校准题投影。
 - [`david-personal-homepage.public.html`](./david-personal-homepage.public.html)：草诀歌风格主页。
 - [`david-personal-homepage-renaissance.public.html`](./david-personal-homepage-renaissance.public.html)：文艺复兴风格主页。

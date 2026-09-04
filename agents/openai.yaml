@@ -1,4 +1,4 @@
 interface:
   display_name: "司马迁.skill"
-  short_description: "把你是谁整理成一式两份：给 agent 的 persona，给人的个人主页，并按新材料持续更新"
-  default_prompt: "Use $simaqian.skill to turn my materials into a living personal OS: persona-agent.md as the source, plus homepage, bios, compact persona, and calibration."
+  short_description: "把你是谁整理成一式两份：给 agent 的 persona，给人的主页、短介绍和长介绍，并按新材料持续更新"
+  default_prompt: "Use $simaqian.skill to turn my materials into a living personal OS: persona-agent.md as the source, plus homepage, short and long bios, compact persona, and calibration."

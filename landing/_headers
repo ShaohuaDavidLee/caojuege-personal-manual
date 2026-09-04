@@ -17,3 +17,6 @@
 
 /davidli-fold.jpg
   Cache-Control: public, max-age=86400
+
+/caojuege-fold.jpg
+  Cache-Control: public, max-age=86400
