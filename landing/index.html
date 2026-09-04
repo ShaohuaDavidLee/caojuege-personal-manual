@@ -62,8 +62,8 @@ if (location.hash.indexOf('#render') === 0) {
   <div class="container">
     <div class="section-head">
       <span class="section-num">01</span>
-      <h2 class="section-q">写一次，到处能用。<em>改这一份，主页和介绍跟着改。</em></h2>
-      <p class="section-lead">先写一份「我是谁」。下面这些都从这份来，不要分开改。</p>
+      <h2 class="section-q">一份 markdown 文档，多份用途：<em>个人主页、短介绍、长介绍，同步更新。</em></h2>
+      <p class="section-lead">先写一份「我是谁」。改这一份，下面都跟着改。</p>
     </div>
 
     <div class="source-mock">
@@ -82,53 +82,37 @@ if (location.hash.indexOf('#render') === 0) {
       </div>
     </div>
 
-    <div class="proj">
+    <div class="home-proj">
+      <input class="sr-only" type="radio" name="hp" id="hp-cao">
+      <input class="sr-only" type="radio" name="hp" id="hp-ren" checked>
       <div class="proj-head">
         <h3>个人主页</h3>
-        <p>同一份「我是谁」，两套气质。点标签看另一套。</p>
-      </div>
-      <div class="style-switch">
-        <input class="sr-only" type="radio" name="hp" id="hp-cao">
-        <input class="sr-only" type="radio" name="hp" id="hp-ren" checked>
-        <div class="style-tabs">
-          <label for="hp-cao">草诀歌 · 报纸</label>
-          <label for="hp-ren">文艺复兴 · 长卷</label>
+        <div class="style-links">
+          <label for="hp-ren">文艺复兴</label>
+          <span class="sep" aria-hidden="true">/</span>
+          <label for="hp-cao">草诀歌</label>
         </div>
-        <div class="home-frame">
-          <img class="home-shot shot-cao" src="./caojuege-fold.jpg?v=1" alt="草诀歌风格个人主页第一屏，报纸档案气质" width="1920" height="1020">
-          <a class="shot-ren" href="https://www.caojuege.com/davidli" target="_blank" rel="noopener">
-            <img class="home-shot" src="./davidli-fold.jpg" alt="文艺复兴风格个人主页第一屏，由司马迁.skill 写成" width="1920" height="1020">
-          </a>
-        </div>
-        <p class="home-caption">
-          <span class="cap-cao">报纸、档案气质。完整样例在仓库 <a href="https://github.com/ShaohuaDavidLee/simaqian/blob/main/examples/david-personal-homepage.public.html" target="_blank" rel="noopener">examples/</a></span>
-          <span class="cap-ren">点开看完整主页 · <a href="https://www.caojuege.com/davidli" target="_blank" rel="noopener">caojuege.com/davidli</a></span>
-        </p>
       </div>
+      <div class="home-frame">
+        <img class="home-shot shot-cao" src="./caojuege-fold.jpg?v=1" alt="草诀歌风格个人主页第一屏" width="1920" height="1020">
+        <a class="shot-ren" href="https://www.caojuege.com/davidli" target="_blank" rel="noopener">
+          <img class="home-shot" src="./davidli-fold.jpg" alt="文艺复兴风格个人主页第一屏" width="1920" height="1020">
+        </a>
+      </div>
+      <p class="home-caption">
+        <span class="cap-cao">报纸、档案气质 · 样例在仓库 examples/</span>
+        <span class="cap-ren">点开看完整主页 · caojuege.com/davidli</span>
+      </p>
     </div>
 
-    <div class="proj">
-      <div class="proj-head">
-        <h3>介绍</h3>
-        <p>短的自己贴，长的给别人念。</p>
+    <div class="bio-stack">
+      <div class="bio-row">
+        <h4>短介绍 <span>2–3 句 · 社媒、微信 · 用「我」</span></h4>
+        <p class="sample">我是 David，草诀歌 AI Labs Founder，前 LanguageX Co-founder。做过翻译、媒体和 AI 产品，现在写「David 的 AI 全景图」，并和一群非技术背景的人一起做作品型产品。</p>
       </div>
-      <div class="bio-stack">
-        <div class="bio-row">
-          <div>
-            <div class="k">2–3 句</div>
-            <h4>短介绍</h4>
-            <p class="use">社媒和微信自我介绍。用「我」。</p>
-          </div>
-          <p class="sample">我是 David，草诀歌 AI Labs Founder，前 LanguageX Co-founder。做过翻译、媒体和 AI 产品，现在写「David 的 AI 全景图」，并和一群非技术背景的人一起做作品型产品。</p>
-        </div>
-        <div class="bio-row long">
-          <div>
-            <div class="k">100–300 字</div>
-            <h4>长介绍</h4>
-            <p class="use">活动手册和嘉宾介绍。用「他 / 她」。</p>
-          </div>
-          <p class="sample">David 是草诀歌 AI Labs Founder，前 LanguageX Co-founder，「David 的 AI 全景图」主理人。俄语专业，长期在翻译、媒体和语言科技里工作，2026 年转向 AI 内容、Vibe Coding 和社区。他把产品看作表达媒介：建造不是目的，作品才是。判断上先问一件事是局部优化，还是通用能力扩张后的新形态。他可以提供 AI 产品判断、Vibe Coding 陪跑和人物叙事。</p>
-        </div>
+      <div class="bio-row">
+        <h4>长介绍 <span>100–300 字 · 活动手册、嘉宾介绍 · 用「他 / 她」</span></h4>
+        <p class="sample">David 是草诀歌 AI Labs Founder，前 LanguageX Co-founder，「David 的 AI 全景图」主理人。俄语专业，长期在翻译、媒体和语言科技里工作，2026 年转向 AI 内容、Vibe Coding 和社区。他把产品看作表达媒介：建造不是目的，作品才是。判断上先问一件事是局部优化，还是通用能力扩张后的新形态。他可以提供 AI 产品判断、Vibe Coding 陪跑和人物叙事。</p>
       </div>
     </div>
   </div>
